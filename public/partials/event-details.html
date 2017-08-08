@@ -1,0 +1,17 @@
+<!-- template for Profile Directive -->
+      <div class='container'></div> <!--main container (for a single event)-->
+        <div class='row'>
+          <div class='row'><!--date and event name row (always visible)-->
+            <div class='col-lg-2'><span class='month'>{{event.month}}</span> <span class='day'>{{event.day}}</span></div> <!--date column-->
+            <div class='col-lg-10'>{{event.name}}<span class='glyphicon glyphicon-chevron-up'></span></div>
+          </div>
+          <div class='row hide'><!--event details row (can be hidden)-->
+            <div class='row'><!--time and location row-->
+              <div class='col-lg-4'>{{event.start}} to {{event.end}}</div>
+              <div class='col-lg-8'>{{event.location}}</div>
+            </div>
+            <div class='row'><!--user\'s committed items for event row-->
+              <div class='col-lg-12'>{{items.committed}}</div>
+          </div>
+        </div>
+      </div>
