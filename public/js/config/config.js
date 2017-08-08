@@ -3,7 +3,7 @@ var app = angular.module('gathrApp');
 app.config(function($routeProvider){
   $routeProvider
     .when('/join-party', {
-        controller: 'login-ctrl',
+        controller: 'joinparty-ctrl',
         templateUrl: 'partials/join-party.html'
     })
     .when('/login', {
@@ -14,9 +14,9 @@ app.config(function($routeProvider){
         controller: 'profile-ctrl',
         templateUrl: 'partials/profile.html'
     })
-    .when('/party-details', {
-        controller: 'party-details-ctrl',
-        templateUrl: 'partials/party-details.html'
+    .when('/party', {
+      controller: 'party-details-ctrl',
+      templateUrl: 'partials/party.html'
     })
     .when('/comments', {
         controller: 'comments-ctrl',

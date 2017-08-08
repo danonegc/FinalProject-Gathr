@@ -1,8 +1,8 @@
 var app = angular.module('gathrApp');
 
-app.controller('profileCtrl', function($scope, $location, loginService) {
+app.controller('profileCtrl', function($scope, $location, gathrFactory) {
 
-// $scope.userDetails = loginService.getProfile();
+// $scope.userDetails = gathrFactory.getProfile();
 // console.log($scope.userDetails);
 
 
