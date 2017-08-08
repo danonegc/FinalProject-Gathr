@@ -1,9 +1,10 @@
 var app = angular.module('gathrApp');
 
-app.directive('', function() {
+app.directive('partyDetails', function() {
   return {
-    restrict: 'E',
     replace: false,
-    templateUrl: ""
-  }
+    restrict: 'E',
+    templateUrl: "partials/party-details.html"
+    // template: "<div>{{ data.partyName }}</div>"
+  };
 });
