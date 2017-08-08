@@ -12,7 +12,7 @@ app.factory('gathrFactory', function($http){
   function getData(){
     var p = $http({
       method: 'GET',
-      url: '/languages'
+      url: 'https://gathr-app.herokuapp.com/'
     }).then(function(response) {
       console.log(response);
       dataObj = response.data;

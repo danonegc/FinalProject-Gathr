@@ -8,3 +8,12 @@ app.directive('partyDetails', function() {
     // template: "<div>{{ data.partyName }}</div>"
   };
 });
+
+app.directive('', function() {
+  return {
+    replace: false,
+    restrict: 'E',
+    templateUrl: "partials/party-details.html"
+    // template: "<div>{{ data.partyName }}</div>"
+  };
+});
