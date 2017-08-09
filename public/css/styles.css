@@ -9,7 +9,6 @@
   margin-top: 100px;
   width: 50%;
 }
-
 input {
   border-radius: 20px;
   width: 70%;
@@ -40,3 +39,46 @@ a:hover {
   color: lime;
 }
 /*Styling for Join-Party and Log-in partials*/
+
+/*Styling for Party Icons Div*/
+.img-icon {
+  width: 100%;
+  padding: 5px;
+}
+.icon-header {
+  text-align: center;
+}
+.show-all , .clear-all, .save {
+  text-align: center;
+	margin: 10px auto;
+	display: block;
+	width: 175px;
+	cursor:pointer;
+	font-size: 25px;
+	color: #F0F0F0;
+	border-radius: 10px;
+	border-bottom: 4px solid #0045A6;
+	box-shadow: 6px 6px 6px #999;
+	background: -webkit-linear-gradient(#00C8F8, #0067F7);
+  background: -o-linear-gradient(#00C8F8, #0067F7);
+  background: -moz-linear-gradient(#00C8F8, #0067F7);
+  background: linear-gradient(#00C8F8, #0067F7);
+	background-size:1px 200px;
+	transition: all .05s linear;
+}
+.show-all:hover , .clear-all:hover, .save:hover {
+  background-position:100px;
+}
+.show-all:active , .clear-all:active , .save:active {
+  box-shadow: 2px 2px 2px #777;
+  border-bottom: 1px solid #0045A6;
+  transform: translateY(3px);
+}
+.img-icon:active {
+  transform: translateY(8px);
+}
+.baby-icon {
+  height: 60px;
+  padding: 10px;
+}
+/*Styling for Party Icons Div*/
