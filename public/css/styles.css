@@ -78,4 +78,8 @@ a:hover {
 .img-icon:active {
   transform: translateY(8px);
 }
+.baby-icon {
+  height: 60px;
+  padding: 10px;
+}
 /*Styling for Party Icons Div*/
