@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-12" ng-repeat="value in innerList | filter:myOptions as val" ng-init="innerIndex = $index">
+  <div class="col-xs-12" ng-repeat="value in innerList.category | filter:myOptions as val" ng-init="innerIndex = $index">
     <div ng-click="change(outerIndex, innerIndex)">
       {{value.item}} {{value.val}} <img ng-if="value.val === 'Unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
     </div>

@@ -2,19 +2,19 @@ var app = angular.module('gathrApp');
 
 app.factory('gathrFactory', function($http){
 
-  var protein = [{'item': 'Hamburgers', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Hotdogs', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Chicken Breast', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Steak', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Pork', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Ribs', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Chicken Wings', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Turkey', 'val': 'Unfulfilled', 'user': null}];
-  var carbs = [{'item': 'Chips', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Cornbread', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Hotdog Buns', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Hamburger Buns', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Potatoes', 'val': 'Unfulfilled', 'user': null}];
+  var protein = [{'category': 'protein', 'item': 'Hamburgers', 'status': false, 'user': null},
+      {'category': 'protein','item': 'Hotdogs', 'status': false, 'user': null},
+      {'category': 'protein','item': 'Chicken Breast', 'status': false, 'user': null},
+      {'category': 'protein','item': 'Steak', 'status': false, 'user': null},
+      {'category': 'protein','item': 'Pork', 'status': false, 'user': null},
+      {'category': 'protein','item': 'Ribs', 'status': false, 'user': null},
+      {'category': 'protein','item': 'Chicken Wings', 'status': false, 'user': null},
+      {'category': 'protein','item': 'Turkey', 'status': false, 'user': null}];
+  var carbs = [{'category': 'carbs', 'item': 'Chips', 'val': 'Unfulfilled', 'user': null},
+      {'category': 'carbs', 'item': 'Cornbread', 'val': 'Unfulfilled', 'user': null},
+      {'category': 'carbs','item': 'Hotdog Buns', 'val': 'Unfulfilled', 'user': null},
+      {'category': 'carbs','item': 'Hamburger Buns', 'val': 'Unfulfilled', 'user': null},
+      {'category': 'carbs','item': 'Potatoes', 'val': 'Unfulfilled', 'user': null}];
   var fruit = [{'item': 'Bananas', 'val': 'Unfulfilled', 'user': null},
       {'item': 'Strawberries', 'val': 'Unfulfilled', 'user': null},
       {'item': 'Cherries', 'val': 'Unfulfilled', 'user': null},
@@ -64,36 +64,43 @@ app.factory('gathrFactory', function($http){
     'location': "1570 Woodward Ave, Detroit, MI 48226",
     'date': {'month': 'Aug', 'day': 18},
     'time': {'start': 'Noon', 'end': '5:00 PM'},
-    'items': [protein, carbs, fruit, vegetables, desserts, condiments, beverages, misc]
+    'items': [
+      {'category': protein, 'isVisible': 'meatVisible', 'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png' },
+      {'category': carbs, 'isVisible': 'carbVisible', 'img': 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-512.png' },
+      {'category': fruit, 'isVisible': 'fruitVisible', 'img': '"https://www.shareicon.net/download/2016/10/11/841503_food_512x512.png' },
+      {'category': vegetables, 'isVisible': 'vegVisible', 'img': 'https://www.shareicon.net/download/2016/08/18/808791_food_512x512.png' },
+      {'category': desserts, 'isVisible': 'dessertVisible', 'img': 'http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg' },
+      {'category': condiments, 'isVisible': 'condVisible', 'img': 'https://image.flaticon.com/icons/png/512/168/168323.png' },
+      {'category': beverages, 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
+      {'category': misc, 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
     };
-  var dataObj = [];
 
   return {
-    getData: getData,
     returnData: returnData,
     // commitSearch: commitSearch,
     selectUpdate: selectUpdate
   };
 
+//   function postItem() {
+//   var p = $http({
+//     url: '/',
+//     method: 'POST',
+//     data: protein
+//   }).then(function(response){
+//     productList = response.data;
+//   });
+//   return p;
+// };
+
   function selectUpdate(outerIndex, innerIndex){
-    if (partyDetails.items[outerIndex][innerIndex].val === 'Unfulfilled') {
-      partyDetails.items[outerIndex][innerIndex].val = 'Selected';
-    } else if (partyDetails.items[outerIndex][innerIndex].val === 'Selected') {
-      partyDetails.items[outerIndex][innerIndex].val = 'Unfulfilled';
+    if (partyDetails.items[outerIndex].category[innerIndex].val === 'Unfulfilled') {
+      partyDetails.items[outerIndex].category[innerIndex].val = 'Selected';
+    } else if (partyDetails.items[outerIndex].category[innerIndex].val === 'Selected') {
+      partyDetails.items[outerIndex].category[innerIndex].val = 'Unfulfilled';
     }
     returnData()
   };
 
-  function getData(){
-    var p = $http({
-      method: 'GET',
-      url: '/languages'
-    }).then(function(response) {
-      console.log(response);
-      dataObj = response.data;
-    });
-    return p;
-  };
   function returnData(){
     return partyDetails;
   };

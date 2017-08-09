@@ -1,5 +1,5 @@
 <div class="row" ng-repeat="innerList in data.items" ng-init="outerIndex = $index">
-  <div class="row">
+  <div class="row" ng-show="{{innerList.isVisible}}">
     <div class="col-xs-2">
       IMG
     </div>
