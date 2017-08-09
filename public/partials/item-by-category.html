@@ -4,5 +4,8 @@
       {{value.item}} {{value.val}} <img ng-if="value.val === 'Unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
     </div>
   </div>
-  <div class="col-xs-12"> <input type="text" placeholder="Other..."><img ng-if="value.val = 'Unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt=""></div>
+  <div class="col-xs-12">
+    <input type="text" placeholder="Add Item" ng-submit="addItemtoCategory(newItem)"><button type="button" name="button" ng-click="addItemtoCategory(newItem)">ADD</button>
+    <img ng-if="value.val = 'Unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
+  </div>
 </div>

@@ -2,55 +2,53 @@ var app = angular.module('gathrApp');
 
 app.factory('gathrFactory', function($http){
 
-  var protein = [{'category': 'protein', 'item': 'Hamburgers', 'status': false, 'user': null},
-      {'category': 'protein','item': 'Hotdogs', 'status': false, 'user': null},
-      {'category': 'protein','item': 'Chicken Breast', 'status': false, 'user': null},
-      {'category': 'protein','item': 'Steak', 'status': false, 'user': null},
-      {'category': 'protein','item': 'Pork', 'status': false, 'user': null},
-      {'category': 'protein','item': 'Ribs', 'status': false, 'user': null},
-      {'category': 'protein','item': 'Chicken Wings', 'status': false, 'user': null},
-      {'category': 'protein','item': 'Turkey', 'status': false, 'user': null}];
-  var carbs = [{'category': 'carbs', 'item': 'Chips', 'val': 'Unfulfilled', 'user': null},
-      {'category': 'carbs', 'item': 'Cornbread', 'val': 'Unfulfilled', 'user': null},
-      {'category': 'carbs','item': 'Hotdog Buns', 'val': 'Unfulfilled', 'user': null},
-      {'category': 'carbs','item': 'Hamburger Buns', 'val': 'Unfulfilled', 'user': null},
-      {'category': 'carbs','item': 'Potatoes', 'val': 'Unfulfilled', 'user': null}];
-  var fruit = [{'item': 'Bananas', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Strawberries', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Cherries', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Orange Slices', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Apple Sliced', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Pineapple', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Kiwi', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Blueberries', 'val': 'Unfulfilled', 'user': null}];
-  var vegetables = [{'item': 'Green Beans', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Corn on the Cob', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Sweet Potatoes', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Veggie Platter', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Salad', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Spinach', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Cabbage', 'val': 'Unfulfilled', 'user': null}];
-  var desserts = [{'item': 'Ice Cream', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Oreos', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Cake', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Pudding', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Cake Pops', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Brownies', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Lemon Bars', 'val': 'Unfulfilled', 'user': null}];
-  var condiments = [{'item': 'Ketchup', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Mustard', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Sweet Relish', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'BBQ Sauce', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Minced Onions', 'val': 'Unfulfilled', 'user': null}];
-  var beverages = [{'item': 'Lemonade', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Kool-aid', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Pop', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Water', 'val': 'Unfulfilled', 'user': null}];
-  var misc = [{'item': 'Cups', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Plates', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Napkins', 'val': 'Unfulfilled', 'user': null},
-      {'item': 'Plastic Utensils', 'val': 'Unfulfilled', 'user': null}];
+  var itemList = [];
 
+  return {
+    getList: getList,
+    addItem: addItem,
+    uncommitItem: uncommitItem,
+    returnList: returnList
+  }
+
+  funciton getList() {
+    var p = $http ({
+      method: 'GET',
+      url: '/items'
+    }).then(function(response) {
+      itemList = response.data;
+      console.log(itemList);
+    });
+    return p;
+  };
+
+  function addItem(newItem) {
+    var p = $http ({
+      method: 'POST',
+      url: '/items',
+      data: newItem
+    }).then(function(response) {
+      itemList = response.data;
+      console.log(itemList);
+    });
+    return p;
+  }
+
+  function uncommitItem(committedItem, item) {
+    var p = $http ({
+      method: 'PUT',
+      url: '/products/' + item,
+      data: committedItem
+    }).then(function(response) {
+      itemList = response.data;
+      console.log(itemList);
+    });
+    return p;
+  };
+
+  function returnList() {
+    return itemList;
+  }
 
   var partyDetails = {
     'partyId': 'gc1234',

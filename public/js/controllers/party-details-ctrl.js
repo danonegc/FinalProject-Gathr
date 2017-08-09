@@ -1,7 +1,7 @@
 var app = angular.module('gathrApp');
 
 app.controller('party-details-ctrl', function($scope, gathrFactory) {
-    // $scope.post= function 
+    // $scope.post= function
 
     $scope.data = gathrFactory.returnData();
 
@@ -10,6 +10,11 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
 
     $scope.change = function(outerIndex, innerIndex){
       gathrFactory.selectUpdate(outerIndex, innerIndex);
+    };
+
+//Update View when Adding new Item to Category
+    $scope.addItemtoCategory = function(newItem) {
+      gathrFactory.addItem(newItem);
     };
 
 //Show items in ALL categories
