@@ -2,6 +2,7 @@ var app = angular.module('gathrApp');
 
 app.factory('gathrFactory', function($http){
 
+
 // get request
 
   var dataObj = [];
