@@ -1,3 +1,4 @@
+<!-- Header: Logo & Event Details -->
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
@@ -7,37 +8,124 @@
       <party-details></party-details>
     </div>
   </div>
+
+
+<!-- Icons by Category Navaigation Bar   -->
+<div class="container">
   <div class="row">
     <div class="col-xs-3">
-      <h1>Items by Category:</h1>
-      <div class="row">
-        <div class="col-xs-6">
-          <a href="#click1" data-toggle="collapse">
-            <img src="https://freeiconshop.com/wp-content/uploads/edd/meat-outline-filled.png" class="img-circle icon" alt="Meat" width="255" height="255">
-          </a>
-          <div id="click1" class="collapse">
-          <p><strong>Meat:</strong></p>
+      <h4 class="icon-header">Items by Category</h4>
+        <div class="row">
+          <div class="col-xs-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png" class="img-icon" alt="Meat" ng-click="showHideMeat()">
+          </div>
+          <div class="col-xs-6">
+              <img src="https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-512.png" class="img-icon" alt="Veggie" ng-click="showHideVeg()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <img src="https://www.shareicon.net/download/2016/10/11/841503_food_512x512.png" class="img-icon" alt="Fruit" ng-click="showHideFruit()">
+          </div>
+          <div class="col-xs-6">
+              <img src="https://www.shareicon.net/download/2016/08/18/808791_food_512x512.png" class="img-icon" alt="Carb" ng-click="showHideCarb()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <img src="http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg" class="img-icon" alt="Dessert" ng-click="showHideDessert()">
+          </div>
+          <div class="col-xs-6">
+              <img src="https://image.flaticon.com/icons/png/512/168/168323.png" class="img-icon" alt="Condiment" ng-click="showHideCond()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <img src="https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png" class="img-icon" alt="Beverage" ng-click="showHideBev()">
+          </div>
+          <div class="col-xs-6">
+              <img src="https://image.flaticon.com/icons/png/512/194/194366.png" class="img-icon" alt="Balloon" ng-click="showHideMisc()">
+          </div>
+        </div>
+        <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
+        <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
+        <button type="button" class="save" name="save">Save</button>
+<!-- end of Items by category column -->
+    </div>
+
+
+<!-- Start of Directive for Items Categories -->
+        <div class="col-xs-9">
+        <p>Directive for Item Categories</p>
+<!-- Placeholder for Meat Information -->
+        <div ng-show="meatVisible">
+          <p><strong><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png" class="baby-icon">Protien:</strong></p>
           <ul>
             <li>Ribs</li>
             <li>Chicken</li>
             <li>Pulled Pork</li>
           </ul>
         </div>
-        <div class="col-xs-6">
-          <a href="#click2" data-toggle="collapse">
-            <img src="https://cdn0.iconfinder.com/data/icons/veggie/64/lettuce-512.png" class="img-circle icon" alt="Veggie" width="255" height="255">
-          </a>
-          <div id="click2" class="collapse">
-          <p><strong>Veggies:</strong></p>
-          <ul>
-            <li>Salad</li>
-            <li>Corn</li>
-            <li>Asparagus</li>
-          </ul>
+        <div ng-show="vegVisible">
+          <p><strong><img src="https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-512.png" class="baby-icon">Veggies:</strong></p>
+            <ul>
+              <li>Salad</li>
+              <li>Corn</li>
+              <li>Asparagus</li>
+            </ul>
         </div>
-
-
+        <div ng-show="fruitVisible">
+          <p><strong><img src="https://www.shareicon.net/download/2016/10/11/841503_food_512x512.png" class="baby-icon">Fruit:</strong></p>
+            <ul>
+              <li>Pineapple</li>
+              <li>Limes</li>
+              <li>Watermelon</li>
+            </ul>
+        </div>
+        <div ng-show="carbVisible">
+          <p><strong><img src="https://www.shareicon.net/download/2016/08/18/808791_food_512x512.png" class="baby-icon">Carbs:</strong></p>
+            <ul>
+              <li>Mac n' Cheese</li>
+              <li>Potato Salad</li>
+              <li>Bread</li>
+            </ul>
+        </div>
+        <div ng-show="dessertVisible">
+          <p><strong><img src="http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg" class="baby-icon">Dessert:</strong></p>
+            <ul>
+              <li>Brownies</li>
+              <li>Key Lime Pie</li>
+              <li>Cheesecake</li>
+            </ul>
+        </div>
+        <div ng-show="condVisible">
+          <p><strong><img src="https://image.flaticon.com/icons/png/512/168/168323.png" class="baby-icon">Condiments:</strong></p>
+            <ul>
+              <li>Ketchup</li>
+              <li>Mustard</li>
+              <li>Mayo</li>
+            </ul>
+        </div>
+        <div ng-show="bevVisible">
+          <p><strong><img src="https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png" class="baby-icon">Beverages:</strong></p>
+            <ul>
+              <li>Lemonade</li>
+              <li>Water Bottles</li>
+              <li>Beer</li>
+            </ul>
+        </div>
+        <div ng-show="miscVisible">
+          <p><strong><img src="https://image.flaticon.com/icons/png/512/194/194366.png" class="baby-icon">Miscellaneous:</strong></p>
+            <ul>
+              <li>Solo Cups</li>
+              <li>Paper Plates</li>
+              <li>Balloons</li>
+            </ul>
+        </div>
+<!-- End for col-xs-9 -->
+        </div>
       </div>
+
 
 
       <button type="button" name="button">Save</button>
@@ -49,3 +137,8 @@
   </select>
   <item-list></item-list>
 </div>
+
+  </div>
+</div>
+
+<!-- add this button at the bottom of the Items by category when done with Bootstrap -->
