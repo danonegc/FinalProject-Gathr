@@ -7,7 +7,3 @@ app.controller('loginCtrl', function($scope, $location, gathrFactory) {
     $location.path('/profile');
     //console.log(userInfo);
   };
-
-
-//closure for app.controller
-});

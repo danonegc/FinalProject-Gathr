@@ -25,5 +25,3 @@ app.factory('gathrFactory', function($http){
     return dataObj;
   };
 })
-
-//functionality pertaining to login
