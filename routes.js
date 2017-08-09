@@ -7,4 +7,8 @@ var pool = require('./pg-connection-pool');
 //   res.json(stuff[Math.floor(Math.random() * stuff.length)]);
 // });
 
+pool.query('SELECT * from test').then(function(results){
+  console.log(results.rows);
+})
+
 module.exports = router;
