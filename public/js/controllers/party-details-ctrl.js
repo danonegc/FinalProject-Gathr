@@ -3,14 +3,25 @@ var app = angular.module('gathrApp');
 app.controller('party-details-ctrl', function($scope, gathrFactory) {
     // $scope.post= function
 
-    $scope.data = gathrFactory.returnData();
+    // $scope.data = gathrFactory.returnData();
 
+// Drop down filter
     $scope.options = [{status: 'All', val: ""},{status: 'Fulfilled', val: 'Fulfilled'},{status: 'Unfulfilled', val: 'Unfulfilled'}];
     $scope.myOptions = $scope.options[0].val;
 
-    $scope.change = function(outerIndex, innerIndex){
-      gathrFactory.selectUpdate(outerIndex, innerIndex);
-    };
+    // $scope.change = function(outerIndex, innerIndex){
+    //   gathrFactory.selectUpdate(outerIndex, innerIndex);
+    // };
+
+// hard data
+  $scope.partyData = gathrFactory.returnData();
+  console.log($scope.partyData);
+
+// get data
+  $scope.displayItems = gathrFactory.getList().then(function(response) {
+    $scope.data = gathrFactory.returnList();
+    console.log($scope.data);
+  })
 
 //Update View when Adding new Item to Category
     $scope.addItemtoCategory = function(newItem) {
