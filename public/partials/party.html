@@ -42,8 +42,10 @@
 
       <button type="button" name="button">Save</button>
     </div>
-    <div class="col-xs-9">
-      <p>Directive for Item Categories</p>
-    </div>
   </div>
+</div>
+<div class="col-xs-9" >
+  Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
+  </select>
+  <item-list></item-list>
 </div>
