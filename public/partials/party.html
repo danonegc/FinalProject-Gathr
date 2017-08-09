@@ -54,89 +54,16 @@
     </div>
 
 
-<!-- Start of Directive for Items Categories -->
-        <div class="col-xs-9">
-        <p>Directive for Item Categories</p>
-<!-- Placeholder for Meat Information -->
-        <div ng-show="meatVisible">
-          <p><strong><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png" class="baby-icon">Protien:</strong></p>
-          <ul>
-            <li>Ribs</li>
-            <li>Chicken</li>
-            <li>Pulled Pork</li>
-          </ul>
-        </div>
-        <div ng-show="vegVisible">
-          <p><strong><img src="https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-512.png" class="baby-icon">Veggies:</strong></p>
-            <ul>
-              <li>Salad</li>
-              <li>Corn</li>
-              <li>Asparagus</li>
-            </ul>
-        </div>
-        <div ng-show="fruitVisible">
-          <p><strong><img src="https://www.shareicon.net/download/2016/10/11/841503_food_512x512.png" class="baby-icon">Fruit:</strong></p>
-            <ul>
-              <li>Pineapple</li>
-              <li>Limes</li>
-              <li>Watermelon</li>
-            </ul>
-        </div>
-        <div ng-show="carbVisible">
-          <p><strong><img src="https://www.shareicon.net/download/2016/08/18/808791_food_512x512.png" class="baby-icon">Carbs:</strong></p>
-            <ul>
-              <li>Mac n' Cheese</li>
-              <li>Potato Salad</li>
-              <li>Bread</li>
-            </ul>
-        </div>
-        <div ng-show="dessertVisible">
-          <p><strong><img src="http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg" class="baby-icon">Dessert:</strong></p>
-            <ul>
-              <li>Brownies</li>
-              <li>Key Lime Pie</li>
-              <li>Cheesecake</li>
-            </ul>
-        </div>
-        <div ng-show="condVisible">
-          <p><strong><img src="https://image.flaticon.com/icons/png/512/168/168323.png" class="baby-icon">Condiments:</strong></p>
-            <ul>
-              <li>Ketchup</li>
-              <li>Mustard</li>
-              <li>Mayo</li>
-            </ul>
-        </div>
-        <div ng-show="bevVisible">
-          <p><strong><img src="https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png" class="baby-icon">Beverages:</strong></p>
-            <ul>
-              <li>Lemonade</li>
-              <li>Water Bottles</li>
-              <li>Beer</li>
-            </ul>
-        </div>
-        <div ng-show="miscVisible">
-          <p><strong><img src="https://image.flaticon.com/icons/png/512/194/194366.png" class="baby-icon">Miscellaneous:</strong></p>
-            <ul>
-              <li>Solo Cups</li>
-              <li>Paper Plates</li>
-              <li>Balloons</li>
-            </ul>
-        </div>
-<!-- End for col-xs-9 -->
-        </div>
-      </div>
 
 
 
-      <button type="button" name="button">Save</button>
-    </div>
-  </div>
-</div>
+
+
 <div class="col-xs-9" >
+
   Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
   </select>
-  <input type="text" ng-model="searchCategory">
-  <item-list></item-list>
+<item-list></item-list>
 </div>
 
   </div>

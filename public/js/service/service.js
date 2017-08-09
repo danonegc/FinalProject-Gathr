@@ -64,9 +64,9 @@ app.factory('gathrFactory', function($http){
     'time': {'start': 'Noon', 'end': '5:00 PM'},
     'items': [
       {'category': protein, 'isVisible': 'meatVisible', 'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png' },
-      {'category': carbs, 'isVisible': 'carbVisible', 'img': 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-512.png' },
-      {'category': fruit, 'isVisible': 'fruitVisible', 'img': '"https://www.shareicon.net/download/2016/10/11/841503_food_512x512.png' },
-      {'category': vegetables, 'isVisible': 'vegVisible', 'img': 'https://www.shareicon.net/download/2016/08/18/808791_food_512x512.png' },
+      {'category': carbs, 'isVisible': 'carbVisible', 'img': 'https://www.shareicon.net/download/2016/08/18/808791_food_512x512.png' },
+      {'category': fruit, 'isVisible': 'fruitVisible', 'img': 'https://www.shareicon.net/download/2016/10/11/841503_food_512x512.png' },
+      {'category': vegetables, 'isVisible': 'vegVisible', 'img': 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-512.png' },
       {'category': desserts, 'isVisible': 'dessertVisible', 'img': 'http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg' },
       {'category': condiments, 'isVisible': 'condVisible', 'img': 'https://image.flaticon.com/icons/png/512/168/168323.png' },
       {'category': beverages, 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
