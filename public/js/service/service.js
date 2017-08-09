@@ -2,6 +2,8 @@ var app = angular.module('gathrApp');
 
 app.factory('gathrFactory', function($http){
 
+//functionality pertaining to get request
+
   var dataObj = [];
 
   return {
@@ -23,3 +25,5 @@ app.factory('gathrFactory', function($http){
     return dataObj;
   };
 })
+
+//functionality pertaining to login
