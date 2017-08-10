@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var stuff = require('./data');
+// var stuff = require('./data');
 var pg = require('pg');
 var pool = require('./pg-connection-pool');
 
@@ -21,10 +21,10 @@ router.post('/items', function (req, res, next){
   });
 });
 
-router.put('/items/:item', function(req, res, next) {
-  var item = req.pararms.item;
+router.put('/items/:id', function(req, res, next) {
+  var id = req.params.id;
   var data = req.body;
-  pool.query('UPDATE partyitems SET status=$2::text, user=null where item=$1::text', [data.item, "unfulfilled"]).then(function(){
+  pool.query('UPDATE partyitems SET status=$2::text, username=$3::text where id=$1::int', [id, data.status, data.username]).then(function(){
     pool.query('SELECT * from partyitems').then(function(result){
       console.log(result.rows);
       res.send(result.rows);

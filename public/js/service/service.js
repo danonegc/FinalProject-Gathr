@@ -1,7 +1,7 @@
 var app = angular.module('gathrApp');
 
 app.factory('gathrFactory', function($http){
-
+  var selectedItems = [];
   var itemList = [];
   var partyDetails = {
     'partyId': 'gc1234',
@@ -25,13 +25,22 @@ app.factory('gathrFactory', function($http){
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
       {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
     };
+    var committedItem = {status: 'committed', username:'Reid'};
+    var uncommittedItem = {status: 'unfulfilled', username: null}
 
   return {
     getList: getList,
     addItem: addItem,
-    uncommitItem: uncommitItem,
+    saveItem: saveItem,
     returnList: returnList,
-    returnData: returnData
+    selectUpdate: selectUpdate,
+    returnData: returnData,
+    currentUser: currentUser,
+    uncommit: uncommit
+  }
+
+  function currentUser(){
+    return committedItem.username;
   }
 
   function getList() {
@@ -55,17 +64,30 @@ app.factory('gathrFactory', function($http){
       console.log(itemList);
     });
     return p;
-  }
+  };
 
-  function uncommitItem(committedItem, item) {
-    var p = $http ({
-      method: 'PUT',
-      url: '/products/' + item,
-      data: committedItem
-    }).then(function(response) {
-      itemList = response.data;
-      console.log(itemList);
+  function uncommit(value) {
+    var id = value.id;
+    putItem(id, uncommittedItem);
+  };
+
+
+  function saveItem() {
+    selectedItems.forEach(function(id){
+      putItem(id, committedItem)
     });
+  };
+
+
+  function putItem(id, item) {
+      var p = $http ({
+        url: '/items/' + id,
+        method: 'PUT',
+        data: item
+      }).then(function(response) {
+        itemList = response.data;
+        console.log(itemList);
+      });
     return p;
   };
 
@@ -73,21 +95,25 @@ app.factory('gathrFactory', function($http){
     return itemList;
   };
 
-  // return {
-  //   returnData: returnData,
-  //   commitSearch: commitSearch,
-  //   selectUpdate: selectUpdate
-  // };
-  //
-  // function selectUpdate(outerIndex, innerIndex){
-  //   if (partyDetails.items[outerIndex].category[innerIndex].val === 'Unfulfilled') {
-  //     partyDetails.items[outerIndex].category[innerIndex].val = 'Selected';
-  //   } else if (partyDetails.items[outerIndex].category[innerIndex].val === 'Selected') {
-  //     partyDetails.items[outerIndex].category[innerIndex].val = 'Unfulfilled';
-  //   }
-  //   returnData()
-  // };
-  //
+
+//select toggle status
+  function selectUpdate(value){
+    if (value.status === "unfulfilled") {
+      value.status = "selected";
+      selectedItems.push(value.id);
+    } else if (value.status === "selected"){
+      value.status = "unfulfilled";
+      var index = 0;
+      selectedItems.forEach(function(e){
+        if (value.id == e) {
+          selectedItems.splice(index,1);
+        };
+        index += 1;
+      });
+    };
+    returnList()
+  };
+
   function returnData() {
     return partyDetails;
   };

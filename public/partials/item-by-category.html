@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-xs-12" ng-repeat="value in data | filter: innerList.category" ng-init="innerIndex = $index">
-    <div ng-click="change(outerIndex, innerIndex)">
+    <div ng-click="change(value)">
       {{value.item}} {{value.status}} <img ng-if="value.status === 'unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
+      <span ng-if="value.status === 'committed'">{{value.username}}<a ng-if="value.username === currentUser" ng-click="uncommit(value)">X</a></span>
     </div>
   </div>
   <div class="col-xs-12">
