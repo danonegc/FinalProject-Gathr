@@ -3,20 +3,25 @@
   <div class="col-xs-8">
     <div class="row">
       <div class="col-xs-12">
-        <span class="eventName">{{ data.partyName }}</span>
-        <span class="host">Host: <a href="">{{ data.host.fName }} {{ data.host.lName }}</a></span>
+        <span class="eventName">{{ partyData.partyName }}</span>
+        <span class="host">Host: <a href="">{{ partyData.host.fName }} {{ partyData.host.lName }}</a></span>
       </div>
       <div class="col-xs-2">
-        <div class="col-xs-12">{{ data.date.month }}</div>
-        <div class="col-xs-12">{{ data.date.day }}</div>
+        <div id="date-container">
+          <div id="date-month"class="col-xs-12">{{ partyData.date.month }}</div>
+          <div id="date-day" class="col-xs-12">{{ partyData.date.day }}</div>
+          <div id="date-date" class="col-xs-12">{{ partyData.date.date }}</div>
+        </div>
       </div>
       <div class="col-xs-3">
-        <div class="col-xs-12">{{ data.time.start }}</div>
-        <div class="col-xs-12">___to___</div>
-        <div class="col-xs-12">{{ data.time.end }}</div>
+        <div id="time-container">
+        <div id="time1" class="col-xs-12">{{ partyData.time.start }}</div>
+        <div id="time2" class="col-xs-12">___to___</div>
+        <div id="time3" class="col-xs-12">{{ partyData.time.end }}</div>
+        </div>
       </div>
-      <div class="col-xs-7">
-        <h4>{{ data.location }}</h4>
+      <div id="location-container" class="col-xs-7">
+        <h4>{{ partyData.location }}</h4>
       </div>
     </div>
   </div>

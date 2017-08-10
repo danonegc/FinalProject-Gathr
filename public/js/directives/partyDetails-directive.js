@@ -9,7 +9,6 @@ app.directive('partyDetails', function() {
   };
 });
 
-
 app.directive('itemList', function() {
     return {
       replace: false,

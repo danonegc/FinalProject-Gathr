@@ -40,6 +40,8 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
 //Update View when Adding new Item to Category
     $scope.addItemtoCategory = function(newItem) {
       gathrFactory.addItem(newItem);
+      $scope.data = gathrFactory.returnList();
+      console.log($scope.data);
     };
 
 //Show items in ALL categories
@@ -105,5 +107,7 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
       $scope.miscVisible = $scope.miscVisible ? false: true;
 
     }
+
 //closure for app.controller
+}
 });
