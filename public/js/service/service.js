@@ -35,7 +35,8 @@ app.factory('gathrFactory', function($http){
     selectUpdate: selectUpdate,
     returnData: returnData,
     currentUser: currentUser,
-    uncommit: uncommit
+    uncommit: uncommit,
+    checkLogin: checkLogin
   }
 
   function currentUser(){
