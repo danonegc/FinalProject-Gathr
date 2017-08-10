@@ -1,10 +1,9 @@
 var app = angular.module('gathrApp');
 
-app.factory('gathrFactory', function($http){
+app.factory('gathrFactory', function($location, $http){
 
 // get request
 
-=======
   var protein = [{'item': 'Hamburgers', 'val': 'Unfulfilled', 'user': null},
       {'item': 'Hotdogs', 'val': 'Unfulfilled', 'user': null},
       {'item': 'Chicken Breast', 'val': 'Unfulfilled', 'user': null},
@@ -76,7 +75,9 @@ app.factory('gathrFactory', function($http){
     getData: getData,
     returnData: returnData,
     // commitSearch: commitSearch,
-    selectUpdate: selectUpdate
+    selectUpdate: selectUpdate,
+    checkLogin: checkLogin,
+    getProfile: getProfile
   };
 
   function selectUpdate(outerIndex, innerIndex){
@@ -104,27 +105,26 @@ app.factory('gathrFactory', function($http){
 
 
 
-})
+
 
 // login validation functionality
   var userObj = {};
 
-  return {
-    // These are your two methods.
-    checkLogin: checkLogin,
-    getProfile: getProfile
-  }
+
+
 
   function checkLogin(userInfo) {
     var userList = [
       {
         username: 'indianajones',
         password: 'coolPassword',
-        name: 'Indiana Jones',
+        name: 'Reid Trierweiler',
         email: 'indianajones@gmail.com',
         img: '/images/indianajones.jpg',
         location: 'Portland, OR',
-        phone: '333-333-5555'
+        phone: '333-333-5555',
+        partyname:'Grand Circus Demo Day'
+
       },
       {
         username: 'taylorswift',
@@ -167,3 +167,7 @@ app.factory('gathrFactory', function($http){
   function getProfile() {
     return userObj;
   }
+
+
+
+});
