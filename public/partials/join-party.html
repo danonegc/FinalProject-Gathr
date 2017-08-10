@@ -3,14 +3,15 @@
         <div class="col-xs-12">
           <form class="form">
             <h1>Join Your Party</h1>
-            <input type="text" placeholder="Party Name">
+            <!--make a function that validates the party name and id   -->
+            <input type="text" placeholder="Party Name" ng-model="userInfo.partyname">
             <div class="button-container">
             <button type="button" class="button" name="continue">Continue</button>
             </div>
             <p>Don't know your party's name? <a href="#">Find your Party</a></p>
             <p>________________ OR ________________</p>
             <div class="button-container">
-            <button type="button" class="button" name="createParty">Create New Party</button>
+            <button type="button" class="button" ng-click="submitLogin(userInfo)" name="createParty">Create New Party</button>
             </div>
           </form>
         </div>

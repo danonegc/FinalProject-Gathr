@@ -91,5 +91,7 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
       $scope.miscVisible = $scope.miscVisible ? false: true;
 
     }
+
 //closure for app.controller
+}
 });

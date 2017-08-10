@@ -1,7 +1,5 @@
 var app = angular.module('gathrApp');
-
 app.factory('gathrFactory', function($http){
-
   var itemList = [];
   var partyDetails = {
     'partyId': 'gc1234',
@@ -13,7 +11,7 @@ app.factory('gathrFactory', function($http){
       'email': 'gc@gc.com'
     },
     'location': "1570 Woodward Ave, Detroit, MI 48226",
-    'date': {'month': 'Aug', 'day': 18},
+    'date': {'month': 'August', 'date': 18, 'day': 'Friday'},
     'time': {'start': 'Noon', 'end': '5:00 PM'},
     'items': [
       {'category': 'protein', 'isVisible': 'meatVisible', 'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png' },
@@ -25,15 +23,14 @@ app.factory('gathrFactory', function($http){
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
       {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
     };
-
   return {
     getList: getList,
     addItem: addItem,
     uncommitItem: uncommitItem,
     returnList: returnList,
+    selectUpdate: selectUpdate,
     returnData: returnData
   }
-
   function getList() {
     var p = $http ({
       method: 'GET',
@@ -44,7 +41,6 @@ app.factory('gathrFactory', function($http){
     });
     return p;
   };
-
   function addItem(newItem) {
     var p = $http ({
       method: 'POST',
@@ -55,8 +51,7 @@ app.factory('gathrFactory', function($http){
       console.log(itemList);
     });
     return p;
-  }
-
+  };
   function uncommitItem(committedItem, item) {
     var p = $http ({
       method: 'PUT',
@@ -68,30 +63,23 @@ app.factory('gathrFactory', function($http){
     });
     return p;
   };
-
   function returnList() {
     return itemList;
   };
-
   // return {
   //   returnData: returnData,
   //   commitSearch: commitSearch,
   //   selectUpdate: selectUpdate
   // };
-  //
-  // function selectUpdate(outerIndex, innerIndex){
-  //   if (partyDetails.items[outerIndex].category[innerIndex].val === 'Unfulfilled') {
-  //     partyDetails.items[outerIndex].category[innerIndex].val = 'Selected';
-  //   } else if (partyDetails.items[outerIndex].category[innerIndex].val === 'Selected') {
-  //     partyDetails.items[outerIndex].category[innerIndex].val = 'Unfulfilled';
-  //   }
-  //   returnData()
-  // };
-  //
+  function selectUpdate(outerIndex, innerIndex){
+    if (partyDetails.items[outerIndex].category[innerIndex].val === 'Unfulfilled') {
+      partyDetails.items[outerIndex].category[innerIndex].val = 'Selected';
+    } else if (partyDetails.items[outerIndex].category[innerIndex].val === 'Selected') {
+      partyDetails.items[outerIndex].category[innerIndex].val = 'Unfulfilled';
+    }
+    returnData()
+  };
   function returnData() {
     return partyDetails;
   };
-
-
-
 });
