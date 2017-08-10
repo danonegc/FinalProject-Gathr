@@ -1,11 +1,11 @@
 var app = angular.module('gathrApp');
 
 app.controller('login-ctrl', function($scope, $location, gathrFactory) {
-
-  $scope.successfulLogin = function(userDetails) {
-    gathrFactory.checkLogin(userDetails);
+console.log('login controller');
+$scope.submitLogin = function(userInfo) {
+    gathrFactory.checkLogin(userInfo);
     $location.path('/profile');
-    console.log(userDetails);
+    console.log(userInfo);
   };
 
 

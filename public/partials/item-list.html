@@ -1,0 +1,14 @@
+<div class="row" ng-repeat="innerList in partyData.items" ng-init="outerIndex = $index">
+  <div class="row" ng-show="{{innerList.isVisible}}">
+    <div class="col-xs-2" >
+      <img class="baby-icon" ng-src="{{innerList.img}}">
+    </div>
+    <div class="col-xs-10">
+      <div class="row">
+        <div class="col-xs-12">
+          <item-by-category></item-by-category>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

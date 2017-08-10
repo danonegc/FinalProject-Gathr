@@ -1,3 +1,4 @@
+<!-- Header: Logo & Event Details -->
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
@@ -7,43 +8,65 @@
       <party-details></party-details>
     </div>
   </div>
+
+
+<!-- Icons by Category Navaigation Bar   -->
+<div class="container">
   <div class="row">
     <div class="col-xs-3">
-      <h1>Items by Category:</h1>
-      <div class="row">
-        <div class="col-xs-6">
-          <a href="#click1" data-toggle="collapse">
-            <img src="https://freeiconshop.com/wp-content/uploads/edd/meat-outline-filled.png" class="img-circle icon" alt="Meat" width="255" height="255">
-          </a>
-          <div id="click1" class="collapse">
-          <p><strong>Meat:</strong></p>
-          <ul>
-            <li>Ribs</li>
-            <li>Chicken</li>
-            <li>Pulled Pork</li>
-          </ul>
+      <h4 class="icon-header">Items by Category</h4>
+        <div class="row">
+          <div class="col-xs-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png" class="img-icon" alt="Meat" ng-click="showHideMeat()">
+          </div>
+          <div class="col-xs-6">
+              <img src="https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-512.png" class="img-icon" alt="Veggie" ng-click="showHideVeg()">
+          </div>
         </div>
-        <div class="col-xs-6">
-          <a href="#click2" data-toggle="collapse">
-            <img src="https://cdn0.iconfinder.com/data/icons/veggie/64/lettuce-512.png" class="img-circle icon" alt="Veggie" width="255" height="255">
-          </a>
-          <div id="click2" class="collapse">
-          <p><strong>Veggies:</strong></p>
-          <ul>
-            <li>Salad</li>
-            <li>Corn</li>
-            <li>Asparagus</li>
-          </ul>
+        <div class="row">
+          <div class="col-xs-6">
+            <img src="https://www.shareicon.net/download/2016/10/11/841503_food_512x512.png" class="img-icon" alt="Fruit" ng-click="showHideFruit()">
+          </div>
+          <div class="col-xs-6">
+              <img src="https://www.shareicon.net/download/2016/08/18/808791_food_512x512.png" class="img-icon" alt="Carb" ng-click="showHideCarb()">
+          </div>
         </div>
-
-
-      </div>
-
-
-      <button type="button" name="button">Save</button>
+        <div class="row">
+          <div class="col-xs-6">
+            <img src="http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg" class="img-icon" alt="Dessert" ng-click="showHideDessert()">
+          </div>
+          <div class="col-xs-6">
+              <img src="https://image.flaticon.com/icons/png/512/168/168323.png" class="img-icon" alt="Condiment" ng-click="showHideCond()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <img src="https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png" class="img-icon" alt="Beverage" ng-click="showHideBev()">
+          </div>
+          <div class="col-xs-6">
+              <img src="https://image.flaticon.com/icons/png/512/194/194366.png" class="img-icon" alt="Balloon" ng-click="showHideMisc()">
+          </div>
+        </div>
+        <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
+        <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
+        <button type="button" class="save" ng-click="saveItem()" name="save">Save</button>
+<!-- end of Items by category column -->
     </div>
-    <div class="col-xs-9">
-      <p>Directive for Item Categories</p>
-    </div>
+
+
+
+
+
+
+
+<div class="col-xs-9" >
+
+  Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
+  </select>
+<item-list></item-list>
+</div>
+
   </div>
 </div>
+
+<!-- add this button at the bottom of the Items by category when done with Bootstrap -->
