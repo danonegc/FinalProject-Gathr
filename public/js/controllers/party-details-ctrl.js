@@ -9,9 +9,10 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
     $scope.options = [{status: 'All', val: ""},{status: 'Fulfilled', val: 'Fulfilled'},{status: 'Unfulfilled', val: 'Unfulfilled'}];
     $scope.myOptions = $scope.options[0].val;
 
-    // $scope.change = function(outerIndex, innerIndex){
-    //   gathrFactory.selectUpdate(outerIndex, innerIndex);
-    // };
+//filter Status
+    $scope.change = function(outerIndex, innerIndex){
+      gathrFactory.selectUpdate(outerIndex, innerIndex);
+    };
 
 // hard data
   $scope.partyData = gathrFactory.returnData();
@@ -26,6 +27,8 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
 //Update View when Adding new Item to Category
     $scope.addItemtoCategory = function(newItem) {
       gathrFactory.addItem(newItem);
+      $scope.data = gathrFactory.returnList();
+      console.log($scope.data);
     };
 
 //Show items in ALL categories

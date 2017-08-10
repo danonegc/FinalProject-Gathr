@@ -52,6 +52,10 @@ app.factory('gathrFactory', function($http){
     });
     return p;
   };
+<<<<<<< HEAD
+=======
+
+>>>>>>> d4749fe08a694eba6edc2b10f0c10fb0959a7abe
   function uncommitItem(committedItem, item) {
     var p = $http ({
       method: 'PUT',
@@ -71,6 +75,7 @@ app.factory('gathrFactory', function($http){
   //   commitSearch: commitSearch,
   //   selectUpdate: selectUpdate
   // };
+
   function selectUpdate(outerIndex, innerIndex){
     if (partyDetails.items[outerIndex].category[innerIndex].val === 'Unfulfilled') {
       partyDetails.items[outerIndex].category[innerIndex].val = 'Selected';
@@ -79,6 +84,7 @@ app.factory('gathrFactory', function($http){
     }
     returnData()
   };
+
   function returnData() {
     return partyDetails;
   };
