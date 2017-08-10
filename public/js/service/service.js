@@ -1,5 +1,5 @@
 var app = angular.module('gathrApp');
-app.factory('gathrFactory', function($http){
+app.factory('gathrFactory', function($http, $location){
   var selectedItems = [];
   var itemList = [];
   var partyDetails = {
@@ -24,7 +24,7 @@ app.factory('gathrFactory', function($http){
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
       {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
     };
-    var committedItem = {status: 'committed', username:'Reid'};
+    var committedItem = {status: 'committed', username:'indiana'};
     var uncommittedItem = {status: 'unfulfilled', username: null}
 
   return {
@@ -35,8 +35,9 @@ app.factory('gathrFactory', function($http){
     selectUpdate: selectUpdate,
     returnData: returnData,
     currentUser: currentUser,
-    uncommit: uncommit,
-    checkLogin: checkLogin
+    checkLogin: checkLogin,
+    getProfile: getProfile,
+    uncommit: uncommit
   }
 
   function currentUser(){
@@ -52,11 +53,12 @@ app.factory('gathrFactory', function($http){
     });
     return p;
   };
-  function addItem(newItem) {
+  function addItem(newItem, category) {
+    var item = {item: newItem, category: category, status: "unfulfilled", username: null}
     var p = $http ({
       method: 'POST',
       url: '/items',
-      data: newItem
+      data: item
     }).then(function(response) {
       itemList = response.data;
       console.log(itemList);
@@ -66,14 +68,15 @@ app.factory('gathrFactory', function($http){
 
   function uncommit(value) {
     var id = value.id;
-    putItem(id, uncommittedItem);
+     return putItem(id, uncommittedItem);
   };
 
 
   function saveItem() {
     selectedItems.forEach(function(id){
-      putItem(id, committedItem)
+       putItem(id, committedItem)
     });
+    return getList();
   };
 
 
@@ -88,6 +91,7 @@ app.factory('gathrFactory', function($http){
       });
     return p;
   };
+
   function returnList() {
     return itemList;
   };
@@ -125,31 +129,12 @@ app.factory('gathrFactory', function($http){
       {
         username: 'indianajones',
         password: 'coolPassword',
-        name: 'Reid Trierweiler',
+        name: 'Indiana Jones',
         email: 'indianajones@gmail.com',
         img: '/images/indianajones.jpg',
         location: 'Portland, OR',
         phone: '333-333-5555',
         partyname:'Grand Circus Demo Day'
-
-      },
-      {
-        username: 'taylorswift',
-        password: 'awesomePassword',
-        name: 'Taylor Swift',
-        email: 'tswift@gmail.com',
-        img: '/images/taylorswift.jpg',
-        location: 'Detroit, MI',
-        phone: '222-444-6666'
-      },
-      {
-        username: 'grantchirpus',
-        password: 'greatPassword',
-        name: 'Grant Chirpus',
-        email: 'grantChirpus@gmail.com',
-        img: '/images/grantchirpus.png',
-        location: 'Detroit, MI',
-        phone: '111-777-3333'
       }
     ];
 
@@ -166,6 +151,7 @@ app.factory('gathrFactory', function($http){
 
     p.then(function(user) {
       userObj = user;
+
     });
     $location.path('/profile');
     return p;
@@ -177,5 +163,4 @@ app.factory('gathrFactory', function($http){
 
 
 
-});
 });

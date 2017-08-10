@@ -13,7 +13,7 @@ router.get('/items', function(req, res, next) {
 
 router.post('/items', function (req, res, next){
   var data = req.body;
-  pool.query('INSERT INTO partyitems (item, category, status, username) values ($1::text, $2::text, $3::text, $4::text)', ["Pie", "Dessert", "unfulfilled", null]).then(function() {
+  pool.query('INSERT INTO partyitems (item, category, status, username) values ($1::text, $2::text, $3::text, $4::text)', [data.item, data.category, data.status, data.username]).then(function() {
     pool.query('SELECT * from partyitems').then(function(result) {
       console.log(result.rows);
       res.send(result.rows);
