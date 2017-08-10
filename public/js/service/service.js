@@ -52,10 +52,8 @@ app.factory('gathrFactory', function($http){
     });
     return p;
   };
-<<<<<<< HEAD
-=======
 
->>>>>>> d4749fe08a694eba6edc2b10f0c10fb0959a7abe
+
   function uncommitItem(committedItem, item) {
     var p = $http ({
       method: 'PUT',
@@ -88,4 +86,68 @@ app.factory('gathrFactory', function($http){
   function returnData() {
     return partyDetails;
   };
+  // login validation functionality
+  var userObj = {};
+
+
+
+
+  function checkLogin(userInfo) {
+    var userList = [
+      {
+        username: 'indianajones',
+        password: 'coolPassword',
+        name: 'Reid Trierweiler',
+        email: 'indianajones@gmail.com',
+        img: '/images/indianajones.jpg',
+        location: 'Portland, OR',
+        phone: '333-333-5555',
+        partyname:'Grand Circus Demo Day'
+
+      },
+      {
+        username: 'taylorswift',
+        password: 'awesomePassword',
+        name: 'Taylor Swift',
+        email: 'tswift@gmail.com',
+        img: '/images/taylorswift.jpg',
+        location: 'Detroit, MI',
+        phone: '222-444-6666'
+      },
+      {
+        username: 'grantchirpus',
+        password: 'greatPassword',
+        name: 'Grant Chirpus',
+        email: 'grantChirpus@gmail.com',
+        img: '/images/grantchirpus.png',
+        location: 'Detroit, MI',
+        phone: '111-777-3333'
+      }
+    ];
+
+    var p = new Promise(function(resolve, reject) {
+      for(var i = 0; i < userList.length; i++) {
+        console.log('loop');
+        if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
+          resolve(userList[i]);
+          break;
+          console.log('true');
+        }
+      }
+    });
+
+    p.then(function(user) {
+      userObj = user;
+    });
+    $location.path('/profile');
+    return p;
+  }
+
+  function getProfile() {
+    return userObj;
+  }
+
+
+
+});
 });
