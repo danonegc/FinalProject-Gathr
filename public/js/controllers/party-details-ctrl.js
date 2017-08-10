@@ -6,12 +6,11 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
     // $scope.data = gathrFactory.returnData();
 
     $scope.saveItem = function() {
-      gathrFactory.saveItem();
-      // $scope.$apply(function() {
-      gathrFactory.getList().then(function(response) {
-        $scope.data = gathrFactory.returnList();
+      gathrFactory.saveItem().then(function(){
+        // $scope.$apply(function() {
+          $scope.data = gathrFactory.returnList();
       });
-      // })
+      // });
     };
 
     $scope.uncommit = function(value) {
@@ -21,7 +20,7 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
     }
 
 // Drop down filter
-    $scope.options = [{status: 'All', val: ""},{status: 'Fulfilled', val: 'Fulfilled'},{status: 'Unfulfilled', val: 'Unfulfilled'}];
+    $scope.options = [{status: 'All', val: ""},{status: 'Committed', val: 'committed'},{status: 'Unfulfilled', val: 'unfulfilled'}];
     $scope.myOptions = $scope.options[0].val;
 
 // Upon click selected item data equal value
@@ -38,10 +37,10 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
   })
 
 //Update View when Adding new Item to Category
-    $scope.addItemtoCategory = function(newItem) {
-      gathrFactory.addItem(newItem);
-      $scope.data = gathrFactory.returnList();
-      console.log($scope.data);
+    $scope.addItemtoCategory = function(newItem, category) {
+      gathrFactory.addItem(newItem, category).then(function(){
+        $scope.data = gathrFactory.returnList();
+      });
     };
 
 //Show items in ALL categories
@@ -109,5 +108,4 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
     }
 
 //closure for app.controller
-}
 });
