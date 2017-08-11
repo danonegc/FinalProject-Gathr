@@ -1,7 +1,10 @@
 var app = angular.module('gathrApp');
 app.factory('gathrFactory', function($http, $location){
-  var selectedItems = [];
+
+//array used to pull JSON database
   var itemList = [];
+
+//used for party details and and repeating categories through item-list custom directive
   var partyDetails = {
     'partyId': 'gc1234',
     'partyName': 'Grand Circus Demo Day',
@@ -24,35 +27,43 @@ app.factory('gathrFactory', function($http, $location){
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
       {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
     };
+//array used to commut items selected
+    var selectedItems = [];
+//used to PUT commited item(s)
     var committedItem = {status: 'committed', username:'indiana'};
+//used to PUT uncommit item
     var uncommittedItem = {status: 'unfulfilled', username: null}
 
   return {
-    getList: getList,
-    addItem: addItem,
-    saveItem: saveItem,
-    returnList: returnList,
-    selectUpdate: selectUpdate,
-    returnData: returnData,
-    currentUser: currentUser,
-    checkLogin: checkLogin,
-    getProfile: getProfile,
-    uncommit: uncommit
-  }
+    getList: getList, //get JSON from database
+    addItem: addItem, //create item in database
+    saveItem: saveItem, // commit selected items
+    returnList: returnList, // updates database object to $scope.data
+    selectUpdate: selectUpdate, // click status toggle and push array
+    returnData: returnData, // return hardcoded data for party details and category calaspe toggle
+    currentUser: currentUser, // returns current user for commit
+    checkLogin: checkLogin, // login validation
+    getProfile: getProfile,  // login data
+    uncommit: uncommit // uncommit item for current user
+  };
 
+// current user used to commit item
   function currentUser(){
     return committedItem.username;
-  }
+  };
+
+// get JSON from database
   function getList() {
     var p = $http ({
       method: 'GET',
       url: '/items'
     }).then(function(response) {
       itemList = response.data;
-      // console.log(itemList);
     });
     return p;
   };
+
+// Added item to individual category in item-by-category directive.html
   function addItem(newItem, category) {
     var item = {item: newItem, category: category, status: "unfulfilled", username: null}
     var p = $http ({
@@ -61,17 +72,17 @@ app.factory('gathrFactory', function($http, $location){
       data: item
     }).then(function(response) {
       itemList = response.data;
-      console.log(itemList);
     });
     return p;
   };
 
+// uncommit item for current user
   function uncommit(value) {
     var id = value.id;
      return putItem(id, uncommittedItem);
   };
 
-
+// commit selected items
   function saveItem() {
     selectedItems.forEach(function(id){
        putItem(id, committedItem)
@@ -79,7 +90,7 @@ app.factory('gathrFactory', function($http, $location){
     return getList();
   };
 
-
+// called to PUT item's' to be committed or uncommitted
   function putItem(id, item) {
       var p = $http ({
         url: '/items/' + id,
@@ -92,6 +103,7 @@ app.factory('gathrFactory', function($http, $location){
     return p;
   };
 
+// return hardcoded data for party details and category calaspe toggle
   function returnList() {
     return itemList;
   };
@@ -115,15 +127,18 @@ app.factory('gathrFactory', function($http, $location){
     returnList()
   };
 
+
+// return hardcoded data for party details and category calaspe toggle
   function returnData() {
     return partyDetails;
   };
-  // login validation functionality
+
+
+// login validation functionality
   var userObj = {};
 
 
-
-
+// login validation
   function checkLogin(userInfo) {
     var userList = [
       {
@@ -137,7 +152,6 @@ app.factory('gathrFactory', function($http, $location){
         partyname:'Grand Circus Demo Day'
       }
     ];
-
     var p = new Promise(function(resolve, reject) {
       for(var i = 0; i < userList.length; i++) {
         console.log('loop');
@@ -145,21 +159,20 @@ app.factory('gathrFactory', function($http, $location){
           resolve(userList[i]);
           break;
           console.log('true');
-        }
-      }
+        };
+      };
     });
-
     p.then(function(user) {
       userObj = user;
-
     });
     $location.path('/profile');
     return p;
-  }
+  };
 
+// login data
   function getProfile() {
     return userObj;
-  }
+  };
 
 
 

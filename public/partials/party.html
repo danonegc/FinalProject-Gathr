@@ -1,12 +1,16 @@
 <!-- Header: Logo & Event Details -->
 <div class="container">
   <div class="row">
+
     <div class="col-xs-3">
       <p>GATHR (logo)</p>
     </div>
+
     <div class="col-xs-9">
+<!-- directive for party details -->
       <party-details></party-details>
     </div>
+
   </div>
 
 
@@ -15,6 +19,8 @@
   <div class="row">
     <div class="col-xs-3">
       <h4 class="icon-header">Items by Category</h4>
+
+<!-- all images for catagories -->
         <div class="row">
           <div class="col-xs-6">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png" class="img-icon" alt="Meat" ng-click="showHideMeat()">
@@ -47,24 +53,26 @@
               <img src="https://image.flaticon.com/icons/png/512/194/194366.png" class="img-icon" alt="Balloon" ng-click="showHideMisc()">
           </div>
         </div>
+
+<!-- toggle collaspe add catagories to view -->
         <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
+<!-- toggle collaspe clear catagories from view -->
         <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
+<!-- commit selected items into database using PUT -->
         <button type="button" class="save" ng-click="saveItem()" name="save">Save</button>
 <!-- end of Items by category column -->
+
+<!-- end of category nav panel to left -->
     </div>
 
+<!-- filter item status -->
+    <div class="col-xs-9" >
+      Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
+      </select>
 
-
-
-
-
-
-<div class="col-xs-9" >
-
-  Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
-  </select>
-<item-list></item-list>
-</div>
+<!-- directive made to repeat through item categories and contains directive to repeat each item in catagory -->
+      <item-list></item-list>
+    </div>
 
   </div>
 </div>

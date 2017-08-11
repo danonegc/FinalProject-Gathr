@@ -1,25 +1,25 @@
 var app = angular.module('gathrApp');
 
 app.controller('party-details-ctrl', function($scope, gathrFactory) {
-    // $scope.post= function
-    $scope.currentUser = gathrFactory.currentUser();
-    // $scope.data = gathrFactory.returnData();
 
+// update current username data 
+    $scope.currentUser = gathrFactory.currentUser();
+
+// commmit selected items and update to scope using promise
     $scope.saveItem = function() {
       gathrFactory.saveItem().then(function(){
-        // $scope.$apply(function() {
           $scope.data = gathrFactory.returnList();
       });
-      // });
     };
 
+// uncommit items and update to scope using promise
     $scope.uncommit = function(value) {
       gathrFactory.uncommit(value).then(function(response) {
         $scope.data = gathrFactory.returnList();
       });
     }
 
-// Drop down filter
+// Drop down filter to sort status of items
     $scope.options = [{status: 'All', val: ""},{status: 'Committed', val: 'committed'},{status: 'Unfulfilled', val: 'unfulfilled'}];
     $scope.myOptions = $scope.options[0].val;
 
@@ -28,10 +28,10 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
       gathrFactory.selectUpdate(value);
     };
 
-// hard data
+// hard coded data for party details
   $scope.partyData = gathrFactory.returnData();
 
-// get data
+// get data from data dase and update to scope using promise
   $scope.displayItems = gathrFactory.getList().then(function(response) {
     $scope.data = gathrFactory.returnList();
   })

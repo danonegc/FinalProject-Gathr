@@ -170,3 +170,18 @@ a:hover {
   margin: 0 auto;
   padding: 30px;
 }
+div[ng-model=committed] {
+  background-color: salmon;
+  width: 100%;
+  border: .1 solid grey;
+}
+div[selected=v] {
+  background-color: lightyellow;
+  width: 100%;
+  border: .1 solid grey;
+}
+.unfulfilled {
+  background-color: lightgreen;
+  width: 100%;
+  border: .1 solid grey;
+}

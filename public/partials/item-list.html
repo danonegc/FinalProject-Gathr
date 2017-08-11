@@ -1,14 +1,24 @@
+<!-- party directive repeating category by their name -->
 <div class="row" ng-repeat="item in partyData.items" ng-init="outerIndex = $index">
+<!-- toggle view of category -->
   <div class="row" ng-show="{{item.isVisible}}">
+
+  <!-- icon for category -->
     <div class="col-xs-2" >
       <img class="baby-icon" ng-src="{{item.img}}">
     </div>
+
+
     <div class="col-xs-10">
       <div class="row">
         <div class="col-xs-12">
+<!-- directive o repeat items in category -->
           <item-by-category></item-by-category>
         </div>
       </div>
     </div>
+
+
+
   </div>
 </div>
