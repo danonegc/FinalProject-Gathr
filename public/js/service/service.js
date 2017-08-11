@@ -24,7 +24,7 @@ app.factory('gathrFactory', function($http, $location){
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
       {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
     };
-    var committedItem = {status: 'committed', username:'indiana'};
+    var committedItem = {status: 'committed', username:'grantchirpus'};
     var uncommittedItem = {status: 'unfulfilled', username: null}
 
   return {
@@ -127,13 +127,13 @@ app.factory('gathrFactory', function($http, $location){
   function checkLogin(userInfo) {
     var userList = [
       {
-        username: 'indianajones',
-        password: 'coolPassword',
-        name: 'Indiana Jones',
-        email: 'indianajones@gmail.com',
-        img: '/images/indianajones.jpg',
-        location: 'Portland, OR',
-        phone: '333-333-5555',
+        username: 'grantchirpus',
+        password: 'greatPassword',
+        name: 'Grant Chirpus',
+        email: 'grantChirpus@gmail.com',
+        img: '/images/grantchirpus.png',
+        location: 'Detroit, MI',
+        phone: '313-867-5309',
         partyname:'Grand Circus Demo Day'
       }
     ];
@@ -153,7 +153,7 @@ app.factory('gathrFactory', function($http, $location){
       userObj = user;
 
     });
-    $location.path('/profile');
+    $location.path('/party');
     return p;
   }
 

@@ -1,13 +1,14 @@
+<a href="#click"><img class="gathr-logo" src="images/gathrall.png" alt="gathr logo"></a>
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
-      <div class="form-container">
+      <div id="click" class="form-container">
         <form ng-submit="submitLogin()" class="form">
           <h1>Sign In</h1>
-          <input type="text" placeholder="Username" ng-model="userInfo.username">
-          <input type="text" placeholder="Password" ng-model="userInfo.password">
+          <input class="login-input" type="text" placeholder="Username" ng-model="userInfo.username">
+          <input class="login-input" type="password" placeholder="Password" ng-model="userInfo.password">
           <div class="button-container">
-            <button type="button" name="sign-in" ng-click="submitLogin(userInfo)">Sign In</button>
+            <button class="button" type="button" name="sign-in" ng-click="submitLogin(userInfo)">Sign In</button>
           </div>
         </form>
         <p><a href="#">Forgot your Password?</a></p>
