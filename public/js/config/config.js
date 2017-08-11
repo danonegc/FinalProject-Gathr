@@ -22,7 +22,7 @@ app.config(function($routeProvider){
         controller: 'comments-ctrl',
         templateUrl: 'partials/comments.html'
     })
-    .otherwise({redirectTo: '/join-party'});
+    .otherwise({redirectTo: '/login'});
 
 
 //closure for app.config

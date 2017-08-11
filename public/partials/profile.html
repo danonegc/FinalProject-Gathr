@@ -1,6 +1,6 @@
 <div class='container'> <!--main container-->
         <div class='row'><!--logo row-->
-          <div class='col-lg-3'> </div> <!--logo div-->
+          <div class='col-lg-3'><img class="gathr-g" src="images/gathrg.png" alt="gathr logo"></div> <!--logo div-->
           <div class='col-lg-9'> </div><!--filler-->
         </div>
         <div class='row'> <!--user contact row-->
@@ -10,10 +10,10 @@
               <div class='col-lg-12'></div> <!--top color partition-->
             </div>
             <div class='user-image'> <!--profile image div-->
-              <img src='http://via.placeholder.com/350x150'><!--profile image-->
+              <img id="user-img" src='{{showProfile.img}}'><!--profile image-->
             </div>
             <div class='row'> <!--bottom color partition row containing user contact-->
-              <div class='col-lg-12'> <!--bottom color partition containing user contact-->
+              <div id="user-data" class='col-lg-12'> <!--bottom color partition containing user contact-->
                 <p class='user-name'>{{showProfile.name}}</p>
                 <p class='user-phone'>{{showProfile.phone}}</p>
                 <p class='user-email'>{{showProfile.email}}</p>

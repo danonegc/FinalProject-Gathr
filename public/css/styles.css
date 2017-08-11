@@ -1,15 +1,22 @@
+body {
+  font-family: 'Varela Round', sans-serif;
+  background-color: #e8f7f5;
+}
 /*Styling for Join-Party and Log-in partials*/
 .container-fluid {
-  background-color: green;
-  border-radius: 10px;
+  background-color: #00DFE9;
+  border-radius: 300px;
   margin: 0 auto;
   text-align: center;
+  text-shadow: 3px 3px #00bec6;
   color: white;
   padding: 20px 10px 60px 10px;
   margin-top: 100px;
   width: 50%;
+  border: 10px solid #FFF994;
+  margin-bottom: 150px;
 }
-input {
+.login-input {
   border-radius: 20px;
   width: 70%;
   padding: 10px;
@@ -49,7 +56,7 @@ a:hover {
 .icon-header {
   text-align: center;
 }
-.show-all , .clear-all, .save {
+.show-all , .clear-all, .save, .button {
   text-align: center;
 	margin: 10px auto;
 	display: block;
@@ -67,10 +74,10 @@ a:hover {
 	background-size:1px 200px;
 	transition: all .05s linear;
 }
-.show-all:hover , .clear-all:hover, .save:hover {
+.show-all:hover , .clear-all:hover, .save:hover, .button:hover {
   background-position:100px;
 }
-.show-all:active , .clear-all:active , .save:active {
+.show-all:active , .clear-all:active , .save:active, .button:active {
   box-shadow: 2px 2px 2px #777;
   border-bottom: 1px solid #0045A6;
   transform: translateY(3px);
@@ -170,18 +177,31 @@ a:hover {
   margin: 0 auto;
   padding: 30px;
 }
-div[ng-model=committed] {
-  background-color: salmon;
-  width: 100%;
-  border: .1 solid grey;
+/*Style for Logo*/
+.gathr-g {
+  padding: 10px;
+  margin-left: 60px;
+  width: 60%;
 }
-div[selected=v] {
-  background-color: lightyellow;
-  width: 100%;
-  border: .1 solid grey;
+.gathr-logo {
+  margin-left: 25%;
+  padding-top: 100px;
+  padding-bottom: 300px;
+  /*width: 50%;*/
+  text-align: center;
 }
-.unfulfilled {
-  background-color: lightgreen;
-  width: 100%;
-  border: .1 solid grey;
+/*Party View Add Button/input Styling*/
+.add-button {
+  border-radius: 10px;
+}
+.item-input {
+  border-radius: 10px;
+}
+/*Profile View Styling*/
+.user-data {
+  text-align: center;
+  margin: 0 auto;
+}
+#user-img {
+  width: 10%;
 }
