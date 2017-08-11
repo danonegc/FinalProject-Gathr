@@ -1,8 +1,11 @@
 var app = angular.module('gathrApp');
 app.factory('gathrFactory', function($http, $location){
 
-//array used to pull JSON database
+//array used to pull JSON database: contains all items in our database
   var itemList = [];
+
+// array of all currently selected items on party page
+  var selectedItems = [];
 
 //used for party details and and repeating categories through item-list custom directive
   var partyDetails = {
@@ -27,6 +30,7 @@ app.factory('gathrFactory', function($http, $location){
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
       {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
     };
+    
     var committedItem = {status: 'committed', username:'grantchirpus'};
     var uncommittedItem = {status: 'unfulfilled', username: null}
 
@@ -48,7 +52,7 @@ app.factory('gathrFactory', function($http, $location){
     return committedItem.username;
   };
 
-// get JSON from database
+// get JSON from database --> adds
   function getList() {
     var p = $http ({
       method: 'GET',
@@ -78,16 +82,15 @@ app.factory('gathrFactory', function($http, $location){
      return putItem(id, uncommittedItem);
   };
 
-// commit selected items
+// commit selected items to be saved into the database
   function saveItem() {
-    var index = 0
-    return selectedItems.forEach(function(id){
-      if (index === (selectedItems.legth-1)){
-        return putItem(id, committedItem);
-      };
+    var savedItems = [];
+    savedItems = selectedItems;
+    selectedItems = [];
+    savedItems.forEach(function(id){
       putItem(id, committedItem);
-      index += 1;
     });
+    return putItem(savedItems[savedItems.length-1], committedItem);
   };
 
 // called to PUT item's' to be committed or uncommitted
@@ -98,7 +101,6 @@ app.factory('gathrFactory', function($http, $location){
         data: item
       }).then(function(response) {
         itemList = response.data;
-        console.log(itemList);
       });
     return p;
   };
@@ -111,6 +113,7 @@ app.factory('gathrFactory', function($http, $location){
 
 //select toggle status
   function selectUpdate(value){
+    console.log(value);
     if (value.status === "unfulfilled") {
       value.status = "selected";
       selectedItems.push(value.id);
@@ -154,11 +157,9 @@ app.factory('gathrFactory', function($http, $location){
     ];
     var p = new Promise(function(resolve, reject) {
       for(var i = 0; i < userList.length; i++) {
-        console.log('loop');
         if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
           resolve(userList[i]);
           break;
-          console.log('true');
         };
       };
     });

@@ -5,7 +5,6 @@ app.directive('partyDetails', function() {
     replace: false,
     restrict: 'E',
     templateUrl: "partials/party-details.html"
-    // template: "<div>{{ data.partyName }}</div>"
   };
 });
 
@@ -14,7 +13,6 @@ app.directive('itemList', function() {
       replace: false,
       restrict: 'E',
       templateUrl: "partials/item-list.html"
-      // template: "<div>{{ data.partyName }}</div>"
   };
 });
 
@@ -23,6 +21,13 @@ app.directive('itemByCategory', function() {
       replace: false,
       restrict: 'E',
       templateUrl: "partials/item-by-category.html"
-      // template: "<div>{{ data.partyName }}</div>"
+  };
+});
+
+app.directive('showProfileDetail', function() {
+  return {
+    restrict: 'E',
+    replace: false,
+    templateUrl: "../partials/party-details.html"
   };
 });
