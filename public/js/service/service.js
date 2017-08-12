@@ -43,13 +43,8 @@ app.factory('gathrFactory', function($http, $location){
     returnData: returnData, // return hardcoded data for party details and category calaspe toggle
     currentUser: currentUser, // returns current user for commit
     checkLogin: checkLogin, // login validation
-<<<<<<< HEAD
-    // getProfile: getProfile,  // login data
-=======
-    getProfile: getProfile,  // login data
     showButton: showButton,
     getSelectedItems: getSelectedItems,
->>>>>>> master
     uncommit: uncommit // uncommit item for current user
   };
 
