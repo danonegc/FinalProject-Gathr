@@ -43,7 +43,13 @@ app.factory('gathrFactory', function($http, $location){
     returnData: returnData, // return hardcoded data for party details and category calaspe toggle
     currentUser: currentUser, // returns current user for commit
     checkLogin: checkLogin, // login validation
+<<<<<<< HEAD
     // getProfile: getProfile,  // login data
+=======
+    getProfile: getProfile,  // login data
+    showButton: showButton,
+    getSelectedItems: getSelectedItems,
+>>>>>>> master
     uncommit: uncommit // uncommit item for current user
   };
 
@@ -110,10 +116,36 @@ app.factory('gathrFactory', function($http, $location){
     return itemList;
   };
 
+  function showButton() {
+    var buttonStatus = false;
+    if (selectedItems.length > 0){
+      buttonStatus = true;
+    } else {
+      buttonStatus = false;
+    }
+    return buttonStatus; // true or false
+  };
+
+  function getSelectedItems() {
+    var showSelectedItemsModal = [];
+    var categoryIcon = [];
+
+    selectedItems.forEach(function(id){
+      itemList.forEach(function(obj){
+        partyDetails.items.forEach(function(items){
+          if (id === obj.id) {
+            showSelectedItemsModal.push({item: obj.item, category: items.img, id: obj.id});
+          };
+        });
+      });
+    });
+
+    console.log(showSelectedItemsModal);
+    return showSelectedItemsModal;
+  };
 
 //select toggle status
   function selectUpdate(value){
-    console.log(value);
     if (value.status === "unfulfilled") {
       value.status = "selected";
       selectedItems.push(value.id);
@@ -127,7 +159,8 @@ app.factory('gathrFactory', function($http, $location){
         index += 1;
       });
     };
-    returnList()
+    showButton();
+    returnList();
   };
 
 
