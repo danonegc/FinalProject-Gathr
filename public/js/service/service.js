@@ -122,20 +122,31 @@ app.factory('gathrFactory', function($http, $location){
     return buttonStatus; // true or false
   };
 
+  function categoryIconMatch(x){
+    var categoryName = x.toLowerCase();
+    var categoryInfo = partyDetails.items;
+    var categoryIcon = null;
+    categoryInfo.forEach(function(item){
+      console.log(item.img);
+      if (categoryName === item.category) {
+        categoryIcon = item.img;
+      };
+    });
+    return categoryIcon;
+  };
+
   function getSelectedItems() {
     var showSelectedItemsModal = [];
     var categoryIcon = [];
-
     selectedItems.forEach(function(id){
       itemList.forEach(function(obj){
-        partyDetails.items.forEach(function(items){
           if (id === obj.id) {
-            showSelectedItemsModal.push({item: obj.item, category: items.img, id: obj.id});
+            var imgSrc = categoryIconMatch(obj.category);
+            console.log(obj.category);
+            showSelectedItemsModal.push({item: obj.item, category: imgSrc, id: obj.id});
           };
-        });
       });
     });
-
     console.log(showSelectedItemsModal);
     return showSelectedItemsModal;
   };
