@@ -4,7 +4,29 @@
     <div class="row">
       <div class="col-xs-12">
         <span class="eventName">{{ partyData.partyName }}</span>
-        <span class="host">Host: {{ partyData.host.fName }} {{ partyData.host.lName }}</span>
+        <!-- Trigger the modal with a button -->
+        <span class="host"><a data-toggle="modal" data-target="#myModal">Host: {{ partyData.host.fName }} {{ partyData.host.lName }}</a></span>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Contact Information:</h4>
+              </div>
+              <div class="modal-body">
+                <p>Name: {{partyData.host.fName}} {{partyData.host.lName}}</p>
+                <p>Phone: {{partyData.host.phone}}</p>
+                <p>Email: {{partyData.host.email}}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
       <div class="col-xs-2">
         <div id="date-container">
