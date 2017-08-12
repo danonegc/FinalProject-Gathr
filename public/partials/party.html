@@ -61,8 +61,27 @@
 <!-- toggle collaspe clear catagories from view -->
         <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
 <!-- commit selected items into database using PUT -->
-        <button type="button" class="save" ng-click="saveItem()" name="save">Save</button>
+        <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
 <!-- end of Items by category column -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="" ng-repeat="select in selectedItemsList">
+                  {{select.item}} <img ng-src="select.category" alt="">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="close" data-dismiss="modal" ng-click="saveItem()">Save</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
 
 <!-- end of category nav panel to left -->
     </div>
@@ -78,5 +97,7 @@
 
   </div>
 </div>
+
+
 
 <!-- add this button at the bottom of the Items by category when done with Bootstrap -->
