@@ -28,7 +28,7 @@ app.factory('gathrFactory', function($http, $location){
       {'category': 'desserts', 'isVisible': 'dessertVisible', 'img': 'http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg' },
       {'category': 'condiments', 'isVisible': 'condVisible', 'img': 'https://image.flaticon.com/icons/png/512/168/168323.png' },
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
-      {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
+      {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'http://www.iconsdb.com/icons/preview/guacamole-green/fork-xxl.png' }]
     };
 
     var committedItem = {status: 'committed', username:'grantchirpus'};
