@@ -205,3 +205,7 @@ a:hover {
 #user-img {
   width: 10%;
 }
+.scroll-containter {
+  overflow: scroll;
+  max-height: 700px;
+}
