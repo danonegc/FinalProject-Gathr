@@ -43,9 +43,13 @@ app.factory('gathrFactory', function($http, $location){
     returnData: returnData, // return hardcoded data for party details and category calaspe toggle
     currentUser: currentUser, // returns current user for commit
     checkLogin: checkLogin, // login validation
+<<<<<<< HEAD
+    // getProfile: getProfile,  // login data
+=======
     getProfile: getProfile,  // login data
     showButton: showButton,
     getSelectedItems: getSelectedItems,
+>>>>>>> master
     uncommit: uncommit // uncommit item for current user
   };
 
@@ -178,42 +182,53 @@ app.factory('gathrFactory', function($http, $location){
 
 
 // login validation functionality
-  var userObj = {};
 
-
-// login validation
-  function checkLogin(userInfo) {
-    var userList = [
-      {
-        username: 'grantchirpus',
-        password: 'greatPassword',
-        name: 'Grant Chirpus',
-        email: 'grantChirpus@gmail.com',
-        img: '/images/grantchirpus.png',
-        location: 'Detroit, MI',
-        phone: '313-867-5309',
-        partyname:'Grand Circus Demo Day'
-      }
-    ];
-    var p = new Promise(function(resolve, reject) {
-      for(var i = 0; i < userList.length; i++) {
-        if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
-          resolve(userList[i]);
-          break;
-        };
+function checkLogin(userInfo) {
+  var p = new Promise(function(resolve, reject) {
+    for (var i=0; i<partyDetails.length; i++) {
+      if(userInfo.partyId === partyDetails[i].partyId) {
+        resolve (partyDetails[i]);
+        break;
       };
+    };
+  });
+    p.then(function (){
+      $location.path('/party');
+      return p;
     });
-    p.then(function(user) {
-      userObj = user;
-    });
-    $location.path('/party');
-    return p;
   };
 
-// login data
-  function getProfile() {
-    return userObj;
-  };
+ // var userList = [
+ //      {
+ //        username: 'grantchirpus',
+ //        password: 'greatPassword',
+ //        name: 'Grant Chirpus',
+ //        email: 'grantChirpus@gmail.com',
+ //        img: '/images/grantchirpus.png',
+ //        location: 'Detroit, MI',
+ //        phone: '313-867-5309',
+ //        partyname:'Grand Circus Demo Day'
+ //      }
+ //    ];
+ //    var p = new Promise(function(resolve, reject) {
+ //      for(var i = 0; i < userList.length; i++) {
+ //        if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
+ //          resolve(userList[i]);
+ //          break;
+ //        };
+ //      };
+ //    });
+ //    p.then(function(user) {
+ //      userObj = user;
+ //    });
+ //    $location.path('/party');
+ //    return p;
+ //  };
+
+// // login data
+//   function getProfile() {
+//     return userObj;
+//   };
 
 
 
