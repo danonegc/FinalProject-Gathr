@@ -1,0 +1,31 @@
+<a href="#click"><img class="gathr-logo" src="images/gathrall.png" alt="gathr logo"></a>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="click" class="form-container">
+        <form ng-submit="submitLogin()" class="form">
+          <h1>Sign In</h1>
+          <input class="login-input" type="text" placeholder="Username" ng-model="userInfo.username">
+          <input class="login-input" type="password" placeholder="Password" ng-model="userInfo.password">
+          <div class="button-container">
+            <button class="button" type="button" name="sign-in" ng-click="submitLogin(userInfo)">Sign In</button>
+          </div>
+        </form>
+        <p><a href="#">Forgot your Password?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--
+<form ng-submit="registeredUser()" class="form" name="loginForm" novalidate>
+  <h1>Sign In</h1>
+  <input type="text" name="username" placeholder="Username" ng-model="userInfo.username" required>
+  <input type="password" name="password" placeholder="Password" ng-minlenght="6" ng-model="userInfo.password" required>
+  <p class="help-block" ng-show="loginForm.password.$error.minlength || loginForm.password.$invalid">Password must be at least 6 characters.</p>
+  <p><a href="#">Forgot your Password?</a></p>
+  <div class="button-container">
+  <button ng-disabled="loginForm.$invalid" type="button" class="button" ng-click="submitLogin(userInfo)" name="signIn">Sign In</button>
+</div>
+</form> -->

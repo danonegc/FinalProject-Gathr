@@ -1,0 +1,35 @@
+
+<div class="row">
+  <div class="col-xs-8">
+    <div class="row">
+      <div class="col-xs-12">
+        <span class="eventName">{{ partyData.partyName }}</span>
+        <span class="host">Host: <a href="#!/profile">{{ partyData.host.fName }} {{ partyData.host.lName }}</a></span>
+      </div>
+      <div class="col-xs-2">
+        <div id="date-container">
+          <div id="date-month"class="col-xs-12">{{ partyData.date.month }}</div>
+          <div id="date-day" class="col-xs-12">{{ partyData.date.day }}</div>
+          <div id="date-date" class="col-xs-12">{{ partyData.date.date }}</div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div id="time-container">
+        <div id="time1" class="col-xs-12">{{ partyData.time.start }}</div>
+        <div id="time2" class="col-xs-12">___to___</div>
+        <div id="time3" class="col-xs-12">{{ partyData.time.end }}</div>
+        </div>
+      </div>
+      <div id="location-container" class="col-xs-7">
+        <h4>{{ partyData.location }}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <iframe
+      width="100%"
+      frameborder="0" style="border:0"
+      src= "https://www.google.com/maps/embed/v1/place?key=AIzaSyDDkhe6bROkc7ypmY3Q1HiZiccnYmTwupY&q=grand%20circus%201570%20Woodward%20Ave,%20Detroit,%20MI%2048226" allowfullscreen>
+    </iframe>
+  </div>
+</div>

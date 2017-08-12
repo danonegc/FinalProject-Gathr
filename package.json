@@ -1,0 +1,28 @@
+{
+  "name": "final-gathr",
+  "version": "0.0.5",
+  "description": "Grand Circus Final Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danonegc/FinalProject-Gathr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danonegc/FinalProject-Gathr/issues"
+  },
+  "homepage": "https://github.com/danonegc/FinalProject-Gathr#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "pg": "^7.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
