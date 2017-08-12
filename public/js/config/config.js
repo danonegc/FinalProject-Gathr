@@ -18,9 +18,9 @@ app.config(function($routeProvider){
       controller: 'party-details-ctrl',
       templateUrl: 'partials/party.html'
     })
-    .when('/comments', {
-        controller: 'comments-ctrl',
-        templateUrl: 'partials/comments.html'
+    .when('/confirmation', {
+        controller: 'confirm-ctrl',
+        templateUrl: 'partials/confirmation.html'
     })
     .otherwise({redirectTo: '/login'});
 
