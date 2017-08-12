@@ -72,7 +72,7 @@
                 <h4 class="modal-title">Modal Header</h4>
               </div>
               <div class="" ng-repeat="select in selectedItemsList">
-                  {{select.item}} <img ng-src="select.category" alt="">
+                  {{select.item}} <img ng-src="{{select.category}}" class="baby-icon" alt="">
               </div>
               <div class="modal-footer">
                 <button type="button" class="close" data-dismiss="modal" ng-click="saveItem()">Save</button>

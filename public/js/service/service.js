@@ -43,9 +43,13 @@ app.factory('gathrFactory', function($http, $location){
     returnData: returnData, // return hardcoded data for party details and category calaspe toggle
     currentUser: currentUser, // returns current user for commit
     checkLogin: checkLogin, // login validation
+<<<<<<< HEAD
+    // getProfile: getProfile,  // login data
+=======
     getProfile: getProfile,  // login data
     showButton: showButton,
     getSelectedItems: getSelectedItems,
+>>>>>>> master
     uncommit: uncommit // uncommit item for current user
   };
 
@@ -122,20 +126,31 @@ app.factory('gathrFactory', function($http, $location){
     return buttonStatus; // true or false
   };
 
+  function categoryIconMatch(x){
+    var categoryName = x.toLowerCase();
+    var categoryInfo = partyDetails.items;
+    var categoryIcon = null;
+    categoryInfo.forEach(function(item){
+      console.log(item.img);
+      if (categoryName === item.category) {
+        categoryIcon = item.img;
+      };
+    });
+    return categoryIcon;
+  };
+
   function getSelectedItems() {
     var showSelectedItemsModal = [];
     var categoryIcon = [];
-
     selectedItems.forEach(function(id){
       itemList.forEach(function(obj){
-        partyDetails.items.forEach(function(items){
           if (id === obj.id) {
-            showSelectedItemsModal.push({item: obj.item, category: items.img, id: obj.id});
+            var imgSrc = categoryIconMatch(obj.category);
+            console.log(obj.category);
+            showSelectedItemsModal.push({item: obj.item, category: imgSrc, id: obj.id});
           };
-        });
       });
     });
-
     console.log(showSelectedItemsModal);
     return showSelectedItemsModal;
   };
@@ -167,42 +182,53 @@ app.factory('gathrFactory', function($http, $location){
 
 
 // login validation functionality
-  var userObj = {};
 
-
-// login validation
-  function checkLogin(userInfo) {
-    var userList = [
-      {
-        username: 'grantchirpus',
-        password: 'greatPassword',
-        name: 'Grant Chirpus',
-        email: 'grantChirpus@gmail.com',
-        img: '/images/grantchirpus.png',
-        location: 'Detroit, MI',
-        phone: '313-867-5309',
-        partyname:'Grand Circus Demo Day'
-      }
-    ];
-    var p = new Promise(function(resolve, reject) {
-      for(var i = 0; i < userList.length; i++) {
-        if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
-          resolve(userList[i]);
-          break;
-        };
+function checkLogin(userInfo) {
+  var p = new Promise(function(resolve, reject) {
+    for (var i=0; i<partyDetails.length; i++) {
+      if(userInfo.partyId === partyDetails[i].partyId) {
+        resolve (partyDetails[i]);
+        break;
       };
+    };
+  });
+    p.then(function (){
+      $location.path('/party');
+      return p;
     });
-    p.then(function(user) {
-      userObj = user;
-    });
-    $location.path('/party');
-    return p;
   };
 
-// login data
-  function getProfile() {
-    return userObj;
-  };
+ // var userList = [
+ //      {
+ //        username: 'grantchirpus',
+ //        password: 'greatPassword',
+ //        name: 'Grant Chirpus',
+ //        email: 'grantChirpus@gmail.com',
+ //        img: '/images/grantchirpus.png',
+ //        location: 'Detroit, MI',
+ //        phone: '313-867-5309',
+ //        partyname:'Grand Circus Demo Day'
+ //      }
+ //    ];
+ //    var p = new Promise(function(resolve, reject) {
+ //      for(var i = 0; i < userList.length; i++) {
+ //        if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
+ //          resolve(userList[i]);
+ //          break;
+ //        };
+ //      };
+ //    });
+ //    p.then(function(user) {
+ //      userObj = user;
+ //    });
+ //    $location.path('/party');
+ //    return p;
+ //  };
+
+// // login data
+//   function getProfile() {
+//     return userObj;
+//   };
 
 
 
