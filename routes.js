@@ -24,7 +24,7 @@ router.post('/items', function (req, res, next){
 router.put('/items/:id', function(req, res, next) {
   var id = req.params.id;
   var data = req.body;
-  pool.query('UPDATE partyitems SET status=$2::text, username=$3::text where id=$1::int', [id, data.status, data.username]).then(function(){
+  pool.query('UPDATE partyitems SET status=$2::text, username=$3::text, quantity=$4::integer where id=$1::int', [id, data.status, data.username, data.quantity]).then(function(){
     pool.query('SELECT * from partyitems').then(function(result){
       console.log(result.rows);
       res.send(result.rows);

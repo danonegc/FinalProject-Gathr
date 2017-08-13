@@ -74,7 +74,7 @@
                 <div class="modal-body">
                   <div class="form-group">
                     <label><h3>Name:</h3></label>
-                    <input type="text" class="form-control" id="usr">
+                    <input type="text" class="form-control" id="usr" ng-model="addUsername">
                   </div>
                   <h2></h2>
                     <table class="table table-hover">
@@ -89,7 +89,7 @@
                         <tr ng-repeat="select in selectedItemsList">
                           <td><img ng-src="{{select.category}}" class="baby-icon" alt=""></td>
                           <td>{{select.item}}</td>
-                          <td><input type="number" class="form-control" placeholder="Quantity" id="usr"></td>
+                          <td><input type="number" class="form-control" placeholder="Quantity" id="usr" ng-model="select.quantity"></td>
                         </tr>
                       </tbody>
                     </table>
