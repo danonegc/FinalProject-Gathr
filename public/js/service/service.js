@@ -3,6 +3,7 @@ app.factory('gathrFactory', function($http, $location){
 
   var addUsername = null;
   var showSelectedItemsModal = [];
+  
 //array used to pull JSON database: contains all items in our database
   var itemList = [];
 
@@ -97,7 +98,6 @@ app.factory('gathrFactory', function($http, $location){
       e.username = addUsername;
       e.status = "committed";
       putItem(e.id, e);
-      console.log(e.quantity);
     });
     return putItem(showSelectedItemsModal[showSelectedItemsModal.length-1].id, showSelectedItemsModal[showSelectedItemsModal.length-1]);
   };
@@ -144,13 +144,10 @@ app.factory('gathrFactory', function($http, $location){
       itemList.forEach(function(obj){
           if (id === obj.id) {
             var imgSrc = categoryIconMatch(obj.category);
-            console.log(obj.category);
-            // savedItems.push({id: obj.id, item: obj})
             showSelectedItemsModal.push({item: obj.item, category: imgSrc, id: obj.id, quantity: obj.quantity});
           };
       });
     });
-    console.log(showSelectedItemsModal);
     return showSelectedItemsModal;
   };
 
