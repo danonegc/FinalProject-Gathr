@@ -31,10 +31,10 @@ app.directive('showProfileDetail', function() {
     templateUrl: "../partials/party-details.html"
   };
 
-  app.directive('invitedList', function () {
+  app.directive('guestList', function () {
     return {
       restrict: E,
       replace: false,
-      templateUrl: 'attending-template.html'
+      templateUrl: '../partials/guest-list-template.html'
     };
   });
