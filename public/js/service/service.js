@@ -49,7 +49,10 @@ app.factory('gathrFactory', function($http, $location){
       {'name':'Jeremy', 'attending':'attending'},
       {'name':'Adam', 'attending':'undecided'},
       {'name':'Yasmine', 'attending':'attending'},
-      {'name':'J.C.', 'attending':'attending'}
+      {'name':'J.C.', 'attending':'attending'},
+      {'name':'Beyonce', 'attending':'not-attending'},
+      {'name':'Kanye', 'attending':'not-attending'},
+      {'name':'Kendrick', 'attending':'not-attending'}
     ]
    };
 
