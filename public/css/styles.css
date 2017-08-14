@@ -214,7 +214,7 @@ a:hover {
   max-height: 700px;
 }
 /*Styling for Checkbox on party page*/
-/*.checkbox label:after,
+.checkbox label:after,
 .radio label:after {
     content: '';
     display: table;
@@ -271,7 +271,7 @@ a:hover {
 .checkbox label input[type="checkbox"]:disabled + .cr,
 .radio label input[type="radio"]:disabled + .cr {
     opacity: .5;
-}*/
+}
 /*Styling for Checkbox on party page*/
 
 /*Styling for Users List on Party Page*/
@@ -291,5 +291,8 @@ a:hover {
     content: "\25cf";
     font-size: 1.5em;
     color: yellow;
+}
+.glyphicon-ok {
+  color: green;
 }
 /*Styling for Users List on Party Page*/
