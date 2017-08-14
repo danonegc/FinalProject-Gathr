@@ -2,8 +2,9 @@ var app = angular.module('gathrApp');
 
 app.controller('party-details-ctrl', function($scope, gathrFactory) {
 
-// update current username data
-    $scope.currentUser = gathrFactory.currentUser();
+    $scope.unselectAllItems = function(){
+      $scope.data = gathrFactory.unselectAllItems();
+    }
 
 // commmit selected items and update to scope using promise
     $scope.saveItem = function() {
@@ -11,7 +12,6 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
       gathrFactory.addUser(username);
       gathrFactory.saveItem().then(function(){
           $scope.data = gathrFactory.returnList();
-          console.log($scope.data);
       });
     };
 
@@ -29,7 +29,6 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
 // Upon click selected item data equal value
     $scope.change = function(value){
       gathrFactory.selectUpdate(value);
-
 // Select Items Button toggle
       $scope.showButton = gathrFactory.showButton();
       $scope.selectedItemsList = gathrFactory.getSelectedItems();
