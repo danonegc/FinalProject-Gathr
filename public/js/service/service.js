@@ -1,66 +1,14 @@
 var app = angular.module('gathrApp');
-app.factory('gathrFactory', function($http, $location){
+app.factory('gathrFactory', function($http, $location, httpFactory){
 
+  var partyDetails = httpFactory.returnPartyDetails();
   var addUsername = null;
   var checkoutItems = [];
   var showSelectedItemsModal = [];
-
-//array used to pull JSON database: contains all items in our database
-  var itemList = [];
-
-// array of all currently selected items on party page
-  var selectedItems = [];
-
-//used for party details and and repeating categories through item-list custom directive
-var partyDetails = {
- 'partyId': 'gc1234',
- 'partyName': 'Grand Circus Demo Day',
- 'host': {
-   'fName': 'Grant',
-   'lName': 'Chirpus',
-   'phone': 5555555555,
-   'email': 'gc@gc.com'
- },
- 'location': "1570 Woodward Ave, Detroit, MI 48226",
- 'date': {'month': 'August', 'date': 18, 'day': 'Friday'},
- 'time': {'start': 'Noon', 'end': '5:00 PM'},
- 'items': [
-   {'category': 'protein', 'isVisible': 'meatVisible', 'img': 'images/meat.png' },
-   {'category': 'carbs', 'isVisible': 'carbVisible', 'img': 'images/carb.png' },
-   {'category': 'fruit', 'isVisible': 'fruitVisible', 'img': 'images/fruit.png' },
-   {'category': 'vegetables', 'isVisible': 'vegVisible', 'img': 'images/veg.png' },
-   {'category': 'desserts', 'isVisible': 'dessertVisible', 'img': 'images/icecream.svg' },
-   {'category': 'condiments', 'isVisible': 'condVisible', 'img': 'images/cond.png' },
-   {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'images/bev.png' },
-   {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'images/fork.png' },
-   {'category': 'suggestion', 'isVisible': 'sugVisible', 'img': 'images/sug.png' }],
- 'invited': [
-   // attending status values will be stored in variable for sake of neatness. still not sure this works, though.
-   {'name':'Elyse', 'attending':'attending'},
-   {'name':'Danone', 'attending':'attending'},
-   {'name':'Reid', 'attending':'attending'},
-   {'name':'Phil', 'attending':'attending'},
-   {'name':'Stephanie', 'attending':'attending'},
-   {'name': 'Desmond', 'attending':'attending'},
-   {'name':'Kevin', 'attending':'attending'},
-   {'name':'John', 'attending':'attending'},
-   {'name':'Mike E.', 'attending':'attending'},
-   {'name':'Mike M.', 'attending':'attending'},
-   {'name':'Segi', 'attending':'attending'},
-   {'name':'Emily', 'attending':'attending'},
-   {'name':'Matt', 'attending':'attending'},
-   {'name':'Dan', 'attending':'attending'},
-   {'name':'Jefferson', 'attending':'attending'},
-   {'name':'Chris', 'attending':'attending'},
-   {'name':'Jeremy', 'attending':'attending'},
-   {'name':'Adam', 'attending':'undecided'},
-   {'name':'Yasmine', 'attending':'attending'},
-   {'name':'J.C.', 'attending':'attending'}
- ]
- };
-
-    var committedItem = {status: 'committed', username: 'grantchirpus'};
-    var uncommittedItem = {status: 'unfulfilled', username: null, quantity: null}
+  var itemList = [];//array used to pull JSON database: contains all items in our database
+  var selectedItems = []; // array of all currently selected items on party page
+  var committedItem = {status: 'committed', username: 'grantchirpus'};
+  var uncommittedItem = {status: 'unfulfilled', username: null, quantity: null}
 
   return {
     getList: getList, //get JSON from database
@@ -69,11 +17,11 @@ var partyDetails = {
     returnList: returnList, // updates database object to $scope.data
     selectUpdate: selectUpdate, // click status toggle and push array
     returnData: returnData, // return hardcoded data for party details and category calaspe toggle
-    currentUser: currentUser, // returns current user for commit
     checkLogin: checkLogin, // login validation
     showButton: showButton,
     getSelectedItems: getSelectedItems,
     addUser: addUser,
+    unselectAllItems: unselectAllItems,
     checkoutList: checkoutList,
     uncommit: uncommit // uncommit item for current user
   };
@@ -82,24 +30,25 @@ var partyDetails = {
     var sendCheckoutList = checkoutItems;
     checkoutItems = []
     return sendCheckoutList;
-  }
-
-// current user used to commit item
-  function currentUser(){
-    committedItem.username = addUsername;
-    return committedItem.username;
   };
 
-// get JSON from database --> adds
-  function getList() {
-    var p = $http ({
-      method: 'GET',
-      url: '/items'
-    }).then(function(response) {
-      itemList = response.data;
-    });
-    return p;
+  function unselectAllItems() {
+    console.log(selectedItems, "before");
+    selectedItems = [];
+    console.log(selectedItems, "after");
+    return returnList();
   };
+
+  // get JSON from database --> adds
+    function getList() {
+      var p = $http ({
+        method: 'GET',
+        url: '/items'
+      }).then(function(response) {
+        itemList = response.data;
+      });
+      return p;
+    };
 
 // Added item to individual category in item-by-category directive.html
   function addItem(newItem, category) {
@@ -120,9 +69,6 @@ var partyDetails = {
      return putItem(id, uncommittedItem);
   };
 
-  function addUser(username) {
-    addUsername = username;
-  };
 // commit selected items to be saved into the database
   function saveItem() {
     selectedItems = [];
@@ -153,34 +99,16 @@ var partyDetails = {
     var buttonStatus = false;
     if (selectedItems.length > 0){
       buttonStatus = true;
-    } else {
-      buttonStatus = false;
-    }
+    };
     return buttonStatus; // true or false
-  };
-
-  function categoryIconMatch(x){
-    var categoryName = x.toLowerCase();
-    var categoryInfo = partyDetails.items;
-    var categoryIcon = null;
-    categoryInfo.forEach(function(item){
-      if (categoryName === item.category) {
-        categoryIcon = item.img;
-      };
-    });
-    return categoryIcon;
   };
 
   function getSelectedItems() {
     showSelectedItemsModal = [];
     var categoryIcon = [];
-    selectedItems.forEach(function(id){
-      itemList.forEach(function(obj){
-          if (id === obj.id) {
-            var imgSrc = categoryIconMatch(obj.category);
-            showSelectedItemsModal.push({item: obj.item, category: imgSrc, id: obj.id, quantity: obj.quantity});
-          };
-      });
+    selectedItems.forEach(function(obj){
+      var imgSrc = httpFactory.categoryIconMatch(obj.category);
+      showSelectedItemsModal.push({item: obj.item, category: imgSrc, id: obj.id, quantity: obj.quantity});
     });
     return showSelectedItemsModal;
   };
@@ -189,34 +117,33 @@ var partyDetails = {
   function selectUpdate(value){
     if (value.status === "unfulfilled") {
       value.status = "selected";
-      selectedItems.push(value.id);
+      selectedItems.push(value);
     } else if (value.status === "selected"){
       value.status = "unfulfilled";
       var index = 0;
       selectedItems.forEach(function(e){
-        if (value.id == e) {
+        if (value.id == e.id) {
           selectedItems.splice(index,1);
         };
         index += 1;
       });
     };
     showButton();
-    returnList();
   };
 
-
-// return hardcoded data for party details and category calaspe toggle
   function returnData() {
-    return partyDetails;
+    return partyDetails; // return hardcoded data for party details and category calaspe toggle
   };
 
-  // return hardcoded data for party details and category calaspe toggle
   function returnList() {
-    return itemList;
+    return itemList;   // return hardcoded data for party details and category calaspe toggle
+  };
+
+  function addUser(username) {
+    addUsername = username;
   };
 
 // login validation functionality
-
 function checkLogin(userInfo) {
   var p = new Promise(function(resolve, reject) {
     for (var i=0; i<partyDetails.length; i++) {
@@ -231,39 +158,5 @@ function checkLogin(userInfo) {
       return p;
     });
   };
-
- // var userList = [
- //      {
- //        username: 'grantchirpus',
- //        password: 'greatPassword',
- //        name: 'Grant Chirpus',
- //        email: 'grantChirpus@gmail.com',
- //        img: '/images/grantchirpus.png',
- //        location: 'Detroit, MI',
- //        phone: '313-867-5309',
- //        partyname:'Grand Circus Demo Day'
- //      }
- //    ];
- //    var p = new Promise(function(resolve, reject) {
- //      for(var i = 0; i < userList.length; i++) {
- //        if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
- //          resolve(userList[i]);
- //          break;
- //        };
- //      };
- //    });
- //    p.then(function(user) {
- //      userObj = user;
- //    });
- //    $location.path('/party');
- //    return p;
- //  };
-
-// // login data
-//   function getProfile() {
-//     return userObj;
-//   };
-
-
 
 });

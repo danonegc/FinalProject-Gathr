@@ -1,3 +1,5 @@
+{{window}}
+
 <!-- Header: Logo & Event Details -->
 <div class="container">
   <div class="row">
@@ -97,6 +99,7 @@
         <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
 <!-- commit selected items into database using PUT -->
         <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+        <button type="button" class="unselect-all" name="unselect-all" ng-click="unselectAllItems()">Unselect All</button>
 
           <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
