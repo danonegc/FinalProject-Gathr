@@ -210,7 +210,7 @@ a:hover {
   max-height: 700px;
 }
 
-/*custom glyphicons*/
+/*glyphicons for guest list directive*/
 .glyphicon.glyphicon-attending:before {
     content: "\25cf";
     font-size: 1.5em;
