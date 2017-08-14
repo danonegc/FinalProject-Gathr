@@ -2,6 +2,7 @@ var app = angular.module('gathrApp');
 app.factory('gathrFactory', function($http, $location){
 
   var addUsername = null;
+  var checkoutItems = [];
   var showSelectedItemsModal = [];
 
 //array used to pull JSON database: contains all items in our database
@@ -72,8 +73,15 @@ var partyDetails = {
     showButton: showButton,
     getSelectedItems: getSelectedItems,
     addUser: addUser,
+    checkoutList: checkoutList,
     uncommit: uncommit // uncommit item for current user
   };
+
+  function checkoutList(){
+    var sendCheckoutList = checkoutItems;
+    checkoutItems = []
+    return sendCheckoutList;
+  }
 
 // current user used to commit item
   function currentUser(){
@@ -120,6 +128,8 @@ var partyDetails = {
     showSelectedItemsModal.forEach(function(e){
       e.username = addUsername;
       e.status = "committed";
+      checkoutItems.push(e);
+      console.log(checkoutItems, "saveItem");
       putItem(e.id, e);
     });
     return putItem(showSelectedItemsModal[showSelectedItemsModal.length-1].id, showSelectedItemsModal[showSelectedItemsModal.length-1]);

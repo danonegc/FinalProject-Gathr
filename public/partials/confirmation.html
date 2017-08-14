@@ -1,13 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1>THANK YOU, {{value.username}}!</h1>
+      <h1>THANK YOU, {{checkedOutItems[0].username}}!</h1>
       <party-details></party-details>
       <h4>You are brining the following items:</h4>
-      <div class="col-xs-12" ng-repeat="value in data | orderBy: 'item' | filter: item.category | filter: myOptions" ng-init="innerIndex = $index">
-        <div ng-click="change(value)">
-          {{value.item }} {{value.status}} <img ng-if="value.status === 'unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
-          <span ng-if="value.status === 'committed'">{{value.username}}<a ng-if="value.username === currentUser" ng-click="uncommit(value)">X</a></span>
+      <div class="col-xs-12" ng-repeat="item in checkedOutItems | orderBy: 'item'" ng-init="innerIndex = $index">
+        <div>
+          {{item.item }}  | Qty: {{item.quantity}}
         </div>
       </div>
       <h1>Can't wait to get To'Gathr ;)</h1>
