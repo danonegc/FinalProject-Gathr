@@ -69,42 +69,42 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
       $scope.miscVisible = false;
     }
 //Show/Hide items in meat category
-    $scope.meatVisible = false;
+    $scope.meatVisible = true;
     $scope.showHideMeat = function () {
       $scope.meatVisible = $scope.meatVisible ? false: true;
     }
 //Show/Hide items in veg category
-    $scope.vegVisible = false;
+    $scope.vegVisible = true;
     $scope.showHideVeg = function () {
       $scope.vegVisible = $scope.vegVisible ? false: true;
     }
 //Show/Hide items in fruit category
-    $scope.fruitVisible = false;
+    $scope.fruitVisible = true;
     $scope.showHideFruit = function () {
       $scope.fruitVisible = $scope.fruitVisible ? false: true;
     }
 //Show/Hide items in carb category
-    $scope.carbVisible = false;
+    $scope.carbVisible = true;
     $scope.showHideCarb = function () {
       $scope.carbVisible = $scope.carbVisible ? false: true;
     }
 //Show/Hide items in dessert category
-    $scope.dessertVisible = false;
+    $scope.dessertVisible = true;
     $scope.showHideDessert = function () {
       $scope.dessertVisible = $scope.dessertVisible ? false: true;
     }
 //Show/Hide items in condiments category
-    $scope.condVisible = false;
+    $scope.condVisible = true;
     $scope.showHideCond = function () {
       $scope.condVisible = $scope.condVisible ? false: true;
     }
 //Show/Hide items in beverages category
-    $scope.bevVisible = false;
+    $scope.bevVisible = true;
     $scope.showHideBev = function () {
       $scope.bevVisible = $scope.bevVisible ? false: true;
     }
 //Show/Hide items in Misc. category
-    $scope.miscVisible = false;
+    $scope.miscVisible = true;
     $scope.showHideMisc = function () {
       $scope.miscVisible = $scope.miscVisible ? false: true;
 
