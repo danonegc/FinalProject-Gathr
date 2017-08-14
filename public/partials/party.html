@@ -87,13 +87,16 @@
     </div>
 
 <!-- filter item status -->
-    <div class="col-xs-9 scroll-containter" >
+    <div class="col-xs-6 scroll-containter" >
       Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
       </select>
 
 <!-- directive made to repeat through item categories and contains directive to repeat each item in catagory -->
       <item-list></item-list>
     </div>
+<!-- List of all people invited to party and their attendance status -->
+    <div class="col-xs-3 scroll-containter">
+      <invited-list></invited-list>
 
   </div>
 </div>
