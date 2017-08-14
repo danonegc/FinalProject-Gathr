@@ -3,7 +3,7 @@ app.factory('gathrFactory', function($http, $location){
 
   var addUsername = null;
   var showSelectedItemsModal = [];
-  
+
 //array used to pull JSON database: contains all items in our database
   var itemList = [];
 
@@ -119,9 +119,7 @@ app.factory('gathrFactory', function($http, $location){
     var buttonStatus = false;
     if (selectedItems.length > 0){
       buttonStatus = true;
-    } else {
-      buttonStatus = false;
-    }
+    };
     return buttonStatus; // true or false
   };
 
@@ -182,7 +180,6 @@ app.factory('gathrFactory', function($http, $location){
   };
 
 // login validation functionality
-
 function checkLogin(userInfo) {
   var p = new Promise(function(resolve, reject) {
     for (var i=0; i<partyDetails.length; i++) {
@@ -197,39 +194,5 @@ function checkLogin(userInfo) {
       return p;
     });
   };
-
- // var userList = [
- //      {
- //        username: 'grantchirpus',
- //        password: 'greatPassword',
- //        name: 'Grant Chirpus',
- //        email: 'grantChirpus@gmail.com',
- //        img: '/images/grantchirpus.png',
- //        location: 'Detroit, MI',
- //        phone: '313-867-5309',
- //        partyname:'Grand Circus Demo Day'
- //      }
- //    ];
- //    var p = new Promise(function(resolve, reject) {
- //      for(var i = 0; i < userList.length; i++) {
- //        if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
- //          resolve(userList[i]);
- //          break;
- //        };
- //      };
- //    });
- //    p.then(function(user) {
- //      userObj = user;
- //    });
- //    $location.path('/party');
- //    return p;
- //  };
-
-// // login data
-//   function getProfile() {
-//     return userObj;
-//   };
-
-
 
 });
