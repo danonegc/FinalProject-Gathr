@@ -26,8 +26,16 @@ app.directive('itemByCategory', function() {
 
 app.directive('showProfileDetail', function() {
   return {
-    restrict: 'E',
     replace: false,
-    templateUrl: "../partials/party-details.html"
+    restrict: 'E',
+    templateUrl: "partials/party-details.html"
+  };
+});
+
+app.directive('guestList', function() {
+  return {
+    replace: false,
+    restrict: 'E',
+    templateUrl: "partials/guestListTemplate.html"
   };
 });

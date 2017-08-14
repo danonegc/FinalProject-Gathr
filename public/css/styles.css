@@ -273,3 +273,23 @@ a:hover {
     opacity: .5;
 }*/
 /*Styling for Checkbox on party page*/
+
+/*Styling for Users List on Party Page*/
+.glyphicon.glyphicon-attending:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: green;
+}
+
+.glyphicon.glyphicon-not-attending:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: red;
+}
+
+.glyphicon.glyphicon-undecided:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: yellow;
+}
+/*Styling for Users List on Party Page*/
