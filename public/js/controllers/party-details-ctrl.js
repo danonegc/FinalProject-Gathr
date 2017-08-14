@@ -1,17 +1,9 @@
 var app = angular.module('gathrApp');
 
-app.controller('party-details-ctrl', function($scope, gathrFactory, $interval) {
-
-  console.log($interval);
-
-    // $interval(function(){
-    //   console.log($window.document.body.offsetWidth);
-    // }, 1000);
-
+app.controller('party-details-ctrl', function($scope, gathrFactory) {
 
 // update current username data
     $scope.currentUser = gathrFactory.currentUser();
-
 
 // commmit selected items and update to scope using promise
     $scope.saveItem = function() {
@@ -37,6 +29,7 @@ app.controller('party-details-ctrl', function($scope, gathrFactory, $interval) {
 // Upon click selected item data equal value
     $scope.change = function(value){
       gathrFactory.selectUpdate(value);
+
 // Select Items Button toggle
       $scope.showButton = gathrFactory.showButton();
       $scope.selectedItemsList = gathrFactory.getSelectedItems();
@@ -48,7 +41,7 @@ app.controller('party-details-ctrl', function($scope, gathrFactory, $interval) {
 // get data from data dase and update to scope using promise
   $scope.displayItems = gathrFactory.getList().then(function(response) {
     $scope.data = gathrFactory.returnList();
-  });
+  })
 
 //Update View when Adding new Item to Category
     $scope.addItemtoCategory = function(newItem, category) {
@@ -67,7 +60,7 @@ app.controller('party-details-ctrl', function($scope, gathrFactory, $interval) {
       $scope.condVisible = true;
       $scope.bevVisible = true;
       $scope.miscVisible = true;
-    };
+    }
 //Hide items in ALL categories
     $scope.clearItems = function () {
       $scope.meatVisible = false;
@@ -78,47 +71,48 @@ app.controller('party-details-ctrl', function($scope, gathrFactory, $interval) {
       $scope.condVisible = false;
       $scope.bevVisible = false;
       $scope.miscVisible = false;
-    };
+    }
 //Show/Hide items in meat category
-    $scope.meatVisible = false;
+    $scope.meatVisible = true;
     $scope.showHideMeat = function () {
       $scope.meatVisible = $scope.meatVisible ? false: true;
-    };
+    }
 //Show/Hide items in veg category
-    $scope.vegVisible = false;
+    $scope.vegVisible = true;
     $scope.showHideVeg = function () {
       $scope.vegVisible = $scope.vegVisible ? false: true;
-    };
+    }
 //Show/Hide items in fruit category
-    $scope.fruitVisible = false;
+    $scope.fruitVisible = true;
     $scope.showHideFruit = function () {
       $scope.fruitVisible = $scope.fruitVisible ? false: true;
-    };
+    }
 //Show/Hide items in carb category
-    $scope.carbVisible = false;
+    $scope.carbVisible = true;
     $scope.showHideCarb = function () {
       $scope.carbVisible = $scope.carbVisible ? false: true;
-    };
+    }
 //Show/Hide items in dessert category
-    $scope.dessertVisible = false;
+    $scope.dessertVisible = true;
     $scope.showHideDessert = function () {
       $scope.dessertVisible = $scope.dessertVisible ? false: true;
-    };
+    }
 //Show/Hide items in condiments category
-    $scope.condVisible = false;
+    $scope.condVisible = true;
     $scope.showHideCond = function () {
       $scope.condVisible = $scope.condVisible ? false: true;
-    };
+    }
 //Show/Hide items in beverages category
-    $scope.bevVisible = false;
+    $scope.bevVisible = true;
     $scope.showHideBev = function () {
       $scope.bevVisible = $scope.bevVisible ? false: true;
-    };
+    }
 //Show/Hide items in Misc. category
-    $scope.miscVisible = false;
+    $scope.miscVisible = true;
     $scope.showHideMisc = function () {
       $scope.miscVisible = $scope.miscVisible ? false: true;
-    };
+
+    }
 
 //closure for app.controller
 });

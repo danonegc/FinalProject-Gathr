@@ -1,7 +1,7 @@
 <!-- directive template used to repeat items in category -->
 <div class="row">
   <div class="col-xs-12" ng-repeat="value in data | orderBy: 'item' | filter: item.category | filter: myOptions" ng-init="innerIndex = $index">
-    <div ng-click="change(value)" ng-style="value.style">
+    <div ng-click="change(value)">
       {{value.item }} {{value.status}} <img ng-if="value.status === 'unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
       <span ng-if="value.status === 'committed'">{{value.username}} Qty: {{value.quantity}}<a ng-click="uncommit(value)">X</a></span>
     </div>
