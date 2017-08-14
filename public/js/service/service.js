@@ -28,7 +28,7 @@ app.factory('gathrFactory', function($http, $location){
       {'category': 'desserts', 'isVisible': 'dessertVisible', 'img': 'http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg' },
       {'category': 'condiments', 'isVisible': 'condVisible', 'img': 'https://image.flaticon.com/icons/png/512/168/168323.png' },
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
-      {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
+      {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }],
     'invited': [
       {'name':'Elyse', 'attending':'attending'},
       {'name':'Danone', 'attending':'attending'},
@@ -68,13 +68,8 @@ app.factory('gathrFactory', function($http, $location){
     returnData: returnData, // return hardcoded data for party details and category calaspe toggle
     currentUser: currentUser, // returns current user for commit
     checkLogin: checkLogin, // login validation
-<<<<<<< HEAD
-    // getProfile: getProfile,  // login data
-=======
-    getProfile: getProfile,  // login data
     showButton: showButton,
     getSelectedItems: getSelectedItems,
->>>>>>> master
     uncommit: uncommit // uncommit item for current user
   };
 
@@ -222,39 +217,5 @@ function checkLogin(userInfo) {
       return p;
     });
   };
-
- // var userList = [
- //      {
- //        username: 'grantchirpus',
- //        password: 'greatPassword',
- //        name: 'Grant Chirpus',
- //        email: 'grantChirpus@gmail.com',
- //        img: '/images/grantchirpus.png',
- //        location: 'Detroit, MI',
- //        phone: '313-867-5309',
- //        partyname:'Grand Circus Demo Day'
- //      }
- //    ];
- //    var p = new Promise(function(resolve, reject) {
- //      for(var i = 0; i < userList.length; i++) {
- //        if(userInfo.username === userList[i].username && userInfo.password === userList[i].password) {
- //          resolve(userList[i]);
- //          break;
- //        };
- //      };
- //    });
- //    p.then(function(user) {
- //      userObj = user;
- //    });
- //    $location.path('/party');
- //    return p;
- //  };
-
-// // login data
-//   function getProfile() {
-//     return userObj;
-//   };
-
-
 
 });

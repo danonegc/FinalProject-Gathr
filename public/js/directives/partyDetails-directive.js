@@ -30,11 +30,12 @@ app.directive('showProfileDetail', function() {
     replace: false,
     templateUrl: "../partials/party-details.html"
   };
+});
 
-  app.directive('guestList', function () {
+app.directive('guestList', function() {
     return {
-      restrict: E,
+      restrict: 'E',
       replace: false,
       templateUrl: '../partials/guest-list-template.html'
     };
-  });
+});
