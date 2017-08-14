@@ -30,4 +30,11 @@ app.directive('showProfileDetail', function() {
     replace: false,
     templateUrl: "../partials/party-details.html"
   };
-});
+
+  app.directive('invitedList', function () {
+    return {
+      restrict: E,
+      replace: false,
+      templateUrl: 'attending-template.html'
+    };
+  });

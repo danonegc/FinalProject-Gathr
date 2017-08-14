@@ -209,3 +209,22 @@ a:hover {
   overflow: scroll;
   max-height: 700px;
 }
+
+/*custom glyphicons*/
+.glyphicon.glyphicon-attending:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: green;
+}
+
+.glyphicon.glyphicon-not-attending:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: red;
+}
+
+.glyphicon.glyphicon-undecided:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: yellow;
+}

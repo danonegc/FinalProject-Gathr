@@ -29,7 +29,29 @@ app.factory('gathrFactory', function($http, $location){
       {'category': 'condiments', 'isVisible': 'condVisible', 'img': 'https://image.flaticon.com/icons/png/512/168/168323.png' },
       {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
       {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'https://image.flaticon.com/icons/png/512/194/194366.png' }]
-    };
+    'invited': [
+      {'name':'Elyse', 'attending':'attending'},
+      {'name':'Danone', 'attending':'attending'},
+      {'name':'Reid', 'attending':'attending'},
+      {'name':'Phil', 'attending':'attending'},
+      {'name':'Stephanie', 'attending':'attending'},
+      {'name': 'Desmond', 'attending':'attending'},
+      {'name':'Kevin', 'attending':'attending'},
+      {'name':'John', 'attending':'attending'},
+      {'name':'Mike E.', 'attending':'attending'},
+      {'name':'Mike M.', 'attending':'attending'},
+      {'name':'Segi', 'attending':'attending'},
+      {'name':'Emily', 'attending':'attending'},
+      {'name':'Matt', 'attending':'attending'},
+      {'name':'Dan', 'attending':'attending'},
+      {'name':'Jefferson', 'attending':'attending'},
+      {'name':'Chris', 'attending':'attending'},
+      {'name':'Jeremy', 'attending':'attending'},
+      {'name':'Adam', 'attending':'undecided'},
+      {'name':'Yasmine', 'attending':'attending'},
+      {'name':'J.C.', 'attending':'attending'}
+    ]
+   };
 
     var committedItem = {status: 'committed', username:'grantchirpus'};
     var uncommittedItem = {status: 'unfulfilled', username: null}
