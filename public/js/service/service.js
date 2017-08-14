@@ -9,7 +9,7 @@ app.factory('gathrFactory', function($http, $location){
 
 //used for party details and and repeating categories through item-list custom directive
   var partyDetails = {
-    'partyId': 'gc123',
+    'partyId': 'gc1234',
     'partyName': 'Grand Circus Demo Day',
     'host': {
       'fName': 'Grant',
