@@ -107,15 +107,21 @@
           </div>
         </div>
       <!-- filter item status -->
-      <div class="col-xs-9 scroll-containter" >
+      <div class="col-xs-6 scroll-containter" >
         Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
         </select>
 
         <!-- directive made to repeat through item categories and contains directive to repeat each item in catagory -->
         <item-list></item-list>
       </div>
+        <div class="col-xs-3">
+          <guest-list></guest-list>
+        </div>
 <!-- end of category nav panel to left -->
       </div>
+
+
+
     </div>
 
 
