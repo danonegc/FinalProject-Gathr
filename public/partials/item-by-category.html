@@ -1,6 +1,33 @@
 <!-- directive template used to repeat items in category -->
 <div class="row">
-  <div class="col-xs-12" ng-repeat="value in data | orderBy: 'item' | filter: item.category | filter: myOptions" ng-init="innerIndex = $index">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><h3>Category</h3></th>
+        <!-- <th><h3>Item</h3></th>
+        <th><h3>Quantity</h3></th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="value in data | orderBy: 'item' | filter: item.category | filter: myOptions" ng-init="innerIndex = $index">
+        <td>
+          <div ng-click="change(value)" class="checkbox">
+          <label>
+            <span ng-if="value.status === 'selected'" class="cr"><i  class="cr-icon glyphicon glyphicon-ok"></i></span>
+            <span ng-if="value.status === 'unfulfilled'" class="cr"></span>
+          </label>
+        </div>
+      </td>
+        <td>{{value.item}}</td>
+        <td><span ng-if="value.status === 'committed'">Committed To: {{value.username}}</span></td>
+        <td><span ng-if="value.status === 'committed'">Qty: {{value.quantity}}</span></td>
+        <td><span ng-if="value.status === 'committed'"><button type="button" class="close" ng-click="uncommit(value)" aria-label="Close"><span aria-hidden="true">&times;</span></button></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- <div class="col-xs-12" ng-repeat="value in data | orderBy: 'item' | filter: item.category | filter: myOptions" ng-init="innerIndex = $index">
     <div ng-click="change(value)" class="checkbox">
       {{value.item}}
       <label>
@@ -9,7 +36,8 @@
       </label>
       <span ng-if="value.status === 'committed'">{{value.username}} Qty: {{value.quantity}}<a ng-click="uncommit(value)">X</a></span>
     </div>
-  </div>
+  </div> -->
+
 
 <!-- add item input repeated for each category to allow adding item to that category -->
   <!-- <div class="col-xs-12">

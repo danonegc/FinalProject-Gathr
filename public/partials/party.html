@@ -3,7 +3,10 @@
   <div class="row">
 
     <div class="col-xs-3">
-      <img class="gathr-g" src="images/gathrg.png" alt="gathr logo">
+      <a href="#!/login" class="logo-link custom-tooltip-wrapper">
+        <img class="gathr-g" src="images/gathrg.png" alt="gathr logo">
+      </a>
+        <div class="custom-tooltip">Back to homepage</div>
     </div>
 
     <div class="col-xs-9">
@@ -25,38 +28,65 @@
 <!-- all images for catagories -->
         <div class="row">
           <div class="col-xs-6">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Twemoji_1f357.svg/2000px-Twemoji_1f357.svg.png" class="img-icon" alt="Meat" ng-click="showHideMeat()">
+            <div class="custom-tooltip-wrapper" ng-click="showHideMeat()">
+              <img src="images/meat.png" class="img-icon" alt="Meat">
+            <div class="custom-tooltip">Protein</div>
+          </div>
           </div>
           <div class="col-xs-6">
-              <img src="https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-512.png" class="img-icon" alt="Veggie" ng-click="showHideVeg()">
+            <div class="custom-tooltip-wrapper" ng-click="showHideVeg()">
+              <img src="images/veg.png" class="img-icon" alt="Veggie">
+              <div class="custom-tooltip">Vegetables</div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideFruit()">
+            <img src="images/fruit.png" class="img-icon" alt="Fruit">
+            <div class="custom-tooltip">Fruit</div>
+          </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideCarb()">
+              <img src="images/carb.png" class="img-icon" alt="Carb">
+              <div class="custom-tooltip">Carbs</div>
+          </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6">
-            <img src="https://www.shareicon.net/download/2016/10/11/841503_food_512x512.png" class="img-icon" alt="Fruit" ng-click="showHideFruit()">
+            <div class="custom-tooltip-wrapper" ng-click="showHideDessert()">
+            <img src="images/icecream.svg" class="img-icon" alt="Dessert">
+            <div class="custom-tooltip">Dessert</div>
+          </div>
           </div>
           <div class="col-xs-6">
-              <img src="https://www.shareicon.net/download/2016/08/18/808791_food_512x512.png" class="img-icon" alt="Carb" ng-click="showHideCarb()">
+            <div class="custom-tooltip-wrapper" ng-click="showHideCond()">
+              <img src="images/cond.png" class="img-icon" alt="Condiment">
+              <div class="custom-tooltip">Condiments</div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6">
-            <img src="http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg" class="img-icon" alt="Dessert" ng-click="showHideDessert()">
-          </div>
-          <div class="col-xs-6">
-              <img src="https://image.flaticon.com/icons/png/512/168/168323.png" class="img-icon" alt="Condiment" ng-click="showHideCond()">
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6">
-            <img src="https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png" class="img-icon" alt="Beverage" ng-click="showHideBev()">
+            <div class="custom-tooltip-wrapper" ng-click="showHideBev()">
+            <img src="images/bev.png" class="img-icon" alt="Beverage">
+            <div class="custom-tooltip">Beverages</div>
+          </div>
           </div>
           <div class="col-xs-6">
-              <img src="http://www.iconsdb.com/icons/preview/guacamole-green/fork-xxl.png" class="img-icon" alt="Misc" ng-click="showHideMisc()">
+            <div class="custom-tooltip-wrapper" ng-click="showHideMisc()">
+              <img src="images/fork.png" class="img-icon" alt="Misc">
+              <div class="custom-tooltip">Misc.</div>
+          </div>
           </div>
           <div class="row">
             <div class="col-xs-12">
-              <img src="http://icon-icons.com/icons2/625/PNG/512/speech-bubbles_icon-icons.com_57392.png" class="sug-icon" alt="question" ng-click="showHideSug()">
+              <div class="custom-tooltip-wrapper" ng-click="showHideSug()">
+              <img src="images/sug.png" class="sug-icon" alt="question">
+              <div class="custom-tooltip">Suggest New Item</div>
+            </div>
             </div>
           </div>
         </div>
@@ -81,7 +111,6 @@
                     <label><h3>Name:</h3></label>
                     <input type="text" class="form-control" id="usr" ng-model="addUsername">
                   </div>
-                  <h2></h2>
                     <table class="table table-hover">
                       <thead>
                         <tr>
@@ -114,6 +143,7 @@
         <!-- directive made to repeat through item categories and contains directive to repeat each item in catagory -->
         <item-list></item-list>
       </div>
+        <h4>Guest List:</h4>
         <div class="col-xs-3">
           <guest-list></guest-list>
         </div>
