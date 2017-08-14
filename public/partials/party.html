@@ -56,7 +56,7 @@
           </div>
           <div class="row">
             <div class="col-xs-12">
-              <img src="http://www.freeiconspng.com/uploads/support-talk-blue-question-mark-icon-15.png" class="img-icon" alt="question" ng-click="showHideSug()">
+              <img src="http://icon-icons.com/icons2/625/PNG/512/speech-bubbles_icon-icons.com_57392.png" class="sug-icon" alt="question" ng-click="showHideSug()">
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h2 class="modal-title">Modal for commit items</h2>
+                  <h2 class="modal-title">Sign Up:</h2>
                 </div>
                 <div class="modal-body">
                   <div class="form-group">
@@ -120,6 +120,11 @@
 <!-- end of category nav panel to left -->
       </div>
 
+<!-- add item input repeated for each category to allow adding item to that category -->
+        <div class="col-xs-12">
+          <input class="item-input" type="text" placeholder="Add Item" ng-model="newItem" ng-submit="addItemtoCategory(newItem, item.category)"><button type="button" class="add-button" name="button" ng-click="addItemtoCategory(newItem, item.category)">ADD</button>
+          <img ng-if="value.val = 'Unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
+        </div>
 
 
     </div>
