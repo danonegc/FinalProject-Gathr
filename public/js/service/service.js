@@ -1,6 +1,9 @@
 var app = angular.module('gathrApp');
 app.factory('gathrFactory', function($http, $location){
 
+  var addUsername = null;
+  var showSelectedItemsModal = [];
+  
 //array used to pull JSON database: contains all items in our database
   var itemList = [];
 
@@ -31,8 +34,8 @@ app.factory('gathrFactory', function($http, $location){
       {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'http://www.iconsdb.com/icons/preview/guacamole-green/fork-xxl.png' }]
     };
 
-    var committedItem = {status: 'committed', username:'grantchirpus'};
-    var uncommittedItem = {status: 'unfulfilled', username: null}
+    var committedItem = {status: 'committed', username: 'grantchirpus'};
+    var uncommittedItem = {status: 'unfulfilled', username: null, quantity: null}
 
   return {
     getList: getList, //get JSON from database
@@ -45,11 +48,13 @@ app.factory('gathrFactory', function($http, $location){
     checkLogin: checkLogin, // login validation
     showButton: showButton,
     getSelectedItems: getSelectedItems,
+    addUser: addUser,
     uncommit: uncommit // uncommit item for current user
   };
 
 // current user used to commit item
   function currentUser(){
+    committedItem.username = addUsername;
     return committedItem.username;
   };
 
@@ -83,15 +88,18 @@ app.factory('gathrFactory', function($http, $location){
      return putItem(id, uncommittedItem);
   };
 
+  function addUser(username) {
+    addUsername = username;
+  };
 // commit selected items to be saved into the database
   function saveItem() {
-    var savedItems = [];
-    savedItems = selectedItems;
     selectedItems = [];
-    savedItems.forEach(function(id){
-      putItem(id, committedItem);
+    showSelectedItemsModal.forEach(function(e){
+      e.username = addUsername;
+      e.status = "committed";
+      putItem(e.id, e);
     });
-    return putItem(savedItems[savedItems.length-1], committedItem);
+    return putItem(showSelectedItemsModal[showSelectedItemsModal.length-1].id, showSelectedItemsModal[showSelectedItemsModal.length-1]);
   };
 
 // called to PUT item's' to be committed or uncommitted
@@ -106,10 +114,6 @@ app.factory('gathrFactory', function($http, $location){
     return p;
   };
 
-// return hardcoded data for party details and category calaspe toggle
-  function returnList() {
-    return itemList;
-  };
 
   function showButton() {
     var buttonStatus = false;
@@ -126,7 +130,6 @@ app.factory('gathrFactory', function($http, $location){
     var categoryInfo = partyDetails.items;
     var categoryIcon = null;
     categoryInfo.forEach(function(item){
-      console.log(item.img);
       if (categoryName === item.category) {
         categoryIcon = item.img;
       };
@@ -135,18 +138,16 @@ app.factory('gathrFactory', function($http, $location){
   };
 
   function getSelectedItems() {
-    var showSelectedItemsModal = [];
+    showSelectedItemsModal = [];
     var categoryIcon = [];
     selectedItems.forEach(function(id){
       itemList.forEach(function(obj){
           if (id === obj.id) {
             var imgSrc = categoryIconMatch(obj.category);
-            console.log(obj.category);
-            showSelectedItemsModal.push({item: obj.item, category: imgSrc, id: obj.id});
+            showSelectedItemsModal.push({item: obj.item, category: imgSrc, id: obj.id, quantity: obj.quantity});
           };
       });
     });
-    console.log(showSelectedItemsModal);
     return showSelectedItemsModal;
   };
 
@@ -175,6 +176,10 @@ app.factory('gathrFactory', function($http, $location){
     return partyDetails;
   };
 
+  // return hardcoded data for party details and category calaspe toggle
+  function returnList() {
+    return itemList;
+  };
 
 // login validation functionality
 

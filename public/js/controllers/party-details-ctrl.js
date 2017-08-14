@@ -5,10 +5,14 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
 // update current username data
     $scope.currentUser = gathrFactory.currentUser();
 
+
 // commmit selected items and update to scope using promise
     $scope.saveItem = function() {
+      var username = $scope.addUsername;
+      gathrFactory.addUser(username);
       gathrFactory.saveItem().then(function(){
           $scope.data = gathrFactory.returnList();
+          console.log($scope.data);
       });
     };
 
@@ -17,7 +21,7 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
       gathrFactory.uncommit(value).then(function(response) {
         $scope.data = gathrFactory.returnList();
       });
-    }
+    };
 
 // Drop down filter to sort status of items
     $scope.options = [{status: 'All', val: ""},{status: 'Committed', val: 'committed'},{status: 'Unfulfilled', val: 'unfulfilled'}];
