@@ -1,6 +1,6 @@
 var app = angular.module('gathrApp');
 
-app.controller('party-details-ctrl', function($scope, $location, gathrFactory, validationFactory) {
+app.controller('party-details-ctrl', function($scope, $location, gathrFactory, validationFactory, $interval, $window) {
 
   // console.log($window);
   // $interval(function () {
@@ -138,6 +138,27 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
       $scope.miscVisible = $scope.miscVisible ? false: true;
 
     }
+//slide show for mobile view
+$scope.touchDetailsValue = false;
+  $scope.touchDetails = function() {
+    $scope.touchDetailsValue = !$scope.touchDetailsValue;
+  };
+
+
+var below = false;
+var above = false;
+$interval(function () {
+  if ($window.innerWidth < 1024 && below === false) {
+    $scope.clearItems();
+    below = true;
+    above = false;
+  } else if ($window.innerWidth >= 1024 && above === false) {
+    $scope.showItems();
+    below = false;
+    above = true;
+  }
+}, 10);
+
 
 //closure for app.controller
 });
