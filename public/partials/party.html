@@ -22,13 +22,12 @@
         <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
 <!-- commit selected items into database using PUT -->
         <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
-        <button type="button" class="unselect-all" name="unselect-all" ng-click="unselectAllItems()">Unselect All</button>
         Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
         </select>
 
 
 <!-- Icons by Category Navaigation Bar   -->
-<div class="container">
+<div id="cat-icons" class="container">
   <div class="row">
     <div class="col-xs-3">
       <h4 class="icon-header">Items by Category</h4>
@@ -139,31 +138,27 @@
             </div>
           </div>
         </div>
-      <!-- filter item status -->
+<!-- filter item status -->
       <div class="col-xs-7 scroll-containter" >
-        <!-- directive made to repeat through item categories and contains directive to repeat each item in catagory -->
+<!-- directive made to repeat through item categories and contains directive to repeat each item in catagory -->
         <item-list></item-list>
       </div>
+<!-- Guest List -->
         <h4>Guest List:</h4>
         <div class="col-xs-2">
           <guest-list></guest-list>
         </div>
 <!-- end of category nav panel to left -->
-      </div>
-
-<!-- add item input repeated for each category to allow adding item to that category -->
-        <div class="col-xs-12">
-          <input class="item-input" type="text" placeholder="Add Item" ng-model="newItem" ng-submit="addItemtoCategory(newItem, item.category)"><button type="button" class="add-button" name="button" ng-click="addItemtoCategory(newItem, item.category)">ADD</button>
-          <img ng-if="value.val = 'Unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
-        </div>
-
-
-    </div>
-
-
-  </div>
 </div>
 
 
+<!-- add item input repeated for each category to allow adding item to that category -->
+        <!-- <div class="col-xs-12">
+          <input class="item-input" type="text" placeholder="Add Item" ng-model="newItem" ng-submit="addItemtoCategory(newItem, item.category)"><button type="button" class="add-button" name="button" ng-click="addItemtoCategory(newItem, item.category)">ADD</button>
+          <img ng-if="value.val = 'Unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
+        </div> -->
 
-<!-- add this button at the bottom of the Items by category when done with Bootstrap -->
+
+    </div>
+  </div>
+</div>

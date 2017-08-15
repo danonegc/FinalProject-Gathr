@@ -58,7 +58,7 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 // hard coded data for party details
   $scope.partyData = gathrFactory.returnData();
 
-// get data from data dase and update to scope using promise
+// get data from database and update to scope using promise
   $scope.displayItems = gathrFactory.getList().then(function(response) {
     $scope.data = gathrFactory.returnList();
   })

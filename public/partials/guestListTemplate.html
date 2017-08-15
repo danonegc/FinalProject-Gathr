@@ -1,7 +1,33 @@
 <!-- show all people invited to party and their attending status -->
+<!-- Desktop View -->
+<div class="desktop-guestList">
 <div class="row" ng-repeat="guest in partyData.invited | orderBy: 'name'">
   <div class="col-xs-12">
     <span class="glyphicon glyphicon-{{guest.attending}}"></span>
     <span id="guest-list">{{guest.name}}</span>
   </div>
+</div>
+</div>
+
+<!-- Mobile view guest list -->
+<div class="mobile-guestList">
+  <div class="row" ng-repeat="guest in partyData.invited | orderBy: 'name'">
+    <div class="col-xs-12">
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Guest List:</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+        <span class="glyphicon glyphicon-{{guest.attending}}"></span>
+        <span id="guest-list">{{guest.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </div>

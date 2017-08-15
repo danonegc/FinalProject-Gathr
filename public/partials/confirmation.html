@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h1>THANK YOU, {{checkedOutItems[0].username | uppercase}}!</h1>
@@ -13,4 +13,37 @@
       <a href="#!/login"><button class="button" type="button" name="button">Home</button></a>
     </div>
   </div>
-</div>
+</div> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="text-center">THANK YOU, {{checkedOutItems[0].username | uppercase}}!</h1>
+        <div class="row">
+        <div class="col-xs-12>">
+        <table class="table table-hover">
+          <div>
+          <h4 class="text-center">You are commited to bringing the following items:</h4>
+        </div>
+        <thead>
+          <tr>
+            <th><h3>Category</h3></th>
+            <th><h3>Item</h3></th>
+            <th><h3>Quantity</h3></th>
+          </tr>
+        </thead>
+      <tbody>
+        <!-- <tr ng-repeat="select in selectedItemsList" ng-init='index = $index'> -->
+          <td><img ng-src="{{item.img}}" class="baby-icon" alt=""></td>
+          <td>{{select.item}}</td>
+          <td>{{select.quantity}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="text-center">Can't wait to get To'Gathr ;)</h2>
+  </div>
+        <party-details></party-details>
+        </div>
+          </div>
+        </div>
+        </div>
