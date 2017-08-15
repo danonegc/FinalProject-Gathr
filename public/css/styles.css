@@ -445,14 +445,14 @@ Media Queries
  }
  /* Desktops and laptops ----------- */
  @media only screen and (min-width : 1024px) and (max-width : 1224px) {
-   .mobile-partyDetails, .mobile-guestList, .mobile-itemList {
+   .mobile-partyDetails, .mobile-guestList, .mobile-itemList, #mobile-partyPage {
      display: none;
    }
  }
 
  /* Large screens ----------- */
  @media only screen and (min-width : 1224px) {
-   .mobile-partyDetails, .mobile-guestList, .mobile-itemList {
+   .mobile-partyDetails, .mobile-guestList, .mobile-itemList, #mobile-partyPage {
      display: none;
    }
  }

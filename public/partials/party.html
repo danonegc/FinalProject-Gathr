@@ -1,11 +1,13 @@
 <!-- Party Page Mobile View -->
-<div class="container">
+<div id="mobile-partyPage" class="container">
 <div class="row">
   <div class="col-xs-12">
     <party-details-mobile class="mobile-partyDetails"></party-details-mobile>
     <guest-list-mobile class="mobile-guestList"></guest-list-mobile>
   </div>
 </div>
+<button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+<a href="#!/confirmation"><button class="checkout-button" type="button" name="button">CHECK OUT</button></a>
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
@@ -67,7 +69,7 @@
     </div>
 <!-- directive for party details -->
     <party-details class="desktop-partyDetails"></party-details>
-  </div>
+
 
 <!-- Checkout -->
 <a href="#!/confirmation"><button class="checkout-button" type="button" name="button">CHECK OUT</button></a>
@@ -79,6 +81,7 @@
         <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
         Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
         </select>
+</div>
 
 
 <!-- Icons by Category Navaigation Bar   -->
