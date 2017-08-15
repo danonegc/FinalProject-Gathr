@@ -38,7 +38,6 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
   function showUncommit(){
     checkoutItems.forEach(function(chkObj){
       chkObj.uncommit = "allow"
-      sel
     });
   };
 
