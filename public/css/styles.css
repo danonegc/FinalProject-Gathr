@@ -247,10 +247,9 @@ LOGO
 }
 
 #location-container {
-  border-left: 1px solid grey;
-  text-align: left;
-  margin: 0px 0px;
-  padding: 20px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px;
 }
 
 /*Party View Add Button/input Styling*/
@@ -448,7 +447,7 @@ Media Queries
 
  /* iPads (portrait and landscape) ----------- */
  @media only screen and (min-width : 768px) and (max-width : 1024px) {
-.desktop-partyDetails, .mobile-guestList {
+.mobile-partyDetails, .mobile-guestList {
   display: none;
 }
  }

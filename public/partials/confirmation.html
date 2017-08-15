@@ -6,7 +6,7 @@
       <h4>You are brining the following items:</h4>
       <div class="col-xs-12" ng-repeat="item in checkedOutItems | orderBy: 'item'" ng-init="innerIndex = $index">
         <div>
-          <img ng-src="{{item.img}}" alt="">  {{item.item }}  | Qty: {{item.quantity}}
+          {{item.item }}  | Qty: {{item.quantity}}
         </div>
       </div>
       <h1>Can't wait to get To'Gathr ;)</h1>
@@ -34,7 +34,7 @@
         </thead>
       <tbody>
         <tr ng-repeat="value in checkedOutItems | orderBy: 'item'" ng-init='index = $index'>
-          <td><img ng-src="{{value.img}}" class="baby-icon" alt=""></td>
+          <td><img ng-src="{{value.category}}" class="baby-icon" alt=""></td>
           <td>{{value.item}}</td>
           <td>{{value.quantity}}</td>
         </tr>
