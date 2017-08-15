@@ -1,5 +1,3 @@
-{{window}}
-
 <!-- Header: Logo & Event Details -->
 <div class="container">
   <div class="row">
@@ -11,7 +9,7 @@
         <div class="custom-tooltip">Back to homepage</div>
     </div>
 <!-- directive for party details -->
-      <party-details></party-details>
+    <party-details></party-details>
 
 
   </div>
@@ -25,6 +23,9 @@
 <!-- commit selected items into database using PUT -->
         <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
         <button type="button" class="unselect-all" name="unselect-all" ng-click="unselectAllItems()">Unselect All</button>
+        Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
+        </select>
+
 
 <!-- Icons by Category Navaigation Bar   -->
 <div class="container">
@@ -139,15 +140,12 @@
           </div>
         </div>
       <!-- filter item status -->
-      <div class="col-xs-6 scroll-containter" >
-        Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
-        </select>
-
+      <div class="col-xs-7 scroll-containter" >
         <!-- directive made to repeat through item categories and contains directive to repeat each item in catagory -->
         <item-list></item-list>
       </div>
         <h4>Guest List:</h4>
-        <div class="col-xs-3">
+        <div class="col-xs-2">
           <guest-list></guest-list>
         </div>
 <!-- end of category nav panel to left -->

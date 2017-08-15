@@ -2,6 +2,11 @@ var app = angular.module('gathrApp');
 
 app.controller('party-details-ctrl', function($scope, $location, gathrFactory, validationFactory) {
 
+  // console.log($window);
+  // $interval(function () {
+  //   $scope.windowWidth= $window.innerWidth
+  // }, 100);
+
   $scope.selectedItems = function(){
     validationFactory.selectedItemsGet();
   };
@@ -86,41 +91,49 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 //Show/Hide items in meat category
     $scope.meatVisible = true;
     $scope.showHideMeat = function () {
+      $scope.clearItems();
       $scope.meatVisible = $scope.meatVisible ? false: true;
     }
 //Show/Hide items in veg category
     $scope.vegVisible = true;
     $scope.showHideVeg = function () {
+      $scope.clearItems();
       $scope.vegVisible = $scope.vegVisible ? false: true;
     }
 //Show/Hide items in fruit category
     $scope.fruitVisible = true;
     $scope.showHideFruit = function () {
+      $scope.clearItems();
       $scope.fruitVisible = $scope.fruitVisible ? false: true;
     }
 //Show/Hide items in carb category
     $scope.carbVisible = true;
     $scope.showHideCarb = function () {
+      $scope.clearItems();
       $scope.carbVisible = $scope.carbVisible ? false: true;
     }
 //Show/Hide items in dessert category
     $scope.dessertVisible = true;
     $scope.showHideDessert = function () {
+      $scope.clearItems();
       $scope.dessertVisible = $scope.dessertVisible ? false: true;
     }
 //Show/Hide items in condiments category
     $scope.condVisible = true;
     $scope.showHideCond = function () {
+      $scope.clearItems();
       $scope.condVisible = $scope.condVisible ? false: true;
     }
 //Show/Hide items in beverages category
     $scope.bevVisible = true;
     $scope.showHideBev = function () {
+      $scope.clearItems();
       $scope.bevVisible = $scope.bevVisible ? false: true;
     }
 //Show/Hide items in Misc. category
     $scope.miscVisible = true;
     $scope.showHideMisc = function () {
+      $scope.clearItems();
       $scope.miscVisible = $scope.miscVisible ? false: true;
 
     }
