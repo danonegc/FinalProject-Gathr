@@ -1,0 +1,169 @@
+<!-- Header: Logo & Event Details -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-3">
+      <a href="#!/login" class="logo-link custom-tooltip-wrapper">
+        <img class="gathr-g" src="images/gathrg.png" alt="gathr logo">
+      </a>
+        <div class="custom-tooltip">Back to homepage</div>
+    </div>
+<!-- directive for party details -->
+    <party-details></party-details>
+
+
+  </div>
+
+<!-- Checkout -->
+<a href="#!/confirmation"><button class="button" type="button" name="button">CHECK OUT</button></a>
+<!-- toggle collaspe add catagories to view -->
+        <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
+<!-- toggle collaspe clear catagories from view -->
+        <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
+<!-- commit selected items into database using PUT -->
+        <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+        <button type="button" class="unselect-all" name="unselect-all" ng-click="unselectAllItems()">Unselect All</button>
+        Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
+        </select>
+
+
+<!-- Icons by Category Navaigation Bar   -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <h4 class="icon-header">Items by Category</h4>
+
+<!-- all images for catagories -->
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideMeat()">
+              <img src="images/meat.png" class="img-icon" alt="Meat">
+            <div class="custom-tooltip">Protein</div>
+          </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideVeg()">
+              <img src="images/veg.png" class="img-icon" alt="Veggie">
+              <div class="custom-tooltip">Vegetables</div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideFruit()">
+            <img src="images/fruit.png" class="img-icon" alt="Fruit">
+            <div class="custom-tooltip">Fruit</div>
+          </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideCarb()">
+              <img src="images/carb.png" class="img-icon" alt="Carb">
+              <div class="custom-tooltip">Carbs</div>
+          </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideDessert()">
+            <img src="images/icecream.svg" class="img-icon" alt="Dessert">
+            <div class="custom-tooltip">Dessert</div>
+          </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideCond()">
+              <img src="images/cond.png" class="img-icon" alt="Condiment">
+              <div class="custom-tooltip">Condiments</div>
+          </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideBev()">
+            <img src="images/bev.png" class="img-icon" alt="Beverage">
+            <div class="custom-tooltip">Beverages</div>
+          </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="custom-tooltip-wrapper" ng-click="showHideMisc()">
+              <img src="images/fork.png" class="img-icon" alt="Misc">
+              <div class="custom-tooltip">Misc.</div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="custom-tooltip-wrapper" ng-click="showHideSug()">
+              <img src="images/sug.png" class="sug-icon" alt="question">
+              <div class="custom-tooltip">Suggest New Item</div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Modal for Save Item -->
+          <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h2 class="modal-title">Sign Up:</h2>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label><h3>Name:</h3></label>
+                    <input type="text" class="form-control" id="user" placeholder="Enter your name" ng-change="nameValid(addUsername)"ng-model="addUsername">
+                    <!-- <p ng-model="nameValidation"></p> -->
+                  </div>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th><h3>Category</h3></th>
+                          <th><h3>Item</h3></th>
+                          <th><h3>Quantity</h3></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="select in selectedItemsList" ng-init='index = $index'>
+                          <td><img ng-src="{{select.category}}" class="baby-icon" alt=""></td>
+                          <td>{{select.item}}</td>
+                          <td><input type="number" class="form-control" ng-change="qtyValid(select, index)" placeholder="Quantity" ng-model="select.quantity"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" title="Enter Name and Quantity before proceeding" ng-disabled="validation === true" ng-click="saveItem(true, addUsername)" data-dismiss="modal">Save, and Receive Confirmation</button>
+                  <button type="button" class="btn btn-default" title="Enter Name and Quantity before proceeding" ng-disabled="validation === true" ng-click="saveItem(false, addUsername)" data-dismiss="modal">Save, Continue Looking</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- filter item status -->
+      <div class="col-xs-7 scroll-containter" >
+        <!-- directive made to repeat through item categories and contains directive to repeat each item in catagory -->
+        <item-list></item-list>
+      </div>
+        <h4>Guest List:</h4>
+        <div class="col-xs-2">
+          <guest-list></guest-list>
+        </div>
+<!-- end of category nav panel to left -->
+      </div>
+
+<!-- add item input repeated for each category to allow adding item to that category -->
+        <div class="col-xs-12">
+          <input class="item-input" type="text" placeholder="Add Item" ng-model="newItem" ng-submit="addItemtoCategory(newItem, item.category)"><button type="button" class="add-button" name="button" ng-click="addItemtoCategory(newItem, item.category)">ADD</button>
+          <img ng-if="value.val = 'Unfulfilled'" src="https://image.flaticon.com/icons/svg/23/23220.svg" style="width: 15px; float: right;" alt="">
+        </div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<!-- add this button at the bottom of the Items by category when done with Bootstrap -->

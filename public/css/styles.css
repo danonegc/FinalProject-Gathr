@@ -1,0 +1,413 @@
+body {
+  font-family: 'Varela Round', sans-serif;
+  background-color: #e8f7f5;
+}
+
+ /*
+LOG IN
+ */
+
+.container-fluid {
+  background-color: #00DFE9;
+  border-radius: 300px;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 3px 3px #00bec6;
+  color: white;
+  padding: 20px 10px 60px 10px;
+  margin-top: 100px;
+  width: 50%;
+  border: 10px solid #FFF994;
+  margin-bottom: 150px;
+}
+.login-input {
+  border-radius: 20px;
+  width: 70%;
+  padding: 10px;
+  border: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: black;
+  font-size: 24px;
+}
+
+.login-text {
+  margin-top: 10px;
+}
+.login-a {
+  color: blue;
+}
+.login-a:hover {
+  color: #FFF994;
+  text-shadow: none;
+}
+#hintModal {
+  color: black;
+  text-shadow: none;
+}
+
+/*
+LOGO
+*/
+.gathr-g {
+  padding: 10px;
+  margin-left: 60px;
+  width: 60%;
+}
+.gathr-logo {
+  margin-left: 25%;
+  padding-top: 100px;
+  padding-bottom: 300px;
+  width: 50%;
+  text-align: center;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .gathr-logo {
+    margin-left: 9%;
+    padding-top: 185px;
+    padding-bottom: 300px;
+    width: 83%;
+    text-align: center;
+  }
+  .container-fluid {
+    height: 200px;
+    width: 300px;
+  }
+  .login-input {
+    width: 70px;
+    font-size: 14px;
+  }
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .gathr-logo {
+    margin-left: 6%;
+    padding-top: 200px;
+    padding-bottom: 300px;
+    width: 90%;
+    text-align: center;
+  }
+}
+
+}
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+  .gathr-logo {
+    margin-left: 25%;
+    padding-top: 100px;
+    padding-bottom: 300px;
+    width: 50%;
+    text-align: center;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+  .gathr-logo {
+    margin-left: 25%;
+    padding-top: 100px;
+    padding-bottom: 300px;
+    width: 50%;
+    text-align: center;
+  }
+  .container-fluid {
+    height: 200px;
+    width: 300px;
+  }
+}
+
+
+/*Styling for Party Icons Div*/
+.img-icon {
+  width: 100%;
+  padding: 5px;
+}
+.sug-icon {
+  width: 50%;
+  padding: 5px;
+}
+.icon-header {
+  text-align: center;
+}
+/*Button Styling*/
+.show-all , .clear-all, .save, .button, .unselect-all {
+  text-align: center;
+	margin: 10px auto;
+	display: inline-block;
+	width: 175px;
+	cursor:pointer;
+	font-size: 25px;
+	color: #F0F0F0;
+	border-radius: 10px;
+	border-bottom: 4px solid #0045A6;
+	box-shadow: 6px 6px 6px #999;
+	background: -webkit-linear-gradient(#00C8F8, #0067F7);
+  background: -o-linear-gradient(#00C8F8, #0067F7);
+  background: -moz-linear-gradient(#00C8F8, #0067F7);
+  background: linear-gradient(#00C8F8, #0067F7);
+	background-size:1px 200px;
+	transition: all .05s linear;
+}
+.show-all:hover , .clear-all:hover, .save:hover, .button:hover, .unselect-all:hover {
+  background-position:100px;
+}
+.show-all:active , .clear-all:active , .save:active, .button:active, .unselect-all:active {
+  box-shadow: 2px 2px 2px #777;
+  border-bottom: 1px solid #0045A6;
+  transform: translateY(3px);
+}
+.img-icon:active, .sug-icon:active {
+  transform: translateY(8px);
+}
+.baby-icon {
+  height: 60px;
+  padding: 10px;
+}
+/*Styling for Party Icons Div*/
+
+/*Styling for Party Details Directive*/
+  /*Date*/
+#date-container {
+  font-size: 1em; /* change icon size */
+  display: block;
+  position: relative;
+  width: 7em;
+  height: 7em;
+  background-color: #fff;
+  margin: 2em auto;
+  border-radius: 0.6em;
+  box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotate(0deg) skewY(0deg);
+  -webkit-transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
+}
+#date-container {
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+#date-day {
+  position: absolute;
+  bottom: 0.3em;
+  color: #fd9f1b;
+}
+
+#date-month {
+  position: absolute;
+  top: 0;
+  padding: 0.4em 0;
+  color: #fff;
+  background-color: #fd9f1b;
+  border-bottom: 1px dashed #f37302;
+  box-shadow: 0 2px 0 #fd9f1b;
+}
+#date-date {
+  width: 100%;
+  font-size: 2.8em;
+  letter-spacing: -0.05em;
+  padding-top: 0.8em;
+  color: #2f2f2f;
+}
+#date-container:hover , #date-container:focus {
+  -webkit-animation: swing 0.6s ease-out;
+  animation: swing 0.6s ease-out;
+}
+@-webkit-keyframes swing {
+  0%   { -webkit-transform: rotate(0deg)  skewY(0deg); }
+  20%  { -webkit-transform: rotate(12deg) skewY(4deg); }
+  60%  { -webkit-transform: rotate(-9deg) skewY(-3deg); }
+  80%  { -webkit-transform: rotate(6deg)  skewY(-2deg); }
+  100% { -webkit-transform: rotate(0deg)  skewY(0deg); }
+}
+
+@keyframes swing {
+  0%   { transform: rotate(0deg)  skewY(0deg); }
+  20%  { transform: rotate(12deg) skewY(4deg); }
+  60%  { transform: rotate(-9deg) skewY(-3deg); }
+  80%  { transform: rotate(6deg)  skewY(-2deg); }
+  100% { transform: rotate(0deg)  skewY(0deg); }
+}
+  /*Date*/
+.eventName {
+    color: grey;
+    font-size: 32px;
+    text-align: left;
+}
+#time-container, #time1, #time2, #time3 {
+  text-align: center;
+  margin: 0 auto;
+}
+#time-container {
+  padding: 30px;
+  width: 144px;
+}
+
+#location-container {
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/*Party View Add Button/input Styling*/
+.add-button {
+  border-radius: 10px;
+}
+.item-input {
+  border-radius: 10px;
+}
+/*Profile View Styling*/
+.user-data {
+  text-align: center;
+  margin: 0 auto;
+}
+#user-img {
+  width: 10%;
+}
+.scroll-containter {
+  overflow: scroll;
+  max-height: 700px;
+}
+/*Styling for Checkbox on party page*/
+.checkbox label:after,
+.radio label:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.checkbox .cr,
+.radio .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    float: left;
+    margin-right: .5em;
+}
+
+.radio .cr {
+    border-radius: 50%;
+}
+
+.checkbox .cr .cr-icon,
+.radio .cr .cr-icon {
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%;
+}
+
+.radio .cr .cr-icon {
+    margin-left: 0.04em;
+}
+
+.checkbox label input[type="checkbox"],
+.radio label input[type="radio"] {
+    display: none;
+}
+
+.checkbox label input[type="checkbox"] + .cr > .cr-icon,
+.radio label input[type="radio"] + .cr > .cr-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
+.radio label input[type="radio"]:checked + .cr > .cr-icon {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+}
+
+.checkbox label input[type="checkbox"]:disabled + .cr,
+.radio label input[type="radio"]:disabled + .cr {
+    opacity: .5;
+}
+.close {
+  color: red;
+}
+.close:hover {
+  color: darkred;
+}
+/*Styling for Checkbox on party page*/
+
+/*Styling for Users List on Party Page*/
+.glyphicon.glyphicon-attending:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: green;
+}
+
+.glyphicon.glyphicon-not-attending:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: red;
+}
+
+.glyphicon.glyphicon-undecided:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: yellow;
+}
+.glyphicon-ok {
+  color: green;
+}
+/*Styling for Users List on Party Page*/
+
+
+/*Tooltips*/
+.custom-tooltip {
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    z-index: 200;
+    padding: 10px 5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    /*box-shadow: 0px 3px 14px 0px rgba(0,0,0,0.75);*/
+}
+.custom-tooltip:before{
+    content: '';
+    background-color: white;
+    width: 14px;
+    z-index: -1;
+    height: 14px;
+    position: absolute;
+    left: 50%;
+    top: -5px;
+    transform: translateX(-50%) rotate(45deg);
+    opacity: 0.8;
+}
+.custom-tooltip-wrapper:hover .custom-tooltip{display: block; color: black;}
+.custom-tooltip-wrapper{position: relative;}
+/*Tooltips*/
+
+/*Guest List*/
+#guest-list {
+  font-family: 'Varela Round', sans-serif;
+}
+
+
+
+
+
+
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
