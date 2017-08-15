@@ -1,27 +1,25 @@
 <!-- directive template used to repeat items in category -->
 <div class="row">
-  <table class="table table-hover">
+  <table id="items-table" class="table table-hover">
     <thead>
-      <tr>
-        <th><h3>Category</h3></th>
-        <!-- <th><h3>Item</h3></th>
-        <th><h3>Quantity</h3></th> -->
+      <tr class="table-header">
+        <th><img class="baby-icon" ng-src="{{item.img}}"></th>
+        <th><span id="table-cat">{{item.category}}</span></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="value in data | orderBy: 'item' | filter: item.category | filter: myOptions" ng-init="innerIndex = $index">
-        <td>
+        <td class="checkbox-name">
           <div ng-click="change(value)" class="checkbox">
-          <label>
             <span ng-if="value.status === 'selected'" class="cr"><i  class="cr-icon glyphicon glyphicon-ok"></i></span>
             <span ng-if="value.status === 'unfulfilled'" class="cr"></span>
-          </label>
-        </div>
-      </td>
-        <td>{{value.item}}</td>
-        <td><span ng-if="value.status === 'committed'">Committed To: {{value.username}}</span></td>
-        <td><span ng-if="value.status === 'committed'">Qty: {{value.quantity}}</span></td>
-        <td><span ng-if="value.status === 'committed'"><button type="button" class="close" ng-click="uncommit(value)" aria-label="Close"><span aria-hidden="true">&times;</span></button></span></td>
+          <span ng-if="value.status === 'committed'">{{value.username}}</span>
+          </div>
+        </td>
+        </td>
+        <td>{{value.item}}<span ng-if="value.status === 'committed'"> x {{value.quantity}}</span> <span ng-if="value.status === 'committed'"><button type="button" class="close" ng-click="uncommit(value)" aria-label="Close"><span aria-hidden="true">&times;</span></button></span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

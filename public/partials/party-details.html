@@ -1,6 +1,5 @@
-
-
-  <div class="col-xs-9">
+<div class="desktop-partyDetails">
+<div class="col-xs-9">
     <div class="row">
       <div class="col-xs-8">
         <span class="eventName">{{ partyData.partyName }}</span>
@@ -57,3 +56,69 @@
     </div>
   </div>
     </div>
+  </div>
+
+
+<!-- Party Details Mobile View -->
+<!-- <div class="mobile-partyDetails">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>{{ partyData.partyName }}</p>
+        <p class="host"><a data-toggle="modal" data-target="#hostContact">Host: {{ partyData.host.fName }} {{ partyData.host.lName }}</a></p>
+        <p>Date: {{ partyData.date.month }}, {{ partyData.date.day }}, {{ partyData.date.date }}th</p>
+        <p>Time: {{ partyData.time.start }} to {{ partyData.time.end }}</p>
+        <p>Address: {{ partyData.location }}</p> -->
+
+        <!-- Modal -->
+        <!-- <div class="modal fade" id="hostContact" role="dialog">
+          <div class="modal-dialog"> -->
+            <!-- Modal content-->
+            <!-- <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Contact Information:</h4>
+              </div>
+              <div class="modal-body">
+                <p>Name: {{partyData.host.fName}} {{partyData.host.lName}}</p>
+                <p>Phone: {{partyData.host.phone}}</p>
+                <p>Email: {{partyData.host.email}}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="mobile-partyDetails">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">{{ partyData.partyName }}</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p class="host"><a data-toggle="modal" data-target="#hostContact">Host: {{ partyData.host.fName }} {{ partyData.host.lName }}</a></p>
+        <p>Date: {{ partyData.date.month }}, {{ partyData.date.day }}, {{ partyData.date.date }}th</p>
+        <p>Time: {{ partyData.time.start }} to {{ partyData.time.end }}</p>
+        <p>Address: {{ partyData.location }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Party Details Mobile View -->

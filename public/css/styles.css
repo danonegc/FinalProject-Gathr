@@ -75,10 +75,6 @@ LOGO
     height: 200px;
     width: 300px;
   }
-  .login-input {
-    width: 70px;
-    font-size: 14px;
-  }
 
 }
 
@@ -134,7 +130,7 @@ LOGO
   text-align: center;
 }
 /*Button Styling*/
-.show-all , .clear-all, .save, .button, .unselect-all {
+.show-all , .clear-all, .save, .button {
   text-align: center;
 	margin: 10px auto;
 	display: inline-block;
@@ -152,10 +148,10 @@ LOGO
 	background-size:1px 200px;
 	transition: all .05s linear;
 }
-.show-all:hover , .clear-all:hover, .save:hover, .button:hover, .unselect-all:hover {
+.show-all:hover , .clear-all:hover, .save:hover, .button:hover {
   background-position:100px;
 }
-.show-all:active , .clear-all:active , .save:active, .button:active, .unselect-all:active {
+.show-all:active , .clear-all:active , .save:active, .button:active {
   box-shadow: 2px 2px 2px #777;
   border-bottom: 1px solid #0045A6;
   transform: translateY(3px);
@@ -402,12 +398,69 @@ LOGO
 }
 
 
-
-
-
-
-
+ /*
+Party Page
+Items Category Table
+ */
+#items-table {
+  background-color: white;
+  margin-top: 20px;
+  /*border: 3px outset lightgrey;*/
+}
 .row {
   margin-left: 0;
   margin-right: 0;
 }
+#table-cat {
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto;
+  padding-left: 15px;
+}
+.checkbox-name {
+  width: 20%;
+}
+.table-header {
+  width: 300px;
+}
+ /*
+Party Page
+Media Queries
+ */
+ /* Smartphones (portrait and landscape) ----------- */
+ @media only screen and (min-width : 320px) and (max-width : 480px) {
+  .desktop-partyDetails, .desktop-guestList, .gathr-g, .show-all, .clear-all {
+     display: none;
+   }
+   #hostcontact {
+     width: 100%;
+     height: 100%;
+     padding: 0;
+   }
+
+   .modal-content {
+     height: 100%;
+     border-radius: 0;
+   }
+ }
+
+ /* iPads (portrait and landscape) ----------- */
+ @media only screen and (min-width : 768px) and (max-width : 1024px) {
+.mobile-partyDetails, .mobile-guestList {
+  display: none;
+}
+ }
+ /* Desktops and laptops ----------- */
+ @media only screen  and (min-width : 1224px) {
+   .mobile-partyDetails, .mobile-guestList{
+     display: none;
+   }
+ }
+
+ /* Large screens ----------- */
+ @media only screen  and (min-width : 1824px) {
+   .mobile-partyDetails, .mobile-guestList {
+     display: none;
+   }
+ }

@@ -16,6 +16,5 @@ app.config(function($routeProvider){
     })
     .otherwise({redirectTo: '/login'});
 
-
 //closure for app.config
 });
