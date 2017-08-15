@@ -7,7 +7,6 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
   //   $scope.windowWidth= $window.innerWidth
   // }, 100);
 
-
   $scope.selectedItems = function(){
     validationFactory.selectedItemsGet();
   };
@@ -23,9 +22,9 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 
 // commmit selected items and update to scope using promise
     $scope.saveItem = function(pass, name) {
-      $scope.allowCheckout = gathrFactory.checkoutItemsGet();
       gathrFactory.addUser($scope.addUsername);
       gathrFactory.saveItem().then(function successfullCallback(reponse){
+        console.log('success')
         $scope.data = gathrFactory.returnList();
         if (pass === true) {
           $location.path('/confirmation');
@@ -36,8 +35,6 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 // Uncommits a single item, reseting its status to 'unfulfilled' and unassigns the user, and updates the view to reflect these changes.
   $scope.uncommit = function(itemObj) {
     gathrFactory.uncommit(itemObj).then(function(response) {
-      gathrFactory.showUncommit();
-      $scope.allowCheckout = gathrFactory.checkoutItemsGet();
       $scope.data = gathrFactory.returnList();
     });
   };
@@ -48,7 +45,6 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 
 // Upon click selected item data equal value
   $scope.change = function(value){
-    gathrFactory.showUncommit();
     gathrFactory.selectUpdate(value);
 // Select Items Button toggle
     $scope.showButton = gathrFactory.showButton();

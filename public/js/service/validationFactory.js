@@ -17,7 +17,7 @@ app.factory('validationFactory', function($http, $location, gathrFactory){
     var valid = false;
     console.log(username);
     if (username.length <= 1){
-      valid = true;//true means buttons are disabled
+      valid = true;
     }
     return validate(valid);
   };
@@ -28,12 +28,14 @@ app.factory('validationFactory', function($http, $location, gathrFactory){
   };
 
   function validate(valid){
+    var parseIndex = 0;
     var validate = false;
     validate = valid;
     selectedItems.forEach(function(e){
-      if (e.quantity === null || e.quantity <= 0){
+      if (e.quantity === null){
         validate = true;
       };
+      parseIndex += 1;
     });
     console.log(validate);
     return validate;
