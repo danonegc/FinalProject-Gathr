@@ -16,14 +16,14 @@
 </div> -->
 
   <div class="container">
-    <div class="row">
+    <div class="row confrim-row">
       <div class="col-xs-12">
-        <h1 class="text-center">THANK YOU, {{checkedOutItems[0].username | uppercase}}!</h1>
-        <div class="row">
+        <h1 class="text-center" id="thank-header">THANK YOU, {{checkedOutItems[0].username | uppercase}}!</h1>
+        <div class="row confrim-row">
         <div class="col-xs-12>">
-        <table class="table table-hover">
+        <table id="confirm-table" class="table table-hover">
           <div>
-          <h4 class="text-center">You are commited to bringing the following items:</h4>
+          <h4 id="commit" class="text-center">You are commited to bringing the following items:</h4>
         </div>
         <thead>
           <tr>
@@ -33,14 +33,14 @@
           </tr>
         </thead>
       <tbody>
-        <!-- <tr ng-repeat="select in selectedItemsList" ng-init='index = $index'> -->
-          <td><img ng-src="{{item.img}}" class="baby-icon" alt=""></td>
-          <td>{{select.item}}</td>
-          <td>{{select.quantity}}</td>
+        <tr ng-repeat="value in checkedOutItems | orderBy: 'item'" ng-init='index = $index'>
+          <td><img ng-src="{{value.img}}" class="baby-icon" alt=""></td>
+          <td>{{value.item}}</td>
+          <td>{{value.quantity}}</td>
         </tr>
       </tbody>
     </table>
-    <h2 class="text-center">Can't wait to get To'Gathr ;)</h2>
+    <h2 id="slogan" class="text-center">Can't wait to get To'Gathr ;)</h2>
   </div>
         <party-details></party-details>
         </div>
