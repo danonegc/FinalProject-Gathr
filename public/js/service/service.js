@@ -21,7 +21,7 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
     showButton: showButton,
     getSelectedItems: getSelectedItems,
     addUser: addUser,
-    unselectAllItems: unselectAllItems,
+    // unselectAllItems: unselectAllItems,
     checkoutList: checkoutList,
     uncommit: uncommit // uncommit item for current user
   };
@@ -29,91 +29,39 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
   function checkoutList(){
     var sendCheckoutList = checkoutItems;
     checkoutItems = []
-    return sendCheckoutList;
+    return sendCheckoutList; // Clears checkoutItems array so that previously committed items are not reassinged to new users on the confirmation page.
   };
 
-  function unselectAllItems() {
-    console.log(selectedItems, "before");
-    selectedItems = [];
-    console.log(selectedItems, "after");
-    return returnList();
-  };
-
-  // get JSON from database --> adds
-    function getList() {
-      var p = $http ({
-        method: 'GET',
-        url: '/items'
-      }).then(function(response) {
-        itemList = response.data;
-      });
-      return p;
+    function uncommit(value) {
+      var id = value.id;
+       return putItem(id, uncommittedItem); //allows any user to uncommit from a single item, no matter to whom it is assigned.
     };
 
-// Added item to individual category in item-by-category directive.html
-  function addItem(newItem, category) {
-    var item = {item: newItem, category: category, status: "unfulfilled", username: null}
-    var p = $http ({
-      method: 'POST',
-      url: '/items',
-      data: item
-    }).then(function(response) {
-      itemList = response.data;
-    });
-    return p;
-  };
-
-// uncommit item for current user
-  function uncommit(value) {
-    var id = value.id;
-     return putItem(id, uncommittedItem);
-  };
-
-// commit selected items to be saved into the database
-  function saveItem() {
-    selectedItems = [];
-    showSelectedItemsModal.forEach(function(e){
-      e.username = addUsername;
-      e.status = "committed";
-      checkoutItems.push(e);
-      console.log(checkoutItems, "saveItem");
-      putItem(e.id, e);
-    });
-    return putItem(showSelectedItemsModal[showSelectedItemsModal.length-1].id, showSelectedItemsModal[showSelectedItemsModal.length-1]);
-  };
-
-// called to PUT item's' to be committed or uncommitted
-  function putItem(id, item) {
-      var p = $http ({
-        url: '/items/' + id,
-        method: 'PUT',
-        data: item
-      }).then(function(response) {
-        itemList = response.data;
+  // after committing to an item in the commit modal, the selected items are assigned to a single user and their status is updated to "committed" in the database.
+    function saveItem() {
+      selectedItems = [];
+      showSelectedItemsModal.forEach(function(e){
+        e.username = addUsername;
+        e.status = "committed";
+        checkoutItems.push(e);
+        putItem(e.id, e);
       });
-    return p;
-  };
-
-
-  function showButton() {
-    var buttonStatus = false;
-    if (selectedItems.length > 0){
-      buttonStatus = true;
+      return putItem(showSelectedItemsModal[showSelectedItemsModal.length-1].id, showSelectedItemsModal[showSelectedItemsModal.length-1]);
     };
-    return buttonStatus; // true or false
-  };
 
   function getSelectedItems() {
-    showSelectedItemsModal = [];
-    var categoryIcon = [];
+    showSelectedItemsModal = []; //clears selected array to prevent previously selected items from being committed to a new user
     selectedItems.forEach(function(obj){
       var imgSrc = httpFactory.categoryIconMatch(obj.category);
       showSelectedItemsModal.push({item: obj.item, category: imgSrc, id: obj.id, quantity: obj.quantity});
     });
+  //makes the commit modal show each item's icon, the quantity reserved, and its name
     return showSelectedItemsModal;
   };
 
-//select toggle status
+//toggles item's status between 'selected' and 'uncommitted' upon mouse-click.
+//selected items get pushed into the selectedItems array; unselected items are removed from the selectedItems array.
+//also displays and hides commit button dynamically
   function selectUpdate(value){
     if (value.status === "unfulfilled") {
       value.status = "selected";
@@ -130,6 +78,15 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
     };
     showButton();
   };
+
+  //makes commit button appear once an item has been selected
+    function showButton() {
+      var buttonStatus = false;
+      if (selectedItems.length > 0){
+        buttonStatus = true;
+      };
+      return buttonStatus; // true or false
+    };
 
   function returnData() {
     return partyDetails; // return hardcoded data for party details and category calaspe toggle
@@ -159,4 +116,54 @@ function checkLogin(userInfo) {
     });
   };
 
+
+
+
+
+//database querries below
+
+  // Added item to individual category in item-by-category directive.html
+    function addItem(newItem, category) {
+      var item = {item: newItem, category: category, status: "unfulfilled", username: null}
+      var p = $http ({
+        method: 'POST',
+        url: '/items',
+        data: item
+      }).then(function(response) {
+        itemList = response.data;
+      });
+      return p;
+    };
+
+  // called to PUT item's' to be committed or uncommitted
+    function putItem(id, item) {
+        var p = $http ({
+          url: '/items/' + id,
+          method: 'PUT',
+          data: item
+        }).then(function(response) {
+          itemList = response.data;
+        });
+      return p;
+    };
+
+    // get JSON from database --> adds
+      function getList() {
+        var p = $http ({
+          method: 'GET',
+          url: '/items'
+        }).then(function(response) {
+          itemList = response.data;
+        });
+        return p;
+      };
+
+
 });
+
+
+
+// function unselectAllItems() {
+//   selectedItems = [];
+//   return returnList();
+// };

@@ -1,3 +1,4 @@
+<!-- show all people invited to party and their attending status -->
 <div class="row" ng-repeat="guest in partyData.invited | orderBy: 'name'">
   <div class="col-xs-12">
     <span class="glyphicon glyphicon-{{guest.attending}}"></span>

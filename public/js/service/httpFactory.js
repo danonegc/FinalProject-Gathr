@@ -45,7 +45,9 @@ var partyDetails = {
    {'name':'Jeremy', 'attending':'attending'},
    {'name':'Adam', 'attending':'undecided'},
    {'name':'Yasmine', 'attending':'attending'},
-   {'name':'J.C.', 'attending':'attending'}
+   {'name':'Kanye W.', 'attending':'not-attending'},
+   {'name':'Ringo "the dog"', 'attending':'not-attending'},
+   {'name':'JC', 'attending':'attending'}
  ]};
 
 
@@ -54,7 +56,7 @@ return {
   // jsonObject: jsonObject,
   returnPartyDetails: returnPartyDetails,
   categoryIconMatch: categoryIconMatch
-}
+};
 
     function returnPartyDetails(){
       return partyDetails;
@@ -73,4 +75,4 @@ return {
       });
       return categoryIcon;
     };
-})
+});

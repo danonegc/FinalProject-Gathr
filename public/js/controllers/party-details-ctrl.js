@@ -2,9 +2,9 @@ var app = angular.module('gathrApp');
 
 app.controller('party-details-ctrl', function($scope, gathrFactory) {
 
-    $scope.unselectAllItems = function(){
-      $scope.data = gathrFactory.unselectAllItems();
-    }
+    // $scope.unselectAllItems = function(){
+    //   $scope.data = gathrFactory.unselectAllItems();
+    // }
 
 // commmit selected items and update to scope using promise
     $scope.saveItem = function() {
@@ -15,9 +15,9 @@ app.controller('party-details-ctrl', function($scope, gathrFactory) {
       });
     };
 
-// uncommit items and update to scope using promise
-    $scope.uncommit = function(value) {
-      gathrFactory.uncommit(value).then(function(response) {
+// Uncommits a single item, reseting its status to 'unfulfilled' and unassigns the user, and updates the view to reflect these changes.
+    $scope.uncommit = function(itemObj) {
+      gathrFactory.uncommit(itemObj).then(function(response) {
         $scope.data = gathrFactory.returnList();
       });
     };
