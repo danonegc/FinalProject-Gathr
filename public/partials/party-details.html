@@ -3,57 +3,62 @@
   <div class="col-xs-9">
     <div class="row">
       <div class="col-xs-8">
-        <span class="eventName">{{ partyData.partyName }}</span>
-        <!-- Trigger the modal with a button -->
-        <span class="host"><a data-toggle="modal" data-target="#hostContact">Host: {{ partyData.host.fName }} {{ partyData.host.lName }}</a></span>
 
-
-        <!-- Modal -->
-        <div class="modal fade" id="hostContact" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Contact Information:</h4>
+        <div class="row">
+          <span class="eventName">{{ partyData.partyName }}</span>
+          <!-- Trigger the modal with a button -->
+          <span class="host"><a data-toggle="modal" data-target="#hostContact">Host: {{ partyData.host.fName }} {{ partyData.host.lName }}</a></span>
+          <!-- Modal -->
+          <div class="modal fade" id="hostContact" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Contact Information:</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Name: {{partyData.host.fName}} {{partyData.host.lName}}</p>
+                  <p>Phone: {{partyData.host.phone}}</p>
+                  <p>Email: {{partyData.host.email}}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
               </div>
-              <div class="modal-body">
-                <p>Name: {{partyData.host.fName}} {{partyData.host.lName}}</p>
-                <p>Phone: {{partyData.host.phone}}</p>
-                <p>Email: {{partyData.host.email}}</p>
+            </div>
+          </div>
+        </div>
+          <!-- end of row -->
+          <div class="row party-specifics">
+            <div class="col-6 col-xs-3">
+              <div id="date-container">
+                <div id="date-month"class="col-xs-12">{{ partyData.date.month }}</div>
+                <div id="date-day" class="col-xs-12">{{ partyData.date.day }}</div>
+                <div id="date-date" class="col-xs-12">{{ partyData.date.date }}</div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            <div class="col-6 col-xs-3 party-specifics">
+              <div class="party-specifics-center">
+                <div id="time1">{{ partyData.time.start }}</div>
+                <div id="time2">___to___</div>
+                <div id="time3">{{ partyData.time.end }}</div>
               </div>
+            </div>
+              <div id="location-container" class="col-6 col-xs-6 party-specifics">
+              <h4>{{ partyData.location }}</h4>
             </div>
           </div>
         </div>
 
 
-      <div class="col-xs-2">
-        <div id="date-container">
-          <div id="date-month"class="col-xs-12">{{ partyData.date.month }}</div>
-          <div id="date-day" class="col-xs-12">{{ partyData.date.day }}</div>
-          <div id="date-date" class="col-xs-12">{{ partyData.date.date }}</div>
-        </div>
+        <div class="col-xs-4 iFrame">
+          <iframe
+          width="100%"
+          height="100%"
+          frameborder="0" style="border:0"
+          src= "https://www.google.com/maps/embed/v1/place?key=AIzaSyDDkhe6bROkc7ypmY3Q1HiZiccnYmTwupY&q=grand%20circus%201570%20Woodward%20Ave,%20Detroit,%20MI%2048226" allowfullscreen>
+        </iframe>
       </div>
-      <div class="col-xs-3">
-        <div id="time-container">
-          <div id="time1" class="col-xs-12">{{ partyData.time.start }}</div>
-          <div id="time2" class="col-xs-12">___to___</div>
-          <div id="time3" class="col-xs-12">{{ partyData.time.end }}</div>
-        </div>
-      </div>
-      <div id="location-container" class="col-xs-7">
-        <h4>{{ partyData.location }}</h4>
-      </div>
-      </div>
-      <div class="col-xs-4">
-        <iframe
-        width="100%"
-        frameborder="0" style="border:0"
-        src= "https://www.google.com/maps/embed/v1/place?key=AIzaSyDDkhe6bROkc7ypmY3Q1HiZiccnYmTwupY&q=grand%20circus%201570%20Woodward%20Ave,%20Detroit,%20MI%2048226" allowfullscreen>
-      </iframe>
     </div>
   </div>
-    </div>

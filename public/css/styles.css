@@ -251,9 +251,10 @@ LOGO
 }
 
 #location-container {
-  text-align: center;
-  margin: 0 auto;
-  padding: 30px;
+  border-left: 1px solid grey;
+  text-align: left;
+  margin: 0px 0px;
+  padding: 20px;
 }
 
 /*Party View Add Button/input Styling*/

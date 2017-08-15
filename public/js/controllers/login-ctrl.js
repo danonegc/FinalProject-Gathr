@@ -1,10 +1,9 @@
 var app = angular.module('gathrApp');
 
-app.controller('login-ctrl', function($scope, $location, gathrFactory) {
+app.controller('login-ctrl', function($scope, gathrFactory) {
 
 $scope.submitLogin = function(userInfo) {
-    gathrFactory.checkLogin(userInfo);
-    $location.path('/party');
+    return gathrFactory.checkLogin(userInfo);
   };
 
 
