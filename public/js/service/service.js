@@ -21,6 +21,7 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
     showButton: showButton,
     getSelectedItems: getSelectedItems,
     addUser: addUser,
+    selectedItemsGet: selectedItemsGet,
     // unselectAllItems: unselectAllItems,
     checkoutList: checkoutList,
     uncommit: uncommit // uncommit item for current user
@@ -79,6 +80,34 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
     showButton();
   };
 
+  function nameValidation(username){
+    var valid = false;
+    console.log(username);
+    if (username.length <= 1){
+      valid = true;
+    }
+    return validate(valid);
+  };
+
+  function quantityValidation(itemObj, index){
+    selectedItems[index].quantity = itemObj.quantity;
+    return validate(false);
+  };
+
+  function validate(valid){
+    var parseIndex = 0;
+    var validate = false;
+    validate = valid;
+    selectedItems.forEach(function(e){
+      if (e.quantity === null){
+        validate = true;
+      };
+      parseIndex += 1;
+    });
+    console.log(validate);
+    return validate;
+  }
+
   //makes commit button appear once an item has been selected
     function showButton() {
       var buttonStatus = false;
@@ -87,6 +116,10 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
       };
       return buttonStatus; // true or false
     };
+
+  function selectedItemsGet() {
+    return selectedItems;
+  }
 
   function returnData() {
     return partyDetails; // return hardcoded data for party details and category calaspe toggle

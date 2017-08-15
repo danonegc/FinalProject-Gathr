@@ -1,38 +1,50 @@
 var app = angular.module('gathrApp');
 
-app.controller('party-details-ctrl', function($scope, gathrFactory) {
+app.controller('party-details-ctrl', function($scope, $location, gathrFactory, validationFactory) {
 
-    // $scope.unselectAllItems = function(){
-    //   $scope.data = gathrFactory.unselectAllItems();
-    // }
+  $scope.selectedItems = function(){
+    validationFactory.selectedItemsGet();
+  };
+
+  $scope.nameValid = function(username){
+    $scope.validation = validationFactory.nameValidation(username);
+  };
+  $scope.qtyValid = function(itemQty, index){
+    $scope.validation = validationFactory.quantityValidation(itemQty, index);
+  };
+  $scope.addUsername = '';
+  $scope.validation = true;
 
 // commmit selected items and update to scope using promise
-    $scope.saveItem = function() {
-      var username = $scope.addUsername;
-      gathrFactory.addUser(username);
-      gathrFactory.saveItem().then(function(){
-          $scope.data = gathrFactory.returnList();
+    $scope.saveItem = function(pass, name) {
+      gathrFactory.addUser($scope.addUsername);
+      gathrFactory.saveItem().then(function successfullCallback(reponse){
+        console.log('success')
+        $scope.data = gathrFactory.returnList();
+        if (pass === true) {
+          $location.path('/confirmation');
+        };
       });
     };
 
 // Uncommits a single item, reseting its status to 'unfulfilled' and unassigns the user, and updates the view to reflect these changes.
-    $scope.uncommit = function(itemObj) {
-      gathrFactory.uncommit(itemObj).then(function(response) {
-        $scope.data = gathrFactory.returnList();
-      });
-    };
+  $scope.uncommit = function(itemObj) {
+    gathrFactory.uncommit(itemObj).then(function(response) {
+      $scope.data = gathrFactory.returnList();
+    });
+  };
 
 // Drop down filter to sort status of items
-    $scope.options = [{status: 'All', val: ""},{status: 'Committed', val: 'committed'},{status: 'Unfulfilled', val: 'unfulfilled'}];
-    $scope.myOptions = $scope.options[0].val;
+  $scope.options = [{status: 'All', val: ""},{status: 'Committed', val: 'committed'},{status: 'Unfulfilled', val: 'unfulfilled'}];
+  $scope.myOptions = $scope.options[0].val;
 
 // Upon click selected item data equal value
-    $scope.change = function(value){
-      gathrFactory.selectUpdate(value);
+  $scope.change = function(value){
+    gathrFactory.selectUpdate(value);
 // Select Items Button toggle
-      $scope.showButton = gathrFactory.showButton();
-      $scope.selectedItemsList = gathrFactory.getSelectedItems();
-    };
+    $scope.showButton = gathrFactory.showButton();
+    $scope.selectedItemsList = gathrFactory.getSelectedItems();
+  };
 
 // hard coded data for party details
   $scope.partyData = gathrFactory.returnData();

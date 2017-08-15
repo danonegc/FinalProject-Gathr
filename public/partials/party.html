@@ -110,7 +110,8 @@
                 <div class="modal-body">
                   <div class="form-group">
                     <label><h3>Name:</h3></label>
-                    <input type="text" class="form-control" id="usr" ng-model="addUsername">
+                    <input type="text" class="form-control" id="user" placeholder="Enter your name" ng-change="nameValid(addUsername)"ng-model="addUsername">
+                    <!-- <p ng-model="nameValidation"></p> -->
                   </div>
                     <table class="table table-hover">
                       <thead>
@@ -121,16 +122,17 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr ng-repeat="select in selectedItemsList">
+                        <tr ng-repeat="select in selectedItemsList" ng-init='index = $index'>
                           <td><img ng-src="{{select.category}}" class="baby-icon" alt=""></td>
                           <td>{{select.item}}</td>
-                          <td><input type="number" class="form-control" placeholder="Quantity" id="usr" ng-model="select.quantity"></td>
+                          <td><input type="number" class="form-control" ng-change="qtyValid(select, index)" placeholder="Quantity" ng-model="select.quantity"></td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" ng-click="saveItem()" data-dismiss="modal">Save</button>
+                  <button type="button" class="btn btn-default" title="Enter Name and Quantity before proceeding" ng-disabled="validation === true" ng-click="saveItem(true, addUsername)" data-dismiss="modal">Save, and Receive Confirmation</button>
+                  <button type="button" class="btn btn-default" title="Enter Name and Quantity before proceeding" ng-disabled="validation === true" ng-click="saveItem(false, addUsername)" data-dismiss="modal">Save, Continue Looking</button>
                 </div>
               </div>
             </div>
