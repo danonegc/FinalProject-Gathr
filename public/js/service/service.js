@@ -33,11 +33,11 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
     return sendCheckoutList; // Clears checkoutItems array so that previously committed items are not reassinged to new users on the confirmation page.
   };
 
-  function showUncommit(){
-    checkoutItems.forEach(function(chkObj){
-      chkObj.uncommit = "allow"
-    });
-  };
+  // function showUncommit(){
+  //   checkoutItems.forEach(function(chkObj){
+  //     chkObj.uncommit = "allow"
+  //   });
+  // };
 
   function uncommit(value) {
     console.log(value, 'uncommitted item');
@@ -93,34 +93,6 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
     };
     showButton();
   };
-
-  function nameValidation(username){
-    var valid = false;
-    console.log(username);
-    if (username.length <= 1){
-      valid = true;
-    }
-    return validate(valid);
-  };
-
-  function quantityValidation(itemObj, index){
-    selectedItems[index].quantity = itemObj.quantity;
-    return validate(false);
-  };
-
-  function validate(valid){
-    var parseIndex = 0;
-    var validate = false;
-    validate = valid;
-    selectedItems.forEach(function(e){
-      if (e.quantity === null){
-        validate = true;
-      };
-      parseIndex += 1;
-    });
-    console.log(validate);
-    return validate;
-  }
 
   //makes commit button appear once an item has been selected
     function showButton() {

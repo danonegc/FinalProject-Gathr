@@ -17,6 +17,7 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
   $scope.qtyValid = function(itemQty, index){
     $scope.validation = validationFactory.quantityValidation(itemQty, index);
   };
+
   $scope.addUsername = '';
   $scope.validation = true;
 
@@ -45,10 +46,10 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 
 // Upon click selected item data equal value
   $scope.change = function(value){
-    gathrFactory.selectUpdate(value);
-// Select Items Button toggle
+    gathrFactory.selectUpdate(value);// Select Items Button toggle
     $scope.showButton = gathrFactory.showButton();
     $scope.selectedItemsList = gathrFactory.getSelectedItems();
+    console.log(gathrFactory)
   };
 
 // hard coded data for party details

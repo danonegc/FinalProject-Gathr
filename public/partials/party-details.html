@@ -1,10 +1,13 @@
 <div class="desktop-partyDetails">
-<div class="col-xs-9">
+<div class="col-6 col-xs-9 party-details-container">
     <div class="row">
       <div class="col-xs-8">
-        <span class="eventName">{{ partyData.partyName }}</span>
-        <!-- Trigger the modal with a button -->
-        <span class="host"><a data-toggle="modal" data-target="#hostContact">Host: {{ partyData.host.fName }} {{ partyData.host.lName }}</a></span>
+        <div class="row">
+          <span class="eventName">{{ partyData.partyName }}</span>
+          <!-- Trigger the modal with a button -->
+          <span class="host">Host:<a data-toggle="modal" data-target="#hostContact"> {{ partyData.host.fName }} {{ partyData.host.lName }} </a></span>
+        </div>
+
 
 
         <!-- Modal -->
@@ -20,34 +23,39 @@
                 <p>Name: {{partyData.host.fName}} {{partyData.host.lName}}</p>
                 <p>Phone: {{partyData.host.phone}}</p>
                 <p>Email: {{partyData.host.email}}</p>
+                <textarea name="name" rows="1" cols="45" placeholder="Send your suggested items to the host..."></textarea>
               </div>
               <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Send</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
 
+        <div class="row party-specifics">
+          <div class="col-6 col-xs-3">
+            <div id="date-container">
+              <div id="date-month"class="col-xs-12">{{ partyData.date.month }}</div>
+              <div id="date-day" class="col-xs-12">{{ partyData.date.day }}</div>
+              <div id="date-date" class="col-xs-12">{{ partyData.date.date }}</div>
+            </div>
+          </div>
+          <div class="col-6 col-xs-3">
+            <div class="row time-set">
+              <div id="time1" class="col-xs-12">{{ partyData.time.start }}</div>
+              <div id="time2" class="col-xs-12">----to----</div>
+              <div id="time3" class="col-xs-12">{{ partyData.time.end }}</div>
+            </div>
+          </div>
+          <div id="location-container" class="col-6 col-xs-6">
+            <h4>{{ partyData.location }}</h4>
+          </div>
+        </div>
 
-      <div class="col-xs-2">
-        <div id="date-container">
-          <div id="date-month"class="col-xs-12">{{ partyData.date.month }}</div>
-          <div id="date-day" class="col-xs-12">{{ partyData.date.day }}</div>
-          <div id="date-date" class="col-xs-12">{{ partyData.date.date }}</div>
-        </div>
+
       </div>
-      <div class="col-xs-3">
-        <div id="time-container">
-          <div id="time1" class="col-xs-12">{{ partyData.time.start }}</div>
-          <div id="time2" class="col-xs-12">___to___</div>
-          <div id="time3" class="col-xs-12">{{ partyData.time.end }}</div>
-        </div>
-      </div>
-      <div id="location-container" class="col-xs-7">
-        <h4>{{ partyData.location }}</h4>
-      </div>
-      </div>
-      <div class="col-xs-4">
+      <div class="col-6 col-xs-4 iFrame">
         <iframe
         width="100%"
         frameborder="0" style="border:0"
