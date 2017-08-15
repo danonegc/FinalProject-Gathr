@@ -1,0 +1,19 @@
+<!-- show all people invited to party and their attending status -->
+<!-- Mobile view guest list -->
+<div class="mobile-guestList">
+  <div class="panel-group" id="accordion2">
+    <div class="panel panel-default">
+      <div class="panel-heading" data-ng-click="touchDetail()"  data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
+        <h4 class="panel-title">Guest List<span class="glyphicon glyphicon-chevron-down"></span></h4>
+    </div>
+    <div class="panel-collapse collapse" id="collapse2" >
+    <div ng-repeat="guest in partyData.invited | orderBy: 'name'">
+      <div class="panel-body">
+        <span class="glyphicon glyphicon-{{guest.attending}}"></span>
+        <span id="guest-list">{{guest.name}}</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>

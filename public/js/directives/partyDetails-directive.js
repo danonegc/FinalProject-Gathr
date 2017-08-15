@@ -39,3 +39,20 @@ app.directive('guestList', function() {
     templateUrl: "partials/guestListTemplate.html"
   };
 });
+
+// Directives for Mobile View
+app.directive('guestListMobile', function() {
+  return {
+    replace: false,
+    restrict: 'E',
+    templateUrl: "partials/guestListTemplate-mobile.html"
+  };
+});
+
+app.directive('partyDetailsMobile', function() {
+  return {
+    replace: false,
+    restrict: 'E',
+    templateUrl: "partials/party-details-mobile.html"
+  };
+});
