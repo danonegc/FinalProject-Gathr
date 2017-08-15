@@ -20,6 +20,13 @@
 
 <!-- Checkout -->
 <a href="#!/confirmation"><button class="button" type="button" name="button">CHECK OUT</button></a>
+<!-- toggle collaspe add catagories to view -->
+        <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
+<!-- toggle collaspe clear catagories from view -->
+        <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
+<!-- commit selected items into database using PUT -->
+        <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+        <button type="button" class="unselect-all" name="unselect-all" ng-click="unselectAllItems()">Unselect All</button>
 
 <!-- Icons by Category Navaigation Bar   -->
 <div class="container">
@@ -93,14 +100,7 @@
           </div>
         </div>
 
-<!-- toggle collaspe add catagories to view -->
-        <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
-<!-- toggle collaspe clear catagories from view -->
-        <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
-<!-- commit selected items into database using PUT -->
-        <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
-        <button type="button" class="unselect-all" name="unselect-all" ng-click="unselectAllItems()">Unselect All</button>
-
+<!-- Modal for Save Item -->
           <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->

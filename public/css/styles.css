@@ -2,7 +2,11 @@ body {
   font-family: 'Varela Round', sans-serif;
   background-color: #e8f7f5;
 }
-/*Styling for Join-Party and Log-in partials*/
+
+ /*
+LOG IN
+ */
+
 .container-fluid {
   background-color: #00DFE9;
   border-radius: 300px;
@@ -27,26 +31,95 @@ body {
   font-size: 24px;
 }
 
-.button {
-  border: none;
-  color: black;
-  border-style: outset;
-  border-radius: 20px;
-  width: 70%;
-  padding: 5px;
-}
-
-p {
+.login-text {
   margin-top: 10px;
 }
-a {
+.login-a {
   color: blue;
 }
-a:hover {
-  color: lime;
+.login-a:hover {
+  color: #FFF994;
+  text-shadow: none;
+}
+#hintModal {
+  color: black;
+  text-shadow: none;
 }
 
-/*Styling for Join-Party and Log-in partials*/
+/*
+LOGO
+*/
+.gathr-g {
+  padding: 10px;
+  margin-left: 60px;
+  width: 60%;
+}
+.gathr-logo {
+  margin-left: 25%;
+  padding-top: 100px;
+  padding-bottom: 300px;
+  width: 50%;
+  text-align: center;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .gathr-logo {
+    margin-left: 9%;
+    padding-top: 185px;
+    padding-bottom: 300px;
+    width: 83%;
+    text-align: center;
+  }
+  .container-fluid {
+    height: 200px;
+    width: 300px;
+  }
+  .login-input {
+    width: 70px;
+    font-size: 14px;
+  }
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .gathr-logo {
+    margin-left: 6%;
+    padding-top: 200px;
+    padding-bottom: 300px;
+    width: 90%;
+    text-align: center;
+  }
+}
+
+}
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+  .gathr-logo {
+    margin-left: 25%;
+    padding-top: 100px;
+    padding-bottom: 300px;
+    width: 50%;
+    text-align: center;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+  .gathr-logo {
+    margin-left: 25%;
+    padding-top: 100px;
+    padding-bottom: 300px;
+    width: 50%;
+    text-align: center;
+  }
+  .container-fluid {
+    height: 200px;
+    width: 300px;
+  }
+}
+
 
 /*Styling for Party Icons Div*/
 .img-icon {
@@ -60,10 +133,11 @@ a:hover {
 .icon-header {
   text-align: center;
 }
-.show-all , .clear-all, .save, .button {
+/*Button Styling*/
+.show-all , .clear-all, .save, .button, .unselect-all {
   text-align: center;
 	margin: 10px auto;
-	display: block;
+	display: inline-block;
 	width: 175px;
 	cursor:pointer;
 	font-size: 25px;
@@ -78,10 +152,10 @@ a:hover {
 	background-size:1px 200px;
 	transition: all .05s linear;
 }
-.show-all:hover , .clear-all:hover, .save:hover, .button:hover {
+.show-all:hover , .clear-all:hover, .save:hover, .button:hover, .unselect-all:hover {
   background-position:100px;
 }
-.show-all:active , .clear-all:active , .save:active, .button:active {
+.show-all:active , .clear-all:active , .save:active, .button:active, .unselect-all:active {
   box-shadow: 2px 2px 2px #777;
   border-bottom: 1px solid #0045A6;
   transform: translateY(3px);
@@ -181,19 +255,7 @@ a:hover {
   margin: 0 auto;
   padding: 30px;
 }
-/*Style for Logo*/
-.gathr-g {
-  padding: 10px;
-  margin-left: 60px;
-  width: 60%;
-}
-.gathr-logo {
-  margin-left: 25%;
-  padding-top: 100px;
-  padding-bottom: 300px;
-  /*width: 50%;*/
-  text-align: center;
-}
+
 /*Party View Add Button/input Styling*/
 .add-button {
   border-radius: 10px;
@@ -333,3 +395,8 @@ a:hover {
 .custom-tooltip-wrapper:hover .custom-tooltip{display: block; color: black;}
 .custom-tooltip-wrapper{position: relative;}
 /*Tooltips*/
+
+/*Guest List*/
+#guest-list {
+  font-family: 'Varela Round', sans-serif;
+}

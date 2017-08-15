@@ -1,8 +1,6 @@
 <div class="row" ng-repeat="guest in partyData.invited | orderBy: 'name'">
-  <div class="col-xs-2">
+  <div class="col-xs-12">
     <span class="glyphicon glyphicon-{{guest.attending}}"></span>
-  </div>
-  <div class="col-xs-10">
-    {{guest.name}}
+    <span id="guest-list">{{guest.name}}</span>
   </div>
 </div>
