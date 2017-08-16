@@ -508,7 +508,10 @@ Media Queries
       margin: 0 auto;
       text-align: center;
     }
-    .mobile-partyDetails , .mobile-guestList {
+    .mobile-partyDetails {
+      width: ;
+    }
+    .mobile-guestList {
       width: 100%;
     }
     .sug-icon {
@@ -527,6 +530,13 @@ Media Queries
       overflow: scroll;
       max-height: 325px;
     }
+    .mobile-logo {
+      margin-left: 25%;
+      width: 50%;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+
 
  }
  /* Desktops and laptops ----------- */
