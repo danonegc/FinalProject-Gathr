@@ -18,6 +18,7 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
   $scope.addUsername = '';
   $scope.validation = true;
 
+
   $scope.suggestToHost = function() {
     $scope.messageSent = "The host has been notified"
   }
