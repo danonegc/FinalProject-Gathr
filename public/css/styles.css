@@ -89,7 +89,7 @@ LOGO
  .login-text {
    display: none;
  }
- button.button {
+ button.continue {
      width: 100px;
      font-size: 16px;
    }
@@ -148,6 +148,13 @@ LOGO
 
 }
 
+/*styling for suggest item on mobile view*/
+.suggest-mobile {
+  background-color: white;
+  margin-top: 20px;
+  margin: 20px;
+  padding: 10px 0px 10px 60px;
+}
 
 /*Styling for Party Icons Div*/
 .img-icon {
