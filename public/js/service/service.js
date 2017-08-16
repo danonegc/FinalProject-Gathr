@@ -40,7 +40,6 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
   // };
 
   function uncommit(value) {
-    console.log(value, 'uncommitted item');
     var index = 0;
     checkoutItems.forEach(function(itemObj){
       if (itemObj.id === value.id){
@@ -134,6 +133,7 @@ function checkLogin(userInfo) {
       return p;
     });
   };
+
 
 
 

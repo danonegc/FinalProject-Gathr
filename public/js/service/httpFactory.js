@@ -23,8 +23,8 @@ var partyDetails = {
    {'category': 'desserts', 'isVisible': 'dessertVisible', 'img': 'http://www.clker.com/cliparts/2/F/k/8/j/A/ice-cream-silhouette.svg' },
    {'category': 'condiments', 'isVisible': 'condVisible', 'img': 'https://image.flaticon.com/icons/png/512/168/168323.png' },
    {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'https://www.shareicon.net/download/2016/10/18/844991_food_512x512.png' },
-   {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'images/fork.png' },
-   {'category': 'suggestion', 'isVisible': 'sugVisible', 'img': 'http://icon-icons.com/icons2/625/PNG/512/speech-bubbles_icon-icons.com_57392.png' }],
+   {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'images/fork.png' }],
+  //  {'category': 'suggestion', 'isVisible': 'sugVisible', 'img': 'http://icon-icons.com/icons2/625/PNG/512/speech-bubbles_icon-icons.com_57392.png' }],
  'invited': [// attending status values will be stored in variable for sake of neatness. still not sure this works, though.
    {'name':'Elyse', 'attending':'attending'},
    {'name':'Danone', 'attending':'attending'},

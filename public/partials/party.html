@@ -8,8 +8,8 @@
   </div>
 </div>
 <div class="mobile-buttonCtn">
-  <button ng-if="showBu'tton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
-  <a href="#!/confirmation"><button class="checkout-button" type="button" name="button">CHECK OUT</button></a>
+  <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+  <a href="#!/confirmation"><button ng-if="revealCheckoutButton === true" class="checkout-button" type="button" name="button">CHECK OUT</button></a>
 </div>
 <div class="container">
   <div class="row">
@@ -75,7 +75,7 @@
 
 
 <!-- Checkout -->
-<a href="#!/confirmation"><button class="checkout-button" type="button" name="button">CHECK OUT</button></a>
+<a href="#!/confirmation"><button ng-if="revealCheckoutButton === true" class="checkout-button" type="button" name="button">CHECK OUT</button></a>
 <!-- toggle collaspe add catagories to view -->
         <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
 <!-- toggle collaspe clear catagories from view -->

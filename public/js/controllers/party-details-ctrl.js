@@ -2,10 +2,7 @@ var app = angular.module('gathrApp');
 
 app.controller('party-details-ctrl', function($scope, $location, gathrFactory, validationFactory, $interval, $window) {
 
-  // console.log($window);
-  // $interval(function () {
-  //   $scope.windowWidth= $window.innerWidth
-  // }, 100);
+
 
   $scope.selectedItems = function(){
     validationFactory.selectedItemsGet();
@@ -21,11 +18,17 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
   $scope.addUsername = '';
   $scope.validation = true;
 
+  $scope.suggestToHost = function() {
+    $scope.messageSent = "The host has been notified"
+  }
+
+  $scope.revealCheckoutButton = false;
+
 // commmit selected items and update to scope using promise
     $scope.saveItem = function(pass, name) {
       gathrFactory.addUser($scope.addUsername);
+      $scope.revealCheckoutButton = true;
       gathrFactory.saveItem().then(function successfullCallback(reponse){
-        console.log('success')
         $scope.data = gathrFactory.returnList();
         if (pass === true) {
           $location.path('/confirmation');
@@ -48,8 +51,8 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
   $scope.change = function(value){
     gathrFactory.selectUpdate(value);// Select Items Button toggle
     $scope.showButton = gathrFactory.showButton();
+    console.log($scope.showButton);
     $scope.selectedItemsList = gathrFactory.getSelectedItems();
-    console.log(gathrFactory)
   };
 
 // hard coded data for party details
@@ -88,6 +91,7 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
       $scope.condVisible = false;
       $scope.bevVisible = false;
       $scope.miscVisible = false;
+      $scope.sugVisible = false;
     }
 //Show/Hide items in meat category
     $scope.meatVisible = true;
@@ -136,8 +140,15 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
     $scope.showHideMisc = function () {
       $scope.clearItems();
       $scope.miscVisible = $scope.miscVisible ? false: true;
-
     }
+
+//Show/Hide items in Misc. category
+    $scope.sugVisible = false;
+    $scope.showHideSug = function () {
+      $scope.clearItems();
+      $scope.sugVisible = $scope.sugVisible ? false: true;
+    }
+
 //slide show for mobile view
 $scope.touchDetailsValue = false;
   $scope.touchDetails = function() {
