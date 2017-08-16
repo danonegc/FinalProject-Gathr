@@ -513,6 +513,7 @@ Media Queries
    }
    .sug-icon {
      width: 100%;
+     margin: 0 auto;
    }
    .glyphicon-chevron-down {
      float: right;
@@ -533,7 +534,27 @@ Media Queries
      padding-bottom: 10px;
      text-align: center;
    }
+   /*Save Form Mobile View*/
+   .save-form-container {
+     text-align: left;
+     width: 75%;
+     background-color: white;
+     padding: 20px;
+     margin: 0 auto;
+     border-radius: 10px;
+   }
+   .save-buttonCtn {
+     text-align: center;
+     margin: 0 auto;
+     padding-top: 10px;
+   }
+   #saveItem-table {
+     margin: 0 auto;
+     text-align: center;
+     width: 75%;
+   }
  }
+
 
  /* iPads (portrait and landscape) ----------- */
  @media only screen and (min-width : 768px) and (max-width : 1024px) {
@@ -573,12 +594,32 @@ Media Queries
       padding-bottom: 10px;
       text-align: center;
     }
+
     #confirm-table {
         width: 100%;
         margin-bottom: 55px;
     }
   th.table-align, h3.table-align {
       text-align: center !important;
+
+    /*Save Form Mobile View*/
+    .save-form-container {
+      text-align: left;
+      width: 75%;
+      background-color: white;
+      padding: 20px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+    .save-buttonCtn {
+      text-align: center;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+    #saveItem-table {
+      margin: 0 auto;
+      text-align: center;
+      width: 75%;
     }
 
  }
