@@ -28,14 +28,12 @@ app.factory('validationFactory', function($http, $location, gathrFactory){
   };
 
   function validate(valid){
-    var parseIndex = 0;
     var validate = false;
     validate = valid;
     selectedItems.forEach(function(e){
       if (e.quantity === null){
         validate = true;
       };
-      parseIndex += 1;
     });
     console.log(validate);
     return validate;
