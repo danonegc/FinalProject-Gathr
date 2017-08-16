@@ -534,7 +534,27 @@ Media Queries
      padding-bottom: 10px;
      text-align: center;
    }
+   /*Save Form Mobile View*/
+   .save-form-container {
+     text-align: left;
+     width: 75%;
+     background-color: white;
+     padding: 20px;
+     margin: 0 auto;
+     border-radius: 10px;
+   }
+   .save-buttonCtn {
+     text-align: center;
+     margin: 0 auto;
+     padding-top: 10px;
+   }
+   #saveItem-table {
+     margin: 0 auto;
+     text-align: center;
+     width: 75%;
+   }
  }
+
 
  /* iPads (portrait and landscape) ----------- */
  @media only screen and (min-width : 768px) and (max-width : 1024px) {
@@ -574,7 +594,25 @@ Media Queries
       padding-bottom: 10px;
       text-align: center;
     }
-
+    /*Save Form Mobile View*/
+    .save-form-container {
+      text-align: left;
+      width: 75%;
+      background-color: white;
+      padding: 20px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+    .save-buttonCtn {
+      text-align: center;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+    #saveItem-table {
+      margin: 0 auto;
+      text-align: center;
+      width: 75%;
+    }
 
  }
  /* Desktops and laptops ----------- */
@@ -590,6 +628,3 @@ Media Queries
      display: none;
    }
  }
-
-/*Confirmation
-Page*/
