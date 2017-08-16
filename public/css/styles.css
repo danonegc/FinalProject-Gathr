@@ -573,7 +573,13 @@ Media Queries
       padding-bottom: 10px;
       text-align: center;
     }
-
+    #confirm-table {
+        width: 100%;
+        margin-bottom: 55px;
+    }
+  th.table-align, h3.table-align {
+      text-align: center !important;
+    }
 
  }
  /* Desktops and laptops ----------- */
@@ -589,6 +595,50 @@ Media Queries
      display: none;
    }
  }
+
+/*Confirmation
+Page media queries*/
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 768px) {
+ .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
+    display: none;
+  }
+  #thank-header {
+    font-size: 28px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .confrim-row {
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-top: 0px;
+  }
+  #commit {
+    margin-top: 20px;
+    margin-bottom: 32px;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+  .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
+     display: none;
+   }
+
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1024px) and (max-width : 1224px) {
+  .mobile-partyDetails, .mobile-guestList, .mobile-itemList, #mobile-partyPage {
+    display: none;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1224px) {
+  .mobile-partyDetails, .mobile-guestList, .mobile-itemList, #mobile-partyPage {
+    display: none;
+  }
+}
 
 /*Confirmation
 Page*/
