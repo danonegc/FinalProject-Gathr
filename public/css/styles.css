@@ -506,6 +506,7 @@ Media Queries
    }
    .sug-icon {
      width: 100%;
+     margin: 0 auto;
    }
    .glyphicon-chevron-down {
      float: right;
