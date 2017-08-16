@@ -27,17 +27,19 @@
         </div>
       </div>
     </div>
-</div>
-<div class="row" ng-show="sugVisible">
-    <div class="row">
-      <div class="col-xs-12">
-<!-- directive o repeat items in category -->
-        <h3>Contact host to suggest an Item</h3>
-        <p>Name: {{partyData.host.fName}} {{partyData.host.lName}}</p>
-        <p>Phone: {{partyData.host.phone}}</p>
-        <p>Email: {{partyData.host.email}}</p>
-        <textarea ng-model="messageSent" name="name" rows="1" cols="45" placeholder="Send your suggested items to the host..."></textarea>
-        <button ng-click="suggestToHost()" type="button" name="button">Send</button>
+    <div class="row" ng-show="sugVisible">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row suggest-mobile">
+            <!-- directive o repeat items in category -->
+            <h3>Contact host to suggest an Item</h3>
+            <p>Name: {{partyData.host.fName}} {{partyData.host.lName}}</p>
+            <p>Phone: {{partyData.host.phone}}</p>
+            <p>Email: {{partyData.host.email}}</p>
+            <textarea ng-model="messageSent" name="name" rows="3" cols="20" placeholder="Send your suggested items to the host..."></textarea>
+            <button ng-click="suggestToHost()" type="button" name="button">Send</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
