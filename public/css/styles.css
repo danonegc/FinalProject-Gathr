@@ -163,7 +163,8 @@ LOGO
 }
 .sug-icon {
   width: 50%;
-  padding: 5px;
+  padding: 10px;
+  margin-left: 25%;
 }
 .icon-header {
   text-align: center;
@@ -201,6 +202,10 @@ LOGO
 .baby-icon {
   height: 60px;
   padding: 10px;
+}
+.filter-status {
+  padding-top: 10px;
+  text-align: center;
 }
 /*Styling for Party Icons Div*/
 
@@ -308,7 +313,7 @@ LOGO
 }
 .scroll-containter {
   overflow: scroll;
-  max-height: 700px;
+  max-height: 500px;
 }
 /*Styling for Checkbox on party page*/
 .checkbox label:after,
@@ -377,30 +382,6 @@ LOGO
 }
 /*Styling for Checkbox on party page*/
 
-/*Styling for Users List on Party Page*/
-.glyphicon.glyphicon-attending:before {
-    content: "\25cf";
-    font-size: 1.5em;
-    color: green;
-}
-
-.glyphicon.glyphicon-not-attending:before {
-    content: "\25cf";
-    font-size: 1.5em;
-    color: red;
-}
-
-.glyphicon.glyphicon-undecided:before {
-    content: "\25cf";
-    font-size: 1.5em;
-    color: yellow;
-}
-.glyphicon-ok {
-  color: green;
-}
-/*Styling for Users List on Party Page*/
-
-
 /*Tooltips*/
 .custom-tooltip {
     display: none;
@@ -431,10 +412,58 @@ LOGO
 .custom-tooltip-wrapper{position: relative;}
 /*Tooltips*/
 
-/*Guest List*/
+/*
+Guest List
+*/
+#container-guestList {
+  border: 5px outset #c3e5e0;
+  border-radius: 20px;
+}
+.header-guestList {
+  text-align: center;
+  font-size: 24px;
+}
 #guest-list {
   font-family: 'Varela Round', sans-serif;
 }
+#overflow-guestList {
+  overflow: scroll;
+  max-height: 300px;
+}
+.attending, .undecided, .not-attending {
+  text-align: center;
+}
+.attending:hover {
+  color: green;
+}
+.undecided:hover {
+  color: #d6c615;
+}
+.not-attending:hover {
+  color: red;
+}
+/*Styling for Users List on Party Page*/
+.glyphicon.glyphicon-attending:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: green;
+}
+
+.glyphicon.glyphicon-not-attending:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: red;
+}
+
+.glyphicon.glyphicon-undecided:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    color: yellow;
+}
+.glyphicon-ok {
+  color: green;
+}
+/*Styling for Users List on Party Page*/
 
 
  /*
@@ -483,7 +512,7 @@ Media Queries
      width: 100%;
    }
    .sug-icon {
-     width: 100%
+     width: 100%;
    }
    .glyphicon-chevron-down {
      float: right;
@@ -522,7 +551,8 @@ Media Queries
       width: 100%;
     }
     .sug-icon {
-      width: 100%
+      width: 100%;
+      margin: 0 auto;
     }
     .glyphicon-chevron-down {
       float: right;
@@ -559,3 +589,6 @@ Media Queries
      display: none;
    }
  }
+
+/*Confirmation
+Page*/
