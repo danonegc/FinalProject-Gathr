@@ -573,7 +573,7 @@ Media Queries
 
 
  /* iPads (portrait and landscape) ----------- */
- @media only screen and (min-width : 768px) and (max-width : 1x) {
+ @media only screen and (min-width : 768px) and (max-width : 1024px) {
    .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
       display: none;
     }
