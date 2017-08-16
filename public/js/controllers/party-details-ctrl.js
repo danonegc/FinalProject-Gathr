@@ -153,7 +153,7 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 //slide show for mobile view
 $scope.touchDetailsValue = false;
   $scope.touchDetails = function() {
-    $scope.touchDetailsValue = !$scope.touchDetailsValue;
+    $scope.touchDetailsValue = $scope.touchDetailsValue? false: true;
   };
 
 
