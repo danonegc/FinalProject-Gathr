@@ -433,14 +433,70 @@ Media Queries
   .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
      display: none;
    }
+   .mobile-buttonCtn {
+     margin: 0 auto;
+     text-align: center;
+   }
+   .mobile-partyDetails {
+     width: ;
+   }
+   .mobile-guestList {
+     width: 100%;
+   }
+   .sug-icon {
+     width: 100%
+   }
+   .glyphicon-chevron-down {
+     float: right;
+     width: 10px;
+     height: 10px;
+   }
+   #collapse2 {
+     overflow: scroll;
+     max-height: 300px;
+   }
+   .mobile-itemList {
+     overflow: scroll;
+     max-height: 325px;
+   }
+   .mobile-logo {
+     margin-left: 25%;
+     width: 50%;
+     padding-bottom: 10px;
+     text-align: center;
+   }
+
 
  }
 
  /* iPads (portrait and landscape) ----------- */
  @media only screen and (min-width : 768px) and (max-width : 1024px) {
-  .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
-  display: none;
-}
+   .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
+      display: none;
+    }
+    .mobile-buttonCtn {
+      margin: 0 auto;
+      text-align: center;
+    }
+    .mobile-partyDetails , .mobile-guestList {
+      width: 100%;
+    }
+    .sug-icon {
+      width: 100%
+    }
+    .glyphicon-chevron-down {
+      float: right;
+      width: 10px;
+      height: 10px;
+    }
+    #collapse2 {
+      overflow: scroll;
+      max-height: 300px;
+    }
+    .mobile-itemList {
+      overflow: scroll;
+      max-height: 325px;
+    }
 
  }
  /* Desktops and laptops ----------- */

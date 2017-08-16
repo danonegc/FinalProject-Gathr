@@ -2,12 +2,15 @@
 <div id="mobile-partyPage" class="container">
 <div class="row">
   <div class="col-xs-12">
+    <img class="mobile-logo" src="images/gathrall.png" alt="gathr logo">
     <party-details-mobile class="mobile-partyDetails"></party-details-mobile>
     <guest-list-mobile class="mobile-guestList"></guest-list-mobile>
   </div>
 </div>
-<button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
-<a href="#!/confirmation"><button class="checkout-button" type="button" name="button">CHECK OUT</button></a>
+<div class="mobile-buttonCtn">
+  <button ng-if="showBu'tton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+  <a href="#!/confirmation"><button class="checkout-button" type="button" name="button">CHECK OUT</button></a>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
