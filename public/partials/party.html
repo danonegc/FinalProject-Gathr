@@ -82,8 +82,7 @@
         <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
 <!-- commit selected items into database using PUT -->
         <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
-        Filter Item Availibility:<select ng-model="myOptions" ng-options="option.val as option.status for option in options">
-        </select>
+        <h4 class="filter-status">Filter Item Availibility: <select ng-model="myOptions" ng-options="option.val as option.status for option in options"></select></h4>
 </div>
 
 
@@ -205,10 +204,15 @@
         <item-list class="desktop-itemList"></item-list>
       </div>
 <!-- Guest List -->
-        <h4>Guest List:</h4>
-        <div class="col-xs-2">
+      <div id="container-guestList" class="col-xs-2">
+        <h4 class="header-guestList">Guest List:</h4>
+        <p class="attending"><span class="glyphicon glyphicon-attending"></span> <strong>Attending: 19</strong></p>
+        <p class="undecided"><span class="glyphicon glyphicon-undecided"></span> <strong>Undecided: 1</strong></p>
+        <p class="not-attending"><span class="glyphicon glyphicon-not-attending"></span> <strong>Not Attending: 2</strong></p>
+        <div id="overflow-guestList">
           <guest-list class="desktop-guestList"></guest-list>
         </div>
+      </div>
 <!-- end of category nav panel to left -->
 </div>
 
