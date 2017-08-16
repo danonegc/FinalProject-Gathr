@@ -1,11 +1,12 @@
 <div class="desktop-partyDetails">
 <div class="col-6 col-xs-9 party-details-container">
     <div class="row">
+      <div class="eventName-container">
+        <span class="eventName">{{ partyData.partyName }}</span>
+        <span class="host">Host:<a data-toggle="modal" data-target="#hostContact"> {{ partyData.host.fName }} {{ partyData.host.lName }} </a></span>
+      </div>
       <div class="col-xs-8">
         <div class="row">
-          <span class="eventName">{{ partyData.partyName }}</span>
-          <!-- Trigger the modal with a button -->
-          <span class="host">Host:<a data-toggle="modal" data-target="#hostContact"> {{ partyData.host.fName }} {{ partyData.host.lName }} </a></span>
         </div>
 
 

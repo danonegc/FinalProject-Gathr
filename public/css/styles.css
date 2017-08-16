@@ -488,6 +488,17 @@ Items Category Table
 .table-header {
   width: 300px;
 }
+
+.eventName-container {
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+.host {
+  float: right;
+}
+
+
+
  /*
 Party Page
 Media Queries
@@ -562,7 +573,7 @@ Media Queries
 
 
  /* iPads (portrait and landscape) ----------- */
- @media only screen and (min-width : 768px) and (max-width : 1024px) {
+ @media only screen and (min-width : 768px) and (max-width : 1x) {
    .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
       display: none;
     }
