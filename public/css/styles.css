@@ -63,7 +63,7 @@ LOGO
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
   .gathr-logo {
     margin-left: 9%;
     padding-top: 185px;
@@ -71,25 +71,60 @@ LOGO
     width: 83%;
     text-align: center;
   }
-  .container-fluid {
-    height: 200px;
-    width: 300px;
+
+  #join-party {
+   font-size: 20px;
   }
+  .login-input {
+   width: 80%;
+   padding: 0 10px;
+   font-size: 15px;
+ }
+ .container-fluid {
+   border-radius: 200px;
+   margin-bottom: 25%;
+   width: 70%;
+   height: 250px;
+ }
+ .login-text {
+   display: none;
+ }
+ button.button {
+     width: 100px;
+     font-size: 16px;
+   }
 
 }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .gathr-logo {
-    margin-left: 6%;
-    padding-top: 200px;
-    padding-bottom: 300px;
-    width: 90%;
-    text-align: center;
+    margin-left: 7%;
+    width: 80%;
   }
-}
+  /*
+ LOG IN
+  */
+  #join-party {
+   font-size: 32px;
+  }
+  .login-input {
+   width: 80%;
+   font-size: 20px;
+ }
+ .container-fluid {
+ }
+ .login-text {
+   display: none;
+ }
+ button.button {
+     width: 150px;
+     font-size: 20px;
+   }
 
 }
+
+
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) {
   .gathr-logo {
@@ -110,10 +145,7 @@ LOGO
     width: 50%;
     text-align: center;
   }
-  .container-fluid {
-    height: 200px;
-    width: 300px;
-  }
+
 }
 
 
@@ -212,7 +244,7 @@ LOGO
   padding-top: 0.8em;
   color: #2f2f2f;
 }
-#date-container:hover , #date-container:focus {
+/*#date-container:hover , #date-container:focus {
   -webkit-animation: swing 0.6s ease-out;
   animation: swing 0.6s ease-out;
 }
@@ -230,7 +262,7 @@ LOGO
   60%  { transform: rotate(-9deg) skewY(-3deg); }
   80%  { transform: rotate(6deg)  skewY(-2deg); }
   100% { transform: rotate(0deg)  skewY(0deg); }
-}
+}*/
   /*Date*/
 .eventName {
     color: grey;
@@ -433,7 +465,6 @@ Media Queries
   .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
      display: none;
    }
-
  }
 
  /* iPads (portrait and landscape) ----------- */
