@@ -595,6 +595,7 @@ Media Queries
     }
     .mobile-logo {
       margin-left: 25%;
+      cursor: pointer;
       width: 50%;
       padding-bottom: 10px;
       text-align: center;

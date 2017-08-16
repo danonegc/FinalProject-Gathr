@@ -7,7 +7,7 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
   var showSelectedItemsModal = [];
   var itemList = [];//array used to pull JSON database: contains all items in our database
   var selectedItems = []; // array of all currently selected items on party page
-  var committedItem = {status: 'committed', username: 'grantchirpus'};
+  // var committedItem = {status: 'committed', username: 'grantchirpus'};
   var uncommittedItem = {status: 'unfulfilled', username: null, quantity: null}
 
   return {

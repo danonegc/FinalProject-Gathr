@@ -154,7 +154,7 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 //slide show for mobile view
 $scope.touchDetailsValue = false;
   $scope.touchDetails = function() {
-    $scope.touchDetailsValue = !$scope.touchDetailsValue;
+    $scope.touchDetailsValue = $scope.touchDetailsValue ? false: true;
   };
 
 
@@ -183,6 +183,9 @@ $scope.hideDiv = function() {
   $('.mobile-party-page__modal').removeClass('isActive');
 }
 
+$scope.toMain = function() {
+  $location.path('/login');
+};
 
 //closure for app.controller
 });
