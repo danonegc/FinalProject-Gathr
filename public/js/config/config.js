@@ -14,10 +14,6 @@ app.config(function($routeProvider){
         controller: 'confirm-ctrl',
         templateUrl: 'partials/confirmation.html'
     })
-    .when('/save', {
-      controller: 'party-details-ctrl',
-      templateUrl: 'partials/saveItem-mobile.html'
-    })
     .otherwise({redirectTo: '/login'});
 
 //closure for app.config

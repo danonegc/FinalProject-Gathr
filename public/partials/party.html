@@ -8,7 +8,7 @@
   </div>
 </div>
 <div class="mobile-buttonCtn">
-  <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+  <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems(); showDiv()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
   <a href="#!/confirmation"><button ng-if="revealCheckoutButton === true" class="checkout-button" type="button" name="button">CHECK OUT</button></a>
 </div>
 <div class="container">
@@ -56,6 +56,38 @@
         </div>
       </div>
       </div>
+<div class="mobile-party-page__modal"><button type="button" ng-click="hideDiv()" class="mobile-party-page__modal--close-icon glyphicon glyphicon-remove" style="float:right"></button>
+        <h2 class="modal-title">Sign Up:</h2>
+        <div class="modal-body">
+        <div class="form-group">
+          <label><h3>Name:</h3></label>
+          <input type="text" class="form-control" id="user" placeholder="Enter your name" ng-change="nameValid(addUsername)" ng-model="addUsername">
+          <!-- <p ng-model="nameValidation"></p> -->
+        </div>
+          <div class="mobile-table-div">
+            <table id="mobile-table" class="table table-hover">
+              <thead>
+                <tr>
+                  <th><h3>Category</h3></th>
+                  <th><h3>Item</h3></th>
+                  <th><h3>Quantity</h3></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="select in selectedItemsList" ng-init='index = $index'>
+                  <td><img ng-src="{{select.category}}" class="baby-icon" alt=""></td>
+                  <td>{{select.item}}</td>
+                  <td><input type="number" class="form-control" ng-change="qtyValid(select, index)" placeholder="Quantity" ng-model="select.quantity"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" title="Enter Name and Quantity before proceeding" ng-disabled="validation === true" ng-click="saveItem(true, addUsername)" data-dismiss="modal">Save, and Receive Confirmation</button>
+        <button type="button" class="btn btn-default" title="Enter Name and Quantity before proceeding" ng-disabled="validation === true" ng-click="saveItem(false, addUsername)" data-dismiss="modal">Save, Continue Looking</button>
+        </div>
+  </div>
 </div>
 <item-list class="mobile-itemList"></item-list>
 </div>
@@ -158,8 +190,8 @@
           </div>
         </div>
 
-<!-- Modal for Save Item -->
-          <div id="myModal" class="modal fade" role="dialog">
+<!-- Modal for Save Item Desktop-->
+          <div id="myModal" class="modal fade" role="dialog" ng-if="disableModal > 1024">
             <div class="modal-dialog">
               <!-- Modal content-->
               <div class="modal-content">
