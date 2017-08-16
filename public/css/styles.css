@@ -1,12 +1,30 @@
 body {
   font-family: 'Varela Round', sans-serif;
   background-color: #e8f7f5;
+  position: relative;
+}
+/*Custom Save Modal for Party Page Mobile*/
+.mobile-party-page__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: none;
+  z-index: 2000;
+  background-color: #fff;
+  height: 50%;
+  width: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+}
+.mobile-party-page__modal.isActive {
+  display: block;
 }
 
  /*
 LOG IN
  */
-
 .container-fluid {
   background-color: #00DFE9;
   border-radius: 300px;
@@ -352,28 +370,6 @@ LOGO
     margin-left: 0.04em;
 }
 
-.checkbox label input[type="checkbox"],
-.radio label input[type="radio"] {
-    display: none;
-}
-
-.checkbox label input[type="checkbox"] + .cr > .cr-icon,
-.radio label input[type="radio"] + .cr > .cr-icon {
-    transform: scale(3) rotateZ(-20deg);
-    opacity: 0;
-    transition: all .3s ease-in;
-}
-
-.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
-.radio label input[type="radio"]:checked + .cr > .cr-icon {
-    transform: scale(1) rotateZ(0deg);
-    opacity: 1;
-}
-
-.checkbox label input[type="checkbox"]:disabled + .cr,
-.radio label input[type="radio"]:disabled + .cr {
-    opacity: .5;
-}
 .close {
   color: red;
 }
@@ -553,6 +549,15 @@ Media Queries
      text-align: center;
      width: 75%;
    }
+   .mobile-party-page__modal {
+     height: 90%;
+     width: 90%;
+   }
+   #mobile-table {
+     width: 100px;
+     max-height: 10%;
+     overflow: scroll;
+   }
  }
 
 
@@ -613,18 +618,24 @@ Media Queries
       text-align: center;
       width: 75%;
     }
-
+    .mobile-party-page__modal {
+      height: 90%;
+      width: 70%;
+    }
+    #mobile-table {
+      width: 20%;
+    }
  }
  /* Desktops and laptops ----------- */
  @media only screen and (min-width : 1024px) and (max-width : 1224px) {
-   .mobile-partyDetails, .mobile-guestList, .mobile-itemList, #mobile-partyPage {
+   .mobile-partyDetails, .mobile-guestList, .mobile-itemList, #mobile-partyPage, .mobile-party-page__modal {
      display: none;
    }
  }
 
  /* Large screens ----------- */
  @media only screen and (min-width : 1224px) {
-   .mobile-partyDetails, .mobile-guestList, .mobile-itemList, #mobile-partyPage {
+   .mobile-partyDetails, .mobile-guestList, .mobile-itemList, #mobile-partyPage, .mobile-party-page__modal  {
      display: none;
    }
  }

@@ -26,10 +26,11 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 
 // commmit selected items and update to scope using promise
     $scope.saveItem = function(pass, name) {
-      gathrFactory.addUser($scope.addUsername);
+      gathrFactory.addUser(name);
       $scope.revealCheckoutButton = true;
       gathrFactory.saveItem().then(function successfullCallback(reponse){
         $scope.data = gathrFactory.returnList();
+        $scope.hideDiv();
         if (pass === true) {
           $location.path('/confirmation');
         };
@@ -168,7 +169,18 @@ $interval(function () {
     below = false;
     above = true;
   }
+  $scope.disableModal = $window.innerWidth
 }, 10);
+
+
+//Show/Hide Custom Modal for Mobile
+$scope.showDiv = function() {
+  $('.mobile-party-page__modal').addClass('isActive');
+}
+
+$scope.hideDiv = function() {
+  $('.mobile-party-page__modal').removeClass('isActive');
+}
 
 
 //closure for app.controller
