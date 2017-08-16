@@ -1,18 +1,21 @@
+  <div class="logo-contain">
     <a href="#click">
       <img class="gathr-logo" src="images/gathrall.png" alt="gathr logo">
     </a>
+  </div>
+
 
     <div id="click" class="container-fluid">
       <div class="row">
         <div class="col-xs-12">
-          <form class="form" ng-submit="submitLogin(userInfo)">
-            <h1>Join Your Party</h1>
+          <form class="form login-content" ng-submit="submitLogin(userInfo)">
+            <h1 id="join-party">Join Your Party</h1>
             <!--make a function that validates the party name and id   -->
             <input class="login-input" type="text" placeholder="Enter Party ID" ng-model="userInfo.partyid">
             <div class="button-container">
               <button type="button" class="button" name="continue" ng-click="submitLogin(userInfo)">Continue</button>
+              <p class="login-text">Don't know your party's ID? <a class="login-a" data-toggle="modal" href="#hintModal">Find your Party</a></p>
             </div>
-            <p class="login-text">Don't know your party's ID? <a class="login-a" data-toggle="modal" href="#hintModal">Find your Party</a></p>
             <div id="hintModal" class="modal fade">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -23,8 +26,8 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <p>The Party ID of your event is "gc1234". (Party IDs are case-sensitive.)</p>
                   </div>
+                  <p>The Party ID of your event is "gc1234". (Party IDs are case-sensitive.)</p>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                   </div>
