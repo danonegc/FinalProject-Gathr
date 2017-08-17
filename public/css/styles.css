@@ -169,7 +169,7 @@ herokugest-mobile {
 
 /*Styling for Party Icons Div*/
 .img-icon {
-  width: 100%;
+  width: 80%;
   padding: 5px;
 }
 .sug-icon {
@@ -497,9 +497,13 @@ Items Category Table
   margin-top: 25px;
   font-size: 22px;
 }
+.mobileIcon-header {
+  text-align: center;
+}
 
-
-
+#slogan {
+  font-size: 10px;
+}
  /*
 Party Page
 Media Queries
@@ -539,6 +543,7 @@ Media Queries
    .mobile-logo {
      margin-left: 25%;
      width: 50%;
+     padding-top: 10px;
      padding-bottom: 10px;
      text-align: center;
    }
@@ -613,6 +618,7 @@ Media Queries
     }
     .mobile-logo {
       margin-left: 25%;
+      margin-top: 20px;
       cursor: pointer;
       width: 50%;
       padding-bottom: 10px;
