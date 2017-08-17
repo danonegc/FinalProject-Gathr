@@ -687,6 +687,9 @@ Page media queries*/
     margin-top: 50px;
     margin-bottom: 30px;
   }
+  #slogan {
+    font-size: 28px;
+  }
   .confrim-row {
       margin-left: 0px;
       margin-right: 0px;
@@ -696,4 +699,25 @@ Page media queries*/
     margin-top: 20px;
     margin-bottom: 32px;
   }
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+  #thank-header {
+    font-size: 28px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  #slogan {
+    font-size: 28px;
+  }
+  .confrim-row {
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-top: 0px;
+  }
+  #commit {
+    margin-top: 20px;
+    margin-bottom: 32px;
+  }
+
 }
