@@ -36,7 +36,7 @@ LOG IN
   text-shadow: 3px 3px #00bec6;
   color: white;
   padding: 20px 10px 60px 10px;
-  margin-top: 100px;
+  margin-top: 250px;
   width: 50%;
   border: 10px solid #FFF994;
   margin-bottom: 150px;
@@ -55,13 +55,16 @@ LOG IN
 .login-text {
   margin-top: 10px;
 }
+
 .login-a {
   color: blue;
 }
+
 .login-a:hover {
   color: #FFF994;
   text-shadow: none;
 }
+
 #hintModal {
   color: black;
   text-shadow: none;
@@ -75,37 +78,25 @@ LOGO
   margin-left: 60px;
   width: 60%;
 }
-.gathr-logo {
-  margin-left: 25%;
-  padding-top: 100px;
-  padding-bottom: 300px;
-  width: 50%;
-  text-align: center;
-}
+
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width : 320px) and (max-width : 768px) {
-  .gathr-logo {
-    margin-left: 9%;
-    padding-top: 185px;
-    padding-bottom: 300px;
-    width: 83%;
-    text-align: center;
-  }
+
   #join-party {
-   font-size: 50px;
+   font-size: 25px;
   }
   .login-input {
-   width: 80%;
-   padding: 0 10px;
-   font-size: 30px;
-   margin-bottom: 20px;
+    width: 80%;
+    padding: 5px 10px;
+    font-size: 15px;
+    margin: 21px 0 0 0;
  }
  .container-fluid {
-   border-radius: 200px;
+   border-radius: 100px;
    margin-bottom: 25%;
    width: 70%;
-   height: 275px;
+   height: 236px;
  }
  .login-text {
    display: none;
@@ -119,10 +110,10 @@ LOGO
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .gathr-logo {
+  /*.gathr-logo {
     margin-left: 7%;
     width: 80%;
-  }
+  }*/
   /*
  LOG IN
   */
@@ -147,24 +138,24 @@ LOGO
 
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) {
-  .gathr-logo {
+  /*.gathr-logo {
     margin-left: 25%;
-    padding-top: 100px;
+    padding-top: 25px;
     padding-bottom: 300px;
     width: 50%;
     text-align: center;
-  }
+  }*/
 }
 
 /* Large screens ----------- */
 @media only screen  and (min-width : 1824px) {
-  .gathr-logo {
+  /*.gathr-logo {
     margin-left: 25%;
-    padding-top: 100px;
+    padding-top: 25px;
     padding-bottom: 300px;
     width: 50%;
     text-align: center;
-  }
+  }*/
 
 }
 
@@ -510,6 +501,9 @@ Items Category Table
   text-align: center;
 }
 
+#slogan {
+  font-size: 10px;
+}
  /*
 Party Page
 Media Queries
