@@ -127,14 +127,14 @@
 
 
 <!-- Checkout -->
-<a href="#!/confirmation"><button ng-if="revealCheckoutButton === true" class="checkout-button" type="button" name="button">CHECK OUT</button></a>
-<!-- toggle collaspe add catagories to view -->
-        <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
-<!-- toggle collaspe clear catagories from view -->
-        <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
-<!-- commit selected items into database using PUT -->
+  <div class="desktop-buttons">
+<!-- Checkout -->
         <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+<!-- commit selected items into database using PUT -->
+        <a href="#!/confirmation"><button ng-if="revealCheckoutButton === true" class="checkout-button" type="button" name="button">Check Out</button></a>
         <h4 class="filter-status">Filter Item Availibility: <select ng-model="myOptions" ng-options="option.val as option.status for option in options"></select></h4>
+
+  </div>
 </div>
 
 
@@ -143,7 +143,8 @@
   <div class="row">
     <div class="col-xs-3">
       <h4 class="icon-header">Items by Category</h4>
-
+      <button type="button" class="show-all" name="show-all" ng-click="showItems()">Show All</button>
+      <button type="button" class ="clear-all" name="clear-all" ng-click="clearItems()">Clear All</button>
 <!-- all images for catagories -->
         <div class="row">
           <div class="col-xs-6">

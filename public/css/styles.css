@@ -181,13 +181,37 @@ herokugest-mobile {
   text-align: center;
 }
 /*Button Styling*/
-.show-all , .clear-all, .save, .checkout-button, .button, #login-btn {
+
+.desktop-buttons {
+  text-align: center;
+  margin: 0 auto;
+}
+.save, .checkout-button, .button, #login-btn {
   text-align: center;
 	margin: 10px auto;
 	display: inline-block;
 	width: 175px;
 	cursor:pointer;
 	font-size: 25px;
+	color: #F0F0F0;
+	border-radius: 10px;
+	border-bottom: 4px solid #0045A6;
+	box-shadow: 6px 6px 6px #999;
+	background: -webkit-linear-gradient(#00C8F8, #0067F7);
+  background: -o-linear-gradient(#00C8F8, #0067F7);
+  background: -moz-linear-gradient(#00C8F8, #0067F7);
+  background: linear-gradient(#00C8F8, #0067F7);
+	background-size:1px 200px;
+	transition: all .05s linear;
+}
+.show-all , .clear-all {
+  text-align: center;
+	margin-left: 15px;
+  margin-bottom: 10px;
+	display: inline-block;
+	width: 100px;
+	cursor:pointer;
+	font-size: 15px;
 	color: #F0F0F0;
 	border-radius: 10px;
 	border-bottom: 4px solid #0045A6;
@@ -215,6 +239,7 @@ herokugest-mobile {
   padding: 10px;
 }
 .filter-status {
+  margin-top: 10px;
   padding-top: 10px;
   text-align: center;
 }
