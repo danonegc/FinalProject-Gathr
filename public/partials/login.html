@@ -1,6 +1,13 @@
-  <div class="logo-contain">
+<style media="screen">
+
+</style>
+
+  <div ng-if="logoTransition === true" id="logo-contain-pre">
+      <img id="gathr-logo-pre" src="images/gathrall.png" alt="gathr logo">
+  </div>
+  <div id="logo-contain-post">
     <a href="#click">
-      <img class="gathr-logo" src="images/gathrall.png" alt="gathr logo">
+      <img id="gathr-logo-post" src="images/gathrall.png" alt="gathr logo">
     </a>
   </div>
 
@@ -14,7 +21,6 @@
             <input class="login-input" type="text" placeholder="Enter Party ID" ng-model="userInfo">
             <div class="button-container">
               <button type="button" class="btn btn-primary continue" name="continue" ng-click="submitLogin(userInfo)">Continue</button>
-              <p class="login-text">Don't know your party's ID? <a class="login-a" data-toggle="modal" href="#hintModal">Find your Party</a></p>
             </div>
             <div id="hintModal" class="modal fade">
               <div class="modal-dialog" role="document">

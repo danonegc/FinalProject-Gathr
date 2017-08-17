@@ -1,1 +1,1 @@
-var app = angular.module('gathrApp', ['ngRoute']);
+var app = angular.module('gathrApp', ['ngRoute', 'ngAnimate']);
