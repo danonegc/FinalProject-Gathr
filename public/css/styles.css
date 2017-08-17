@@ -257,7 +257,7 @@ herokugest-mobile {
   margin: 2em auto;
   border-radius: 0.6em;
   box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
-  overflow: hidden;
+  overflow-y: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-transform: rotate(0deg) skewY(0deg);
   -webkit-transform-origin: 50% 10%;
@@ -354,7 +354,7 @@ iframe {
   width: 10%;
 }
 .scroll-containter {
-  overflow: scroll;
+  overflow-y: scroll;
   max-height: 500px;
 }
 /*Styling for Checkbox on party page*/
@@ -447,7 +447,7 @@ Guest List
   font-family: 'Varela Round', sans-serif;
 }
 #overflow-guestList {
-  overflow: scroll;
+  overflow-y: scroll;
   max-height: 300px;
 }
 .attending, .undecided, .not-attending {
@@ -565,11 +565,11 @@ Media Queries
      height: 10px;
    }
    #collapse2 {
-     overflow: scroll;
+     overflow-y: scroll;
      max-height: 300px;
    }
    .mobile-itemList {
-     overflow: scroll;
+     overflow-y: scroll;
      max-height: 325px;
    }
    .mobile-logo {
@@ -605,7 +605,7 @@ Media Queries
    #mobile-table {
      width: 100px;
      max-height: 10%;
-     overflow: scroll;
+     overflow-y: scroll;
    }
  }
 
@@ -641,11 +641,11 @@ Media Queries
       height: 10px;
     }
     #collapse2 {
-      overflow: scroll;
+      overflow-y: scroll;
       max-height: 300px;
     }
     .mobile-itemList {
-      overflow: scroll;
+      overflow-y: scroll;
       max-height: 325px;
     }
     .mobile-logo {
