@@ -470,6 +470,13 @@ Items Category Table
   margin-top: 20px;
   /*border: 3px outset lightgrey;*/
 }
+#confirm-table {
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -626,8 +633,12 @@ Media Queries
     }
 
     #confirm-table {
-        width: 100%;
-        margin-bottom: 55px;
+      background-color: white;
+      margin-top: 10px;
+      border-radius: 10px;
+      width: 50%;
+      margin: 0 auto;
+      margin-bottom: 55px;
     }
   th.table-align, h3.table-align {
       text-align: center !important;
