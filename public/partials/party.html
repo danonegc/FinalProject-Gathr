@@ -102,7 +102,7 @@
 <!-- MODAL FOR MOBILE VIEW -->
 <item-list class="mobile-itemList"></item-list>
 <div class="mobile-buttonCtn">
-  <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems(); showDiv()" name="save" data-toggle="modal" data-target="#myModal">Save</button>
+  <button ng-if="showButton === true" type="button" class="save" ng-click="selectedItems(); showDiv()" name="save">Save</button>
   <a href="#!/confirmation"><button ng-if="revealCheckoutButton === true" class="checkout-button" type="button" name="button">CHECK OUT</button></a>
 </div>
 </div>
@@ -212,7 +212,7 @@
         </div>
 
 <!-- Modal for Save Item Desktop-->
-          <div id="myModal" class="modal fade" role="dialog" ng-if="disableModal > 1024">
+          <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
               <div class="modal-content">
