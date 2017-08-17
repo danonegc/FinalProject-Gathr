@@ -6,20 +6,23 @@ body {
 /*Custom Save Modal for Party Page Mobile*/
 .mobile-party-page__modal {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%,-50%);
   display: none;
   z-index: 2000;
-  background-color: #fff;
-  height: 50%;
-  width: 50%;
-  box-shadow: 0 5px 15px rgba(0,0,0,.5);
-  border: 1px solid rgba(0,0,0,.2);
-  border-radius: 6px;
 }
 .mobile-party-page__modal.isActive {
   display: block;
+}
+
+/*MOBILE STYLING*/
+.mobile-itemList {
+  padding-bottom: 30px;
+}
+.mobile-buttonCtn {
+  top: 0;
+  margin-bottom: 100px;
 }
 
  /*
@@ -81,7 +84,7 @@ LOGO
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+@media only screen and (min-width : 320px) and (max-width : 768px) {
   .gathr-logo {
     margin-left: 9%;
     padding-top: 185px;
@@ -89,29 +92,28 @@ LOGO
     width: 83%;
     text-align: center;
   }
-
   #join-party {
-   font-size: 20px;
+   font-size: 50px;
   }
   .login-input {
    width: 80%;
    padding: 0 10px;
-   font-size: 15px;
+   font-size: 30px;
+   margin-bottom: 20px;
  }
  .container-fluid {
    border-radius: 200px;
    margin-bottom: 25%;
    width: 70%;
-   height: 250px;
+   height: 275px;
  }
  .login-text {
    display: none;
  }
  button.continue {
-     width: 100px;
-     font-size: 16px;
+     width: 140px;
+     font-size: 25px;
    }
-
 }
 
 /* iPads (portrait and landscape) ----------- */
@@ -139,7 +141,6 @@ LOGO
      width: 150px;
      font-size: 20px;
    }
-
 }
 
 
@@ -167,7 +168,7 @@ LOGO
 }
 
 /*styling for suggest item on mobile view*/
-.suggest-mobile {
+herokugest-mobile {
   background-color: white;
   margin-top: 20px;
   margin: 20px;
@@ -188,7 +189,7 @@ LOGO
   text-align: center;
 }
 /*Button Styling*/
-.show-all , .clear-all, .save, .checkout-button, .button {
+.show-all , .clear-all, .save, .checkout-button, .button, #login-btn {
   text-align: center;
 	margin: 10px auto;
 	display: inline-block;
@@ -206,10 +207,10 @@ LOGO
 	background-size:1px 200px;
 	transition: all .05s linear;
 }
-.show-all:hover , .clear-all:hover, .save:hover, .checkout-button:hover, .button:hover {
+.show-all:hover , .clear-all:hover, .save:hover, .checkout-button:hover, .button:hover, #login-btn:hover {
   background-position:100px;
 }
-.show-all:active , .clear-all:active , .save:active, .checkout-button:active, .button:active {
+.show-all:active , .clear-all:active , .save:active, .checkout-button:active, .button:active, #login-btn:active {
   box-shadow: 2px 2px 2px #777;
   border-bottom: 1px solid #0045A6;
   transform: translateY(3px);
@@ -274,6 +275,11 @@ LOGO
   padding-top: 0.8em;
   color: #2f2f2f;
 }
+iframe {
+  margin-top: 71px;
+  border-bottom-right-radius: 20px;
+  height: 166px;
+}
 /*#date-container:hover , #date-container:focus {
   -webkit-animation: swing 0.6s ease-out;
   animation: swing 0.6s ease-out;
@@ -298,6 +304,7 @@ LOGO
     color: grey;
     font-size: 32px;
     text-align: left;
+    margin-top: 20px;
 }
 #time-container, #time1, #time2, #time3 {
   text-align: center;
@@ -490,11 +497,13 @@ Items Category Table
 }
 
 .eventName-container {
-  border-bottom: 1px solid black;
+  border-bottom: 2px outset #c3e5e0;
   padding: 10px;
 }
 .host {
   float: right;
+  margin-top: 25px;
+  font-size: 22px;
 }
 
 
@@ -505,7 +514,7 @@ Media Queries
  */
  /* Smartphones (portrait and landscape) ----------- */
  @media only screen and (min-width : 320px) and (max-width : 768px) {
-  .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
+  .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails {
      display: none;
    }
    .mobile-buttonCtn {
@@ -574,7 +583,7 @@ Media Queries
 
  /* iPads (portrait and landscape) ----------- */
  @media only screen and (min-width : 768px) and (max-width : 1024px) {
-   .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails  {
+   .desktop-partyDetails, .desktop-guestList, .desktop-itemList, .gathr-g, .show-all, .clear-all, #cat-icons, #desktop-partyDetails {
       display: none;
     }
     .mobile-buttonCtn {
@@ -587,9 +596,15 @@ Media Queries
     .mobile-guestList {
       width: 100%;
     }
-    .sug-icon {
-      width: 100%;
+    .img-icon {
+      width: 60%;
       margin: 0 auto;
+      margin-left: 30px;
+    }
+    .sug-icon {
+      width: 60%;
+      margin: 0 auto;
+      margin-left: 30px;
     }
     .glyphicon-chevron-down {
       float: right;

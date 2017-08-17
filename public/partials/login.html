@@ -13,7 +13,7 @@
             <!--make a function that validates the party name and id   -->
             <input class="login-input" type="text" placeholder="Enter Party ID" ng-model="userInfo">
             <div class="button-container">
-              <button type="button" class="btn btn-primary continue" name="continue" ng-click="submitLogin(userInfo)">Continue</button>
+              <button type="button" id="login-btn" class="btn btn-primary continue" name="continue" ng-click="submitLogin(userInfo)">Continue</button>
               <p class="login-text">Don't know your party's ID? <a class="login-a" data-toggle="modal" href="#hintModal">Find your Party</a></p>
             </div>
             <div id="hintModal" class="modal fade">

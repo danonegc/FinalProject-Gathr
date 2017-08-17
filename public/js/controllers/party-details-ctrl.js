@@ -171,6 +171,7 @@ $interval(function () {
     above = true;
   }
   $scope.disableModal = $window.innerWidth
+  $scope.disableContactModal = $window.innerWidth
 }, 10);
 
 
