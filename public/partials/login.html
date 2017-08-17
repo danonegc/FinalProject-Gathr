@@ -20,14 +20,14 @@
             <!--make a function that validates the party name and id   -->
             <input class="login-input" type="text" placeholder="Enter Party ID" ng-model="userInfo">
             <div class="button-container">
-              <button type="button" class="btn btn-primary continue" name="continue" ng-click="submitLogin(userInfo)">Continue</button>
+              <button id="login-btn" type="button" class="btn btn-primary continue" name="continue" ng-click="submitLogin(userInfo)">Continue</button>
             </div>
             <div id="hintModal" class="modal fade">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title">Hint:</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button class="" type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
