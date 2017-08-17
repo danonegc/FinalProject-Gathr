@@ -159,21 +159,21 @@ $scope.touchDetailsValue = false;
   };
 
 
-// var below = false;
-// var above = false;
-// $interval(function () {
-//   if ($window.innerWidth < 1024 && below === false) {
-//     $scope.clearItems();
-//     below = true;
-//     above = false;
-//   } else if ($window.innerWidth >= 1024 && above === false) {
-//     $scope.showItems();
-//     below = false;
-//     above = true;
-//   }
-//   $scope.disableModal = $window.innerWidth
-//   $scope.disableContactModal = $window.innerWidth
-// }, 10);
+var below = false;
+var above = false;
+$interval(function () {
+  if ($window.innerWidth < 1024 && below === false) {
+    $scope.clearItems();
+    below = true;
+    above = false;
+  } else if ($window.innerWidth >= 1024 && above === false) {
+    $scope.showItems();
+    below = false;
+    above = true;
+  }
+  $scope.disableModal = $window.innerWidth
+  $scope.disableContactModal = $window.innerWidth
+}, 10);
 
 
 //Show/Hide Custom Modal for Mobile
