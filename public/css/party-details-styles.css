@@ -36,3 +36,68 @@
 #slogan {
   font-size: 2em;
 }
+#logo-contain-pre {
+  position: absolute;
+  width: 100%;
+  height: 691px;
+  top: -345px;
+  background-color: #e8f7f5;
+  z-index: 100;
+}
+
+#logo-contain-post {
+  position: absolute;
+  width: 100%;
+  background-color: #e8f7f5;
+  top: -131px;
+  height: 30%;
+  z-index: 80;
+  }
+
+
+#logo-contain-pre.ng-leave{
+  transition: 2s;
+}
+#logo-contain-pre.ng-leave-active{
+  opacity: 0;
+}
+
+#gathr-logo-pre {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-35%);
+}
+#gathr-logo-post {
+  width: 17%;
+  position: absolute;
+   left: 50%;
+   top: 0%;
+   transform: translate(-50%,-56%);
+ }
+
+ @media only screen and (min-width : 320px) and (max-width : 768px) {
+   #click.container-fluid {
+     width: 80%;
+   }
+  #gathr-logo-post {
+    width: 43%;
+   }
+ }
+
+ @media only screen and (min-width : 769px) and (max-width : 1024px) {
+
+ }
+
+ @media only screen and (min-width : 1024px) and (max-width : 1224px) {
+
+ }
+
+ @media only screen and (min-width : 1224px) {
+
+ }
+
+
+ +/*Confirmation
+ +Page media queries*/
