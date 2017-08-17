@@ -78,25 +78,13 @@ LOGO
   margin-left: 60px;
   width: 60%;
 }
-/*.gathr-logo {
-  margin-left: 25%;
-  padding-top: 25px ;
-  padding-bottom: ;
-  width: 50%;
-  text-align: center;
-}*/
+
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-width : 320px) and (max-width : 768px) {
-  /*.gathr-logo {
-    margin-left: 9%;
-    padding-top: 10px;
-    padding-bottom: ;
-    width: 83%;
-    text-align: center;
-  }*/
+
   #join-party {
-   font-size: 50px;
+   font-size: 25px;
   }
   .login-input {
     width: 80%;

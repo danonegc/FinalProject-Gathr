@@ -7,6 +7,7 @@ app.controller('confirm-ctrl', function($scope, gathrFactory) {
     $scope.checkedOutItems = gathrFactory.checkoutList();
     console.log($scope.checkedOutItems, "items array");
 
+    $scope.confirm = 'confirmDetails';
 
 
 //closure for app.controller
