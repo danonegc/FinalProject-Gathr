@@ -11,7 +11,7 @@
           <form class="form login-content" ng-submit="submitLogin(userInfo)">
             <h1 id="join-party">Join Your Party</h1>
             <!--make a function that validates the party name and id   -->
-            <input class="login-input" type="text" placeholder="Enter Party ID" ng-model="userInfo.partyid">
+            <input class="login-input" type="text" placeholder="Enter Party ID" ng-model="userInfo">
             <div class="button-container">
               <button type="button" class="btn btn-primary continue" name="continue" ng-click="submitLogin(userInfo)">Continue</button>
               <p class="login-text">Don't know your party's ID? <a class="login-a" data-toggle="modal" href="#hintModal">Find your Party</a></p>

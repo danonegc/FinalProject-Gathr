@@ -119,19 +119,10 @@ app.factory('gathrFactory', function($http, $location, httpFactory){
   };
 
 // login validation functionality
-function checkLogin(userInfo) {
-  var p = new Promise(function(resolve, reject) {
-    for (var i=0; i<partyDetails.length; i++) {
-      if(userInfo.partyId === partyDetails[i].partyId) {
-        resolve (partyDetails[i]);
-        break;
-      };
-    };
-  });
-    p.then(function (){
+  function checkLogin(userInfo) { //change parameter to partyID
+    if(userInfo === partyDetails.partyId) {
       $location.path('/party');
-      return p;
-    });
+    };
   };
 
 
