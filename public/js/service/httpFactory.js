@@ -24,7 +24,6 @@ var partyDetails = {
    {'category': 'condiments', 'isVisible': 'condVisible', 'img': 'images/cond.png' },
    {'category': 'beverages', 'isVisible': 'bevVisible', 'img': 'images/bev.png' },
    {'category': 'misc', 'isVisible': 'miscVisible', 'img': 'images/fork.png' }],
-  //  {'category': 'suggestion', 'isVisible': 'sugVisible', 'img': 'http://icon-icons.com/icons2/625/PNG/512/speech-bubbles_icon-icons.com_57392.png' }],
  'invited': [// attending status values will be stored in variable for sake of neatness. still not sure this works, though.
    {'name':'Elyse', 'attending':'attending'},
    {'name':'Danone', 'attending':'attending'},
