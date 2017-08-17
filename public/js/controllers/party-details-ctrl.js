@@ -40,6 +40,7 @@ app.controller('party-details-ctrl', function($scope, $location, gathrFactory, v
 
 // Uncommits a single item, reseting its status to 'unfulfilled' and unassigns the user, and updates the view to reflect these changes.
   $scope.uncommit = function(itemObj) {
+    $scope.revealCheckoutButton = false;
     gathrFactory.uncommit(itemObj).then(function(response) {
       $scope.data = gathrFactory.returnList();
     });
