@@ -24,6 +24,10 @@ body {
   top: 0;
   margin-bottom: 100px;
 }
+.homeBtn-Ctn {
+  text-align: center;
+  margin: 0 auto;
+}
 
  /*
 LOG IN

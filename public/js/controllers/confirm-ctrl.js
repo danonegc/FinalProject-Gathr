@@ -1,6 +1,6 @@
 var app = angular.module('gathrApp');
 
-app.controller('confirm-ctrl', function($scope, gathrFactory) {
+app.controller('confirm-ctrl', function($scope, gathrFactory, $location) {
 
   // hard coded data for party details
     $scope.partyData = gathrFactory.returnData();
@@ -9,6 +9,9 @@ app.controller('confirm-ctrl', function($scope, gathrFactory) {
 
     $scope.confirm = 'confirmDetails';
 
+    $scope.toMain = function() {
+      $location.path('/login');
+    };
 
 //closure for app.controller
 });
